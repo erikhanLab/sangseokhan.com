@@ -1,0 +1,25 @@
+/*
+  Site-wide six-step type scale (in px at the default 16px browser root).
+  1 caption 12, 2 small 14, 3 body 16, 4 lead 20, 5 heading 32, 6 display 56.
+  Mobile keeps six roles: 12 / 14 / 16 / 18 / 28 / 38.
+  Change values here rather than editing individual component font sizes.
+*/
+:root {
+  --type-caption: 0.75rem;
+  --type-small: 0.875rem;
+  --type-body: 1rem;
+  --type-lead: 1.25rem;
+  --type-heading: 2rem;
+  --type-display: 3.5rem;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --type-caption: 0.75rem;
+    --type-small: 0.875rem;
+    --type-body: 1rem;
+    --type-lead: 1.125rem;
+    --type-heading: 1.75rem;
+    --type-display: 2.375rem;
+  }
+}

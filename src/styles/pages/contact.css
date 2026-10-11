@@ -18,7 +18,7 @@
         }
 
         .page-content {
-            font-size: 1.1em;
+            font-size: var(--type-body);
 
             transform: translateY(6px);
             transition: transform 0.12s ease-out;
@@ -69,7 +69,7 @@
             width: max-content;
             margin: 0 0 18px;
 
-            font-size: 1.04em;
+            font-size: inherit;
             font-weight: 400;
             line-height: 1.2;
             letter-spacing: 0.25em;
@@ -83,7 +83,7 @@
             max-width: 540px;
             margin: -2px 0 26px;
 
-            font-size: 0.88em;
+            font-size: var(--type-body);
             font-weight: 400;
             line-height: 1.7;
             letter-spacing: 0.018em;
@@ -106,7 +106,7 @@
             display: inline-block;
             width: fit-content;
 
-            font-size: 1.14em;
+            font-size: var(--type-lead);
             font-weight: 500;
             line-height: 1.5;
             letter-spacing: 0.035em;
@@ -132,7 +132,7 @@
             max-width: 570px;
             margin-top: 9px;
 
-            font-size: 0.7em;
+            font-size: var(--type-caption);
             font-style: italic;
             font-weight: 400;
             line-height: 1.6;
@@ -161,7 +161,7 @@
             width: max-content;
             padding-top: 0.24em;
 
-            font-size: 0.63em;
+            font-size: var(--type-caption);
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0.17em;
@@ -176,7 +176,7 @@
         }
 
         .contact-profile-primary {
-            font-size: 0.95em;
+            font-size: var(--type-body);
             font-weight: 500;
             line-height: 1.42;
             letter-spacing: 0.025em;
@@ -187,7 +187,7 @@
         .contact-profile-secondary {
             margin-top: 2px;
 
-            font-size: 0.8em;
+            font-size: var(--type-small);
             font-weight: 400;
             line-height: 1.55;
             letter-spacing: 0.028em;
@@ -377,7 +377,7 @@
 
             border-top: 1px solid rgba(11, 31, 58, 0.07);
 
-            font-size: 0.66em;
+            font-size: var(--type-caption);
             font-weight: 400;
             line-height: 1.4;
             letter-spacing: 0.025em;
@@ -436,7 +436,7 @@
             margin: 0 auto;
             padding-top: 0;
 
-            font-size: 0.72em;
+            font-size: var(--type-caption);
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0.2em;
@@ -466,7 +466,7 @@
             display: inline-block;
             width: fit-content;
 
-            font-size: 0.92em;
+            font-size: var(--type-body);
             line-height: 1.5;
             letter-spacing: 0.035em;
 
@@ -523,7 +523,7 @@
         .research-visuals-title {
             margin: 0;
 
-            font-size: 0.7em;
+            font-size: var(--type-caption);
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0.18em;
@@ -535,7 +535,7 @@
         .research-visuals-description {
             margin: 5px 0 0;
 
-            font-size: 0.7em;
+            font-size: var(--type-caption);
             font-style: italic;
             font-weight: 400;
             line-height: 1.5;
@@ -554,7 +554,7 @@
             padding: 0;
 
             font-family: inherit;
-            font-size: 0.77em;
+            font-size: var(--type-small);
             line-height: 1;
 
             color: rgba(11, 31, 58, 0.5);
@@ -709,7 +709,7 @@
 
             padding: 3px 5px 2px;
 
-            font-size: 8px;
+            font-size: var(--type-caption);
             font-weight: 500;
             line-height: 1;
             letter-spacing: 0.12em;
@@ -750,7 +750,7 @@
         }
 
         .research-visual-name {
-            font-size: 0.74em;
+            font-size: var(--type-small);
             font-weight: 500;
             line-height: 1.42;
             letter-spacing: 0.027em;
@@ -760,7 +760,7 @@
         }
 
         .research-visual-meta {
-            font-size: 0.63em;
+            font-size: var(--type-caption);
             font-weight: 400;
             line-height: 1.45;
             letter-spacing: 0.024em;
@@ -777,7 +777,7 @@
             margin-top: 6px;
             padding-bottom: 1px;
 
-            font-size: 0.52em;
+            font-size: var(--type-caption);
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0.075em;
@@ -868,7 +868,7 @@
             width: fit-content;
             padding-bottom: 2px;
 
-            font-size: 0.68em;
+            font-size: var(--type-caption);
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0.15em;
@@ -915,7 +915,7 @@
             max-width: 520px;
             margin: 7px 0 0;
 
-            font-size: 0.71em;
+            font-size: var(--type-caption);
             font-style: italic;
             font-weight: 400;
             line-height: 1.6;
@@ -932,7 +932,7 @@
 
             margin-top: 20px;
 
-            font-size: 0.7em;
+            font-size: var(--type-caption);
             font-weight: 400;
             line-height: 1.5;
             letter-spacing: 0.025em;
@@ -969,7 +969,7 @@
             margin-bottom: 7px;
             padding-left: 2px;
 
-            font-size: 0.58em;
+            font-size: var(--type-caption);
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0.16em;
@@ -993,7 +993,7 @@
 
             padding: 7px 2px;
 
-            font-size: 0.72em;
+            font-size: var(--type-caption);
             line-height: 1.45;
             letter-spacing: 0.025em;
 
@@ -1031,7 +1031,7 @@
             margin-bottom: 7px;
             padding-left: 2px;
 
-            font-size: 0.58em;
+            font-size: var(--type-caption);
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0.16em;
@@ -1128,7 +1128,7 @@
                 max-width: none;
                 min-height: 62vh;
 
-                font-size: 1.02em;
+                font-size: inherit;
             }
 
             .divider {
@@ -1150,7 +1150,7 @@
             .contact-title {
                 margin-bottom: 16px;
 
-                font-size: 0.8em;
+                font-size: var(--type-small);
                 letter-spacing: 0.19em;
             }
 
@@ -1158,7 +1158,7 @@
                 max-width: 94%;
                 margin: -2px 0 22px;
 
-                font-size: 0.74em;
+                font-size: var(--type-small);
                 line-height: 1.65;
                 letter-spacing: 0.012em;
             }
@@ -1170,7 +1170,7 @@
             .contact-email-link {
                 max-width: 100%;
 
-                font-size: 0.96em;
+                font-size: var(--type-body);
                 font-weight: 500;
                 letter-spacing: 0.02em;
 
@@ -1181,7 +1181,7 @@
                 max-width: 92%;
                 margin-top: 7px;
 
-                font-size: 0.63em;
+                font-size: var(--type-caption);
                 line-height: 1.55;
                 letter-spacing: 0.035em;
             }
@@ -1198,19 +1198,19 @@
             .contact-profile-key {
                 padding-top: 0.22em;
 
-                font-size: 0.52em;
+                font-size: var(--type-caption);
                 letter-spacing: 0.14em;
             }
 
             .contact-profile-primary {
-                font-size: 0.76em;
+                font-size: var(--type-small);
                 line-height: 1.4;
             }
 
             .contact-profile-secondary {
                 margin-top: 2px;
 
-                font-size: 0.61em;
+                font-size: var(--type-caption);
                 line-height: 1.5;
                 letter-spacing: 0.018em;
             }
@@ -1227,7 +1227,7 @@
             }
 
             .contact-label {
-                font-size: 0.68em;
+                font-size: var(--type-caption);
                 letter-spacing: 0.17em;
             }
 
@@ -1236,7 +1236,7 @@
             }
 
             .contact-links a {
-                font-size: 0.84em;
+                font-size: var(--type-small);
             }
 
             .research-visuals {
@@ -1264,7 +1264,7 @@
             .contact-archive-link {
                 gap: 6px;
 
-                font-size: 0.64em;
+                font-size: var(--type-caption);
                 letter-spacing: 0.13em;
             }
 
@@ -1272,7 +1272,7 @@
                 max-width: 92%;
                 margin-top: 6px;
 
-                font-size: 0.6em;
+                font-size: var(--type-caption);
                 line-height: 1.55;
                 letter-spacing: 0.015em;
             }
@@ -1282,7 +1282,7 @@
 
                 margin-top: 18px;
 
-                font-size: 0.52em;
+                font-size: var(--type-caption);
                 line-height: 1.5;
                 letter-spacing: 0.015em;
 
@@ -1295,14 +1295,14 @@
             }
 
             .contact-enquiry-label {
-                font-size: 0.55em;
+                font-size: var(--type-caption);
                 letter-spacing: 0.14em;
             }
 
             .contact-enquiry-links a {
                 padding: 6px 2px;
 
-                font-size: 0.67em;
+                font-size: var(--type-caption);
                 line-height: 1.45;
             }
 
@@ -1357,7 +1357,7 @@
             .contact-archive-link {
                 gap: 6px;
 
-                font-size: 0.68em;
+                font-size: var(--type-caption);
                 letter-spacing: 0.13em;
             }
 
@@ -1366,7 +1366,7 @@
 
                 margin: 6px 0 0 auto;
 
-                font-size: 0.63em;
+                font-size: var(--type-caption);
                 line-height: 1.55;
                 letter-spacing: 0.015em;
             }
@@ -1376,7 +1376,7 @@
 
                 margin-top: 16px;
 
-                font-size: 0.58em;
+                font-size: var(--type-caption);
                 line-height: 1.5;
                 letter-spacing: 0.015em;
 
@@ -1563,7 +1563,7 @@
         }
 
         .research-lightbox-title {
-            font-size: 1.05rem;
+            font-size: var(--type-body);
             font-weight: 500;
             line-height: 1.4;
             letter-spacing: 0.025em;
@@ -1572,7 +1572,7 @@
         }
 
         .research-lightbox-meta {
-            font-size: 0.82rem;
+            font-size: var(--type-small);
             font-weight: 400;
             line-height: 1.55;
             letter-spacing: 0.025em;
@@ -1597,7 +1597,7 @@
             padding: 0;
 
             font: inherit;
-            font-size: 15px;
+            font-size: var(--type-body);
             font-weight: 300;
             line-height: 1;
 

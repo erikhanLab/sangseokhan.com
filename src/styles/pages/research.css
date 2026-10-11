@@ -5,7 +5,7 @@
     .page-content {
       transform: translateY(6px);
       transition: transform 0.12s ease-out;
-      font-size: 1.1em;
+      font-size: var(--type-body);
     }
 
     .page-content.loaded {
@@ -65,7 +65,7 @@
       display: block;
       width: fit-content;
 
-      font-size: 0.76em;
+      font-size: var(--type-small);
       line-height: 1.45;
       letter-spacing: 0.07em;
 
@@ -134,7 +134,7 @@
     }
 
     .research-side-nav-years a {
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       letter-spacing: 0.09em;
       font-variant-numeric: tabular-nums;
 
@@ -209,7 +209,7 @@
       margin-right: 5px;
       padding-top: 3px;
 
-      font-size: 0.75em;
+      font-size: var(--type-small);
       line-height: 1.45;
       letter-spacing: 0.025em;
       white-space: nowrap;
@@ -223,7 +223,7 @@
       min-width: 0;
       margin: 0;
 
-      font-size: 0.95em;
+      font-size: var(--type-body);
       font-weight: 500;
       line-height: 1.48;
       letter-spacing: 0.015em;
@@ -233,7 +233,7 @@
 
     .current-project-description {
       margin: 0;
-      font-size: 0.84em;
+      font-size: var(--type-small);
       line-height: 1.62;
       letter-spacing: 0.005em;
       color: rgba(34, 42, 53, 0.76);
@@ -257,7 +257,7 @@
       display: inline-block;
       padding: 2px 7px;
 
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       line-height: 1.5;
       letter-spacing: 0.025em;
       text-transform: none;
@@ -279,7 +279,7 @@
 
     .current-project-caption-title {
       display: block;
-      font-size: 0.66em;
+      font-size: var(--type-caption);
       letter-spacing: 0.035em;
     }
 
@@ -288,7 +288,7 @@
 
       margin-top: 2px;
 
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.04em;
       font-style: italic;
@@ -342,7 +342,7 @@
       margin: 0;
       padding: 0;
 
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       line-height: 1.3;
       letter-spacing: 0.015em;
 
@@ -370,7 +370,7 @@
       display: block;
       margin-bottom: 7px;
 
-      font-size: 0.61em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -391,7 +391,7 @@
 
     .current-project-output-arrow {
       flex: 0 0 auto;
-      font-size: 0.82em;
+      font-size: var(--type-small);
       opacity: 0.68;
 
     }
@@ -407,7 +407,7 @@
     }
 
     .rt-header {
-      font-size: 1.12em;
+      font-size: var(--type-lead);
       letter-spacing: 0.11em;
       color: #0B2545;
       font-weight: 500;
@@ -481,7 +481,7 @@
       margin-left: -8px;
       padding-top: 0;
 
-      font-size: 1.06em;
+      font-size: var(--type-lead);
       font-weight: 600;
       line-height: 1.4;
       letter-spacing: 0.03em;
@@ -491,7 +491,7 @@
     }
 
     .rt-stage {
-      font-size: 0.76em;
+      font-size: var(--type-small);
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: 0.12em;
@@ -508,7 +508,7 @@
 
       margin-bottom: 10px;
 
-      font-size: 0.84em;
+      font-size: var(--type-small);
       font-weight: 400;
       line-height: 1.4;
       letter-spacing: 0.015em;
@@ -546,7 +546,7 @@
       margin: 0 5px;
       align-self: center;
 
-      font-size: 0.68em;
+      font-size: var(--type-caption);
 
       color: rgba(70, 82, 98, 0.32);
     }
@@ -555,7 +555,7 @@
       margin: 0;
       align-self: center;
 
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       font-style: italic;
 
       color: rgba(70, 82, 98, 0.48);
@@ -577,7 +577,7 @@
       min-width: 0;
       margin-bottom: 3px;
 
-      font-size: 1.05em;
+      font-size: inherit;
       line-height: 1.4;
       letter-spacing: 0.01em;
     }
@@ -608,7 +608,7 @@
       padding-left: 9px;
 
       font-family: Georgia, serif;
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       font-weight: 400;
       line-height: 1.2;
       letter-spacing: 0.04em;
@@ -621,7 +621,7 @@
     }
 
     .rt-meta .q-rank {
-      font-size: 0.65em;
+      font-size: var(--type-caption);
       opacity: 0.95;
       letter-spacing: 0.04em;
     }
@@ -632,7 +632,7 @@
 
       margin: 0;
       margin-left: 12px;
-      font-size: 0.9em;
+      font-size: var(--type-body);
       line-height: 1.55;
       letter-spacing: -0.0em;
 
@@ -656,7 +656,7 @@
       margin-bottom: 6px;
       padding-left: 2px;
 
-      font-size: 0.74em;
+      font-size: var(--type-small);
       line-height: 1.4;
 
       color: #222;
@@ -702,7 +702,7 @@
       display: block;
       margin-bottom: 6px;
 
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -754,7 +754,7 @@
     .research-network-name {
       flex: 0 0 auto;
 
-      font-size: 0.78em;
+      font-size: var(--type-small);
       line-height: 1.4;
       letter-spacing: 0.02em;
       word-spacing: 0.08em;
@@ -787,21 +787,21 @@
       content: "—";
       margin-right: 1px;
 
-      font-size: 0.58em;
+      font-size: var(--type-caption);
       line-height: 1;
 
       color: rgba(82, 92, 105, 0.28);
     }
 
     .research-network-role {
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.025em;
       color: rgba(66, 62, 62, 0.76);
     }
 
     .research-network-period {
-      font-size: 0.66em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.025em;
       font-style: normal;
@@ -814,7 +814,7 @@
       max-width: 620px;
       margin: -10px 0 18px auto;
 
-      font-size: 0.8em;
+      font-size: var(--type-small);
       font-style: italic;
       line-height: 1.55;
       letter-spacing: 0.025em;
@@ -826,7 +826,7 @@
     .rt-log-link {
       text-transform: none;
       color: #0B2545;
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       letter-spacing: 0.06em;
       margin-left: 2px;
       opacity: 0.48;
@@ -863,7 +863,7 @@
 
     .rt-dot {
       margin: 0 4px;
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       opacity: 0.35;
     }
 
@@ -906,7 +906,7 @@
       position: relative;
       margin: 0;
       padding-top: 13px;
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       line-height: 1.5;
       letter-spacing: 0.075em;
       font-style: italic;
@@ -993,7 +993,7 @@
     .research-contact-cta p {
       margin: 0;
 
-      font-size: 0.86em;
+      font-size: var(--type-body);
       line-height: 1.55;
       letter-spacing: 0.02em;
 
@@ -1006,7 +1006,7 @@
       gap: 7px;
       flex: 0 0 auto;
 
-      font-size: 0.75em;
+      font-size: var(--type-small);
       line-height: 1.4;
       letter-spacing: 0.08em;
 
@@ -1059,7 +1059,7 @@
     .research-context-heading {
       margin: 0 0 20px;
 
-      font-size: 1.12em;
+      font-size: var(--type-lead);
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: 0.11em;
@@ -1085,7 +1085,7 @@
 
       padding: 12px 4px;
 
-      font-size: 0.9em;
+      font-size: var(--type-body);
 
       border-top: 1px solid rgba(11, 31, 58, 0.055);
 
@@ -1097,7 +1097,7 @@
     }
 
     .research-context-name {
-      font-size: 1.06em;
+      font-size: var(--type-lead);
       font-weight: 500;
       letter-spacing: 0.025em;
 
@@ -1109,7 +1109,7 @@
     .research-context-description {
       min-width: 0;
 
-      font-size: 0.98em;
+      font-size: inherit;
       letter-spacing: 0.015em;
 
       color: rgba(70, 82, 98, 0.54);
@@ -1218,7 +1218,7 @@
       fill: rgba(11, 31, 58, 0.28);
 
       font-family: inherit;
-      font-size: 12.5px;
+      font-size: var(--type-caption);
       font-weight: 500;
       letter-spacing: 0.08em;
 
@@ -1258,7 +1258,7 @@
     .research-landscape-title {
       margin: 0;
 
-      font-size: 1.12em;
+      font-size: var(--type-lead);
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: 0.11em;
@@ -1270,7 +1270,7 @@
     .research-landscape-intro {
       margin: 6px 0 0;
 
-      font-size: 0.76em;
+      font-size: var(--type-small);
       line-height: 1.55;
       letter-spacing: 0.025em;
 
@@ -1298,7 +1298,7 @@
 
       margin-bottom: 5px;
 
-      font-size: 0.53em;
+      font-size: var(--type-caption);
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: 0.13em;
@@ -1311,7 +1311,7 @@
       min-height: 1.4em;
       margin-bottom: 10px;
 
-      font-size: 0.69em;
+      font-size: var(--type-caption);
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: 0.02em;
@@ -1353,7 +1353,7 @@
     .research-landscape-summary-list li:not(.research-landscape-output-item):not(.research-landscape-output-empty) {
       width: 100%;
 
-      font-size: 0.65em;
+      font-size: var(--type-caption);
       font-weight: 400;
       line-height: 1.3;
       letter-spacing: 0.015em;
@@ -1394,7 +1394,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      font-size: 0.64em;
+      font-size: var(--type-caption);
       line-height: 1.4;
 
       color: rgba(31, 46, 64, 0.68);
@@ -1409,7 +1409,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      font-size: 0.55em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.025em;
 
@@ -1421,7 +1421,7 @@
     }
 
     .research-landscape-output-empty {
-      font-size: 0.61em;
+      font-size: var(--type-caption);
       line-height: 1.45;
 
       color: rgba(70, 82, 98, 0.4);
@@ -1453,7 +1453,7 @@
       fill: rgba(11, 31, 58, 0.06);
 
       font-family: inherit;
-      font-size: 30px;
+      font-size: var(--type-heading);
       font-weight: 500;
       letter-spacing: 0.04em;
 
@@ -1525,11 +1525,11 @@
     }
 
     .landscape-node[data-size="large"] .landscape-node-label {
-      font-size: 16px;
+      font-size: var(--type-body);
     }
 
     .landscape-node[data-size="small"] .landscape-node-label {
-      font-size: 12.5px;
+      font-size: var(--type-caption);
     }
 
     .research-landscape-legend {
@@ -1541,7 +1541,7 @@
       align-items: center;
       gap: 10px;
 
-      font-size: 0.61em;
+      font-size: var(--type-caption);
       line-height: 1;
       letter-spacing: 0.025em;
 
@@ -1648,7 +1648,7 @@
     .rt-header,
     .research-landscape-title,
     .research-context-heading {
-      font-size: 1.12em;
+      font-size: var(--type-lead);
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: 0.11em;
@@ -1669,7 +1669,7 @@
       }
 
       .current-project h2 {
-        font-size: 0.88em;
+        font-size: var(--type-body);
         font-weight: 500;
       }
 
@@ -1733,7 +1733,7 @@
       }
 
       .page-content {
-        font-size: 1.1em;
+        font-size: var(--type-body);
       }
 
       .rt-dot {
@@ -1791,7 +1791,7 @@
       }
 
       .rt-log-link {
-        font-size: 0.65em;
+        font-size: var(--type-caption);
         opacity: 0.45;
       }
 
@@ -1805,7 +1805,7 @@
         column-gap: 12px;
         align-items: start;
 
-        font-size: 0.84em;
+        font-size: var(--type-small);
         margin-top: -20px;
         margin-bottom: 16px;
         line-height: 1.45;
@@ -1824,7 +1824,7 @@
         grid-column: 2;
         display: block;
         margin-left: 0;
-        font-size: 0.9em;
+        font-size: var(--type-body);
         letter-spacing: 0.07em;
         line-height: 1.35;
         text-align: right;
@@ -1867,7 +1867,7 @@
         margin: 0;
         padding: 0;
 
-        font-size: 0.73em;
+        font-size: var(--type-caption);
         line-height: 1.4;
         letter-spacing: 0.1em;
 
@@ -1876,7 +1876,7 @@
       }
 
       .rt-title {
-        font-size: 0.73em;
+        font-size: var(--type-caption);
         margin-bottom: 8px;
         color: #888;
         margin-left: 5px;
@@ -1896,14 +1896,14 @@
       }
 
       .rt-output {
-        font-size: 0.88em;
+        font-size: var(--type-body);
         font-weight: 500;
       }
 
       .rt-subtitle {
         width: auto;
         max-width: 100%;
-        font-size: 0.75em;
+        font-size: var(--type-small);
         margin-left: 0;
         line-height: 1.45;
         opacity: 0.81;
@@ -1926,7 +1926,7 @@
       }
 
       .rt-meta {
-        font-size: 0.68rem;
+        font-size: var(--type-caption);
         margin-left: 0;
         padding-left: 0;
         opacity: 0.65;
@@ -1957,7 +1957,7 @@
       .rt-venue[data-short]::before {
         content: attr(data-short);
 
-        font-size: 0.68rem;
+        font-size: var(--type-caption);
         line-height: 1.2;
 
         white-space: nowrap;
@@ -1972,7 +1972,7 @@
       }
 
       .rt-meta .q-rank {
-        font-size: 0.73em;
+        font-size: var(--type-caption);
         opacity: 1;
         letter-spacing: 0.04em;
       }
@@ -2000,7 +2000,7 @@
 
       .current-project h2 {
         margin: 0;
-        font-size: 0.69em;
+        font-size: var(--type-caption);
         font-weight: 500;
         line-height: 1.48;
         letter-spacing: 0.01em;
@@ -2027,13 +2027,13 @@
       .current-project-topics {
         margin-top: 6px;
         gap: 5px;
-        font-size: 1.2em;
+        font-size: var(--type-lead);
       }
 
       .current-project-topics span {
         padding: 2px 6px;
 
-        font-size: 0.47em;
+        font-size: var(--type-caption);
         line-height: 1.5;
         letter-spacing: 0.025em;
 
@@ -2046,7 +2046,7 @@
       .research-affiliation-note {
         margin: -10px 0 16px auto;
 
-        font-size: 0.58em;
+        font-size: var(--type-caption);
         line-height: 1.5;
         text-align: right;
       }
@@ -2066,7 +2066,7 @@
         min-width: 0;
         max-width: none;
 
-        font-size: 0.64em;
+        font-size: var(--type-caption);
         line-height: 1.45;
         white-space: nowrap;
       }
@@ -2076,7 +2076,7 @@
 
         margin-top: 0;
 
-        font-size: 0.62em;
+        font-size: var(--type-caption);
         white-space: nowrap;
       }
 
@@ -2090,7 +2090,7 @@
       .research-context-heading {
         margin-bottom: 16px;
 
-        font-size: 0.84em;
+        font-size: var(--type-small);
         line-height: 1.45;
         letter-spacing: 0.11em;
       }
@@ -2103,7 +2103,7 @@
       }
 
       .research-context-name {
-        font-size: 0.95em;
+        font-size: var(--type-body);
       }
 
       .research-context-description {
@@ -2111,7 +2111,7 @@
       }
 
       .research-context-arrow {
-        font-size: 0.95em;
+        font-size: var(--type-body);
         MARGIN-RIGHT: 3PX;
       }
 
@@ -2132,11 +2132,11 @@
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        font-size: 0.64em;
+        font-size: var(--type-caption);
       }
 
       .research-context-enquiry a {
-        font-size: 0.62em;
+        font-size: var(--type-caption);
       }
 
       .research-contact-cta.research-context {
@@ -2322,7 +2322,7 @@
         margin: 27px 0 0 -18px;
         padding: 0;
 
-        font-size: 0.78em;
+        font-size: var(--type-small);
         font-weight: 500;
         line-height: 1;
         letter-spacing: 0.08em;
@@ -2338,3 +2338,41 @@
       }
     }
   
+
+/* Mobile research entries: reading first; do not crop the work title. */
+@media (max-width: 640px) {
+  .rt-subtitle,
+  .rt-subtitle a,
+  .current-project-output-text,
+  .current-project-caption-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+  }
+  .rt-meta {
+    flex-wrap: wrap;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    align-items: baseline;
+    row-gap: 2px;
+  }
+  .rt-venue, .rt-meta > .rt-venue {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+  .rt-venue[data-short]::before { white-space: normal; }
+  .research-network-list li {
+    height: auto;
+    min-height: 34px;
+    overflow: visible;
+  }
+  .research-network-name,
+  .research-network-role {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+}

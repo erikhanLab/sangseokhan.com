@@ -154,7 +154,7 @@
         Palatino,
         Georgia,
         serif;
-      font-size: 0.37em;
+      font-size: var(--type-heading);
       font-weight: 400;
       line-height: 1;
       letter-spacing: 0.22em;
@@ -178,7 +178,7 @@
 
       width: fit-content;
 
-      font-size: 0.8em;
+      font-size: var(--type-small);
       font-weight: 400;
       line-height: 1.4;
       letter-spacing: 0.09em;
@@ -194,7 +194,7 @@
     .archive-back-arrow {
       display: inline-block;
 
-      font-size: 1.08em;
+      font-size: var(--type-lead);
       line-height: 1;
 
       color: rgba(41, 53, 55, 0.46) !important;
@@ -230,7 +230,7 @@
       margin-top: 0;
       padding-top: 10px;
 
-      font-size: 1.1em;
+      font-size: var(--type-body);
 
       background: transparent !important;
       transform: none;
@@ -253,7 +253,7 @@
     .intro {
       margin: 28px 0 36px;
 
-      font-size: 0.78em;
+      font-size: var(--type-small);
       letter-spacing: 0.22em;
 
       color: #6b7280;
@@ -262,7 +262,7 @@
     .meta {
       margin-top: 4px;
 
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       font-style: italic;
       letter-spacing: 0.08em;
 
@@ -270,7 +270,7 @@
     }
 
     .entry {
-      font-size: 0.92em;
+      font-size: var(--type-body);
       line-height: 1.55;
       letter-spacing: 0.02em;
       white-space: nowrap;
@@ -319,7 +319,7 @@
       align-items: center;
       gap: 6px;
 
-      font-size: 0.85em;
+      font-size: var(--type-small);
       font-weight: 500;
       letter-spacing: 0.32em;
 
@@ -327,7 +327,7 @@
     }
 
     .year-age {
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       letter-spacing: 0.18em;
 
       color: var(--archive-muted);
@@ -336,7 +336,7 @@
     .year-label {
       margin-bottom: 6px;
 
-      font-size: 0.85em;
+      font-size: var(--type-small);
       letter-spacing: 0.2em;
       text-transform: uppercase;
 
@@ -344,14 +344,14 @@
     }
 
     .year-desc {
-      font-size: 1.05em;
+      font-size: inherit;
       color: #111;
     }
 
     .year-num.selected::after {
       content: " †";
 
-      font-size: 0.8em;
+      font-size: var(--type-small);
       letter-spacing: 0;
 
       color: var(--archive-muted);
@@ -414,7 +414,7 @@
     .archive-title {
       margin: 0 0 14px;
 
-      font-size: 0.82em;
+      font-size: var(--type-small);
       font-weight: 500;
       line-height: 1.2;
       letter-spacing: 0.22em;
@@ -430,7 +430,7 @@
       margin: 0;
       padding-left: 14px;
 
-      font-size: 0.74em;
+      font-size: var(--type-small);
       font-style: italic;
       font-weight: 400;
       line-height: 1.75;
@@ -463,7 +463,7 @@
     .curated-year {
       padding-top: 4px;
 
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       letter-spacing: 0.32em;
       white-space: nowrap;
 
@@ -471,7 +471,7 @@
     }
 
     .curated-title {
-      font-size: 1.05em;
+      font-size: inherit;
       font-weight: 500;
       letter-spacing: 0.04em;
       opacity: 0.9;
@@ -505,7 +505,7 @@
     }
 
     .curated-org {
-      font-size: 0.88em;
+      font-size: var(--type-body);
       font-weight: 500;
       letter-spacing: 0.03em;
 
@@ -513,7 +513,7 @@
     }
 
     .curated-locale {
-      font-size: 0.6em;
+      font-size: var(--type-caption);
       letter-spacing: 0.18em;
       text-transform: uppercase;
 
@@ -523,7 +523,7 @@
     .curated-desc {
       margin-top: 8px;
 
-      font-size: 0.9em;
+      font-size: var(--type-body);
       line-height: 1.4;
 
       color: #777;
@@ -532,7 +532,7 @@
     .curated-meta {
       margin-top: 10px;
 
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       font-style: italic;
       letter-spacing: 0.14em;
 
@@ -642,7 +642,7 @@
       margin-top: -16px;
       margin-left: 42px;
 
-      font-size: 0.62em;
+      font-size: var(--type-caption);
       letter-spacing: 0.26em;
       text-transform: uppercase;
 
@@ -652,7 +652,7 @@
     }
 
     .node-label .country {
-      font-size: 0.95em;
+      font-size: var(--type-body);
       letter-spacing: 0.32em;
       opacity: 0.55;
     }
@@ -716,7 +716,7 @@
       display: block;
       margin-top: 6px;
 
-      font-size: 11px;
+      font-size: var(--type-caption);
       font-style: italic;
       line-height: 1;
       letter-spacing: 0.22em;
@@ -731,7 +731,7 @@
 
       margin-top: 6px;
 
-      font-size: 11px;
+      font-size: var(--type-caption);
       font-style: italic;
       line-height: 1;
       letter-spacing: 0.22em;
@@ -837,14 +837,14 @@
     .zoom-meta-line {
       margin-top: 4px;
 
-      font-size: 0.6em;
+      font-size: var(--type-caption);
       letter-spacing: 0.12em;
 
       opacity: 0.45;
     }
 
     .zoom-title {
-      font-size: 0.75em;
+      font-size: var(--type-small);
       letter-spacing: 0.18em;
       opacity: 0.7;
     }
@@ -852,7 +852,7 @@
     .zoom-desc {
       margin-top: 6px;
 
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       line-height: 1.4;
 
       opacity: 0.5;
@@ -941,7 +941,7 @@
     }
 
     .record-year {
-      font-size: 0.6em;
+      font-size: var(--type-caption);
       letter-spacing: 0.36em;
       opacity: 0.6;
     }
@@ -949,7 +949,7 @@
     .record-meta {
       margin-top: 6px;
 
-      font-size: 0.9em;
+      font-size: var(--type-body);
       font-style: italic;
       letter-spacing: 0.1em;
 
@@ -962,7 +962,7 @@
     }
 
     .visual-essay-label {
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       letter-spacing: 0.28em;
       text-transform: uppercase;
 
@@ -973,7 +973,7 @@
     .visual-essay-title {
       margin-top: 6px;
 
-      font-size: 0.85em;
+      font-size: var(--type-small);
       font-style: normal;
       letter-spacing: 0.14em;
 
@@ -983,7 +983,7 @@
     .visual-essay-scale {
       margin-top: 4px;
 
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       letter-spacing: 0.18em;
 
       color: var(--archive-muted);
@@ -992,7 +992,7 @@
     .visual-essay-meta {
       margin-top: 8px;
 
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       letter-spacing: 0.12em;
 
       color: var(--archive-muted);
@@ -1009,7 +1009,7 @@
     }
 
     .blank-title {
-      font-size: 0.65em;
+      font-size: var(--type-caption);
       letter-spacing: 0.32em;
       text-align: center;
       text-transform: uppercase;
@@ -1063,7 +1063,7 @@
       display: block;
       width: fit-content;
 
-      font-size: 0.76em;
+      font-size: var(--type-small);
       line-height: 1.45;
       letter-spacing: 0.07em;
 
@@ -1165,7 +1165,7 @@
 
         margin-top: 3px;
 
-        font-size: 0.29em;
+        font-size: var(--type-heading);
         letter-spacing: 0.14em;
 
         transform: translateY(-37%);
@@ -1178,17 +1178,17 @@
       .archive-back a {
         gap: 6px;
 
-        font-size: 0.62em;
+        font-size: var(--type-caption);
         letter-spacing: 0.08em;
       }
 
       .archive-back-arrow {
-        font-size: 1.05em;
+        font-size: inherit;
       }
 
       .page-content {
         padding-top: 5px;
-        font-size: 1.02em;
+        font-size: inherit;
       }
 
       #section-curated,
@@ -1207,13 +1207,13 @@
 
       .header h1 {
         margin-bottom: 0;
-        font-size: 1.55em;
+        font-size: var(--type-heading);
       }
 
       .entry {
         overflow: hidden;
 
-        font-size: 0.85em;
+        font-size: var(--type-small);
         line-height: 1.55;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -1231,7 +1231,7 @@
 
       .timeline {
         padding-left: 15px;
-        font-size: 0.9em;
+        font-size: var(--type-body);
       }
 
       .timeline::before {
@@ -1254,7 +1254,7 @@
       .visual-item figcaption {
         margin-top: 4px;
 
-        font-size: 0.55em;
+        font-size: var(--type-caption);
         letter-spacing: 0.18em;
       }
 
@@ -1274,7 +1274,7 @@
         overflow: hidden;
         margin-top: 10px;
 
-        font-size: 0.72em;
+        font-size: var(--type-caption);
         letter-spacing: 0.08em;
         line-height: 1.1;
         white-space: nowrap;
@@ -1310,11 +1310,11 @@
 
         margin-bottom: 24px;
 
-        font-size: 0.83em;
+        font-size: var(--type-small);
       }
 
       .curated-year {
-        font-size: 0.7em;
+        font-size: var(--type-caption);
       }
 
       .curated-desc {
@@ -1336,7 +1336,7 @@
       .archive-title {
         margin-bottom: 12px;
 
-        font-size: 0.8em;
+        font-size: var(--type-small);
         letter-spacing: 0.2em;
       }
 
@@ -1344,7 +1344,7 @@
         max-width: 92%;
         padding-left: 14px;
 
-        font-size: 0.7em;
+        font-size: var(--type-caption);
         line-height: 1.7;
         letter-spacing: 0.055em;
 
@@ -1357,11 +1357,11 @@
       }
 
       .zoom-title {
-        font-size: 0.7em;
+        font-size: var(--type-caption);
       }
 
       .zoom-desc {
-        font-size: 0.65em;
+        font-size: var(--type-caption);
       }
 
       .year-num.selected::after {
@@ -1423,7 +1423,7 @@
         margin-top: 6px;
         margin-left: 16px;
 
-        font-size: 0.7em;
+        font-size: var(--type-caption);
         letter-spacing: 0.22em;
 
         opacity: 0.89;
@@ -1467,3 +1467,17 @@
       }
     }
   
+@media (max-width: 360px) {
+  html, body { max-width: 100%; overflow-x: clip !important; }
+  .visual-grid, .visual-work-grid, .archive-curated,
+  .visual-record, .visual-work, .records { max-width: 100%; min-width: 0; }
+  .visual-item img, .visual-work-item img { max-width: 100%; }
+}
+
+/* Archive masthead suffix is a small label, not a second display heading. */
+.site-header .site-name::after { font-size: var(--type-caption); }
+@media (max-width: 360px) {
+  .timeline-wrapper { width: 100%; min-width: 0; }
+  .timeline { box-sizing: border-box; min-width: 0; width: 100%; }
+  .timeline-content { min-width: 0; max-width: 100%; }
+}

@@ -48,7 +48,7 @@
 
       width: fit-content;
 
-      font-size: 0.8em;
+      font-size: var(--type-small);
       font-weight: 400;
       line-height: 1.4;
       letter-spacing: 0.09em;
@@ -66,7 +66,7 @@
     .profile-back-arrow {
       display: inline-block;
 
-      font-size: 1.08em;
+      font-size: var(--type-lead);
       line-height: 1;
 
       color:
@@ -180,9 +180,7 @@
         serif;
 
       font-size:
-        clamp(1.75rem,
-          2.5vw,
-          2rem);
+        var(--type-heading);
 
       font-weight: 400;
 
@@ -204,7 +202,7 @@
         serif;
 
       font-size:
-        clamp(1.62rem, 2vw, 1.9rem);
+        var(--type-heading);
 
       font-weight: 500;
       line-height: 1.36;
@@ -222,7 +220,7 @@
 
       padding-top: 11px;
 
-      font-size: 0.59em;
+      font-size: var(--type-caption);
 
       line-height: 1.4;
 
@@ -272,7 +270,7 @@
       border-bottom:
         1px solid var(--essay-rule-light);
 
-      font-size: 0.7em;
+      font-size: var(--type-caption);
 
       line-height: 1.5;
 
@@ -314,7 +312,7 @@
 
       margin-left: 2px;
 
-      font-size: 0.9em;
+      font-size: var(--type-body);
 
       transform:
         translateY(-1px);
@@ -372,7 +370,7 @@
     .parallel-cell p {
       margin: 0;
 
-      font-size: 0.94em;
+      font-size: var(--type-body);
       line-height: 1.88;
       letter-spacing: 0.004em;
 
@@ -394,7 +392,7 @@
         "Malgun Gothic",
         sans-serif;
 
-      font-size: 0.92em;
+      font-size: var(--type-body);
       font-weight: 400;
 
       line-height: 1.94;
@@ -456,7 +454,7 @@
 
 
     .essay-end-note {
-      font-size: 0.68em;
+      font-size: var(--type-caption);
 
       line-height: 1.55;
 
@@ -466,7 +464,7 @@
 
 
     .essay-end-link {
-      font-size: 0.68em;
+      font-size: var(--type-caption);
 
       line-height: 1.55;
 
@@ -501,11 +499,11 @@
       }
 
       .parallel-cell p {
-        font-size: 0.9em;
+        font-size: var(--type-body);
       }
 
       .parallel-cell[lang="ko"] p {
-        font-size: 0.87em;
+        font-size: var(--type-body);
       }
     }
 
@@ -534,7 +532,7 @@
       .profile-back a {
         gap: 6px;
 
-        font-size: 0.8rem;
+        font-size: var(--type-caption);
 
         letter-spacing:
           0.08em;
@@ -542,7 +540,7 @@
 
 
       .profile-back-arrow {
-        font-size: 0.8rem;
+        font-size: var(--type-caption);
       }
 
 
@@ -571,7 +569,7 @@
 
 
       .essay-title {
-        font-size: 1.4rem;
+        font-size: var(--type-lead);
         line-height: 1.22;
       }
 
@@ -582,7 +580,7 @@
         padding-top: 0;
         margin-bottom: 0;
 
-        font-size: 0.53rem;
+        font-size: var(--type-caption);
 
         text-align: right;
       }
@@ -600,7 +598,7 @@
 
         padding-bottom: 10px;
 
-        font-size: 0.59rem;
+        font-size: var(--type-caption);
       }
 
 
@@ -674,7 +672,7 @@
           "Malgun Gothic",
           serif;
 
-        font-size: 1.42rem;
+        font-size: var(--type-lead);
         font-weight: 500;
 
         line-height: 1.34;
@@ -697,7 +695,7 @@
           "Malgun Gothic",
           sans-serif;
 
-        font-size: 0.53rem;
+        font-size: var(--type-caption);
         font-weight: 500;
 
         line-height: 1.4;
@@ -780,14 +778,14 @@
 
 
       .parallel-cell p {
-        font-size: 0.78rem;
+        font-size: var(--type-caption);
 
         line-height: 1.78;
       }
 
 
       .parallel-cell[lang="ko"] p {
-        font-size: 0.82rem;
+        font-size: var(--type-small);
 
         line-height: 1.9;
 
@@ -811,7 +809,7 @@
 
       .essay-end-note,
       .essay-end-link {
-        font-size: 0.58rem;
+        font-size: var(--type-caption);
       }
 
 
@@ -828,7 +826,7 @@
 
       .external-arrow::before {
         content: "→";
-        font-size: 0.58rem;
+        font-size: var(--type-caption);
         opacity: 0.55;
       }
     }

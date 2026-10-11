@@ -6,7 +6,7 @@
     .page-content {
       transform: translateY(6px);
       transition: transform 0.12s ease-out;
-      font-size: 1.1em;
+      font-size: var(--type-body);
     }
 
     .page-content.loaded {
@@ -15,7 +15,7 @@
 
     .header {
       font-family: Georgia, serif;
-      font-size: 0.9em;
+      font-size: var(--type-body);
       display: flex;
       align-items: baseline;
       font-weight: 300;
@@ -38,7 +38,7 @@
     }
 
     .log-header {
-      font-size: 1.25em;
+      font-size: var(--type-lead);
       letter-spacing: 0.08em;
       color: var(--research-blue);
       font-weight: 500;
@@ -46,14 +46,14 @@
     }
 
     .log-sub {
-      font-size: 0.78em;
+      font-size: var(--type-small);
       opacity: 0.5;
       letter-spacing: 0.05em;
     }
 
     .log-date {
       display: inline-block;
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       letter-spacing: 0.18em;
       padding: 4px 8px;
       border: 1px solid rgba(0, 0, 0, 0.06);
@@ -64,7 +64,7 @@
     }
 
     .log-meta {
-      font-size: 0.92em;
+      font-size: var(--type-body);
       letter-spacing: 0.06em;
       color: var(--research-blue);
       margin-bottom: 8px;
@@ -80,7 +80,7 @@
     }
 
     .log-paper {
-      font-size: 0.86em;
+      font-size: var(--type-body);
       font-style: italic;
       opacity: 0.7;
       margin-bottom: 12px;
@@ -112,7 +112,7 @@
     }
 
     .log-label {
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       opacity: 0.45;
@@ -121,7 +121,7 @@
     }
 
     .log-content {
-      font-size: 0.9em;
+      font-size: var(--type-body);
       opacity: 0.7;
       line-height: 1.6;
     }
@@ -170,7 +170,7 @@
 
       width: fit-content;
 
-      font-size: 0.8em;
+      font-size: var(--type-small);
       font-weight: 400;
       line-height: 1.4;
       letter-spacing: 0.09em;
@@ -186,7 +186,7 @@
     .log-back-arrow {
       display: inline-block;
 
-      font-size: 1.08em;
+      font-size: var(--type-lead);
       line-height: 1;
 
       color: rgba(11, 31, 58, 0.38);
@@ -225,7 +225,7 @@
     }
 
     .log-caption {
-      font-size: 0.65em;
+      font-size: var(--type-caption);
       opacity: 0.4;
       margin-top: 4px;
       text-align: left;
@@ -233,7 +233,7 @@
 
     .log-sep {
       margin: 0 6px;
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       opacity: 0.35;
     }
 
@@ -242,7 +242,7 @@
     }
 
     .log-current {
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       letter-spacing: 0.08em;
       opacity: 0.45;
     }
@@ -256,7 +256,7 @@
     .year-tabs {
       margin-bottom: 5px;
       padding: 6px 10px;
-      font-size: 0.95em;
+      font-size: var(--type-body);
       letter-spacing: 0.09em;
       background: rgba(255, 255, 255, 0.22);
       border-radius: 3px;
@@ -272,7 +272,7 @@
 
     .year-tabs span.active {
       opacity: 0.9;
-      font-size: 1.1em;
+      font-size: var(--type-lead);
       color: var(--research-blue);
     }
 
@@ -312,7 +312,7 @@
     .visual-notes-title {
       margin: 0 0 4px;
 
-      font-size: 0.76em;
+      font-size: var(--type-small);
       font-weight: 500;
       line-height: 1.4;
       letter-spacing: 0.14em;
@@ -325,7 +325,7 @@
     .visual-notes-sub {
       margin: 0;
 
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       line-height: 1.5;
       letter-spacing: 0.025em;
 
@@ -377,7 +377,7 @@
     }
 
     .visual-note-date {
-      font-size: 0.61em;
+      font-size: var(--type-caption);
       letter-spacing: 0.11em;
       text-transform: uppercase;
 
@@ -391,7 +391,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      font-size: 0.69em;
+      font-size: var(--type-caption);
       letter-spacing: 0.015em;
 
       color: rgba(38, 51, 68, 0.72);
@@ -407,7 +407,7 @@
       }
 
       .page-content {
-        font-size: 1.0em;
+        font-size: inherit;
       }
 
       .research-tagline {
@@ -428,7 +428,7 @@
       .log-header {
         margin-bottom: 4px;
 
-        font-size: 0.95em;
+        font-size: var(--type-body);
         letter-spacing: 0.14em;
         text-transform: uppercase;
 
@@ -442,16 +442,16 @@
       .log-back a {
         gap: 6px;
 
-        font-size: 0.8rem;
+        font-size: var(--type-caption);
         letter-spacing: 0.08em;
       }
 
       .log-back-arrow {
-        font-size: 0.8rem;
+        font-size: var(--type-caption);
       }
 
       .log-meta {
-        font-size: 0.77em;
+        font-size: var(--type-small);
         line-height: 1.4;
       }
 
@@ -460,7 +460,7 @@
       }
 
       .log-paper {
-        font-size: 0.73em;
+        font-size: var(--type-caption);
         margin-left: 5px;
         line-height: 1.5;
         white-space: nowrap;
@@ -470,19 +470,19 @@
       }
 
       .log-label {
-        font-size: 0.75em;
+        font-size: var(--type-small);
         letter-spacing: 0.1em;
         opacity: 0.6;
       }
 
       .log-content {
-        font-size: 0.8em;
+        font-size: var(--type-small);
         opacity: 0.93;
         line-height: 1.55;
       }
 
       .log-date {
-        font-size: 0.6em;
+        font-size: var(--type-caption);
         letter-spacing: 0.15em;
         padding: 3px 6px;
       }
@@ -526,7 +526,7 @@
         margin-top: -3px;
         margin-bottom: 3px;
         padding: 3px 8px;
-        font-size: 0.8em;
+        font-size: var(--type-small);
         letter-spacing: 0.08em;
         background: rgba(255, 255, 255, 0.22);
         border: 1px solid rgba(11, 31, 58, 0.035);
@@ -591,7 +591,7 @@
         width: 100%;
         margin-top: 6px;
 
-        font-size: 0.75em;
+        font-size: var(--type-small);
         line-height: 1.4;
         text-align: center;
       }
@@ -647,14 +647,14 @@
       }
 
       .visual-note-date {
-        font-size: 0.6em;
+        font-size: var(--type-caption);
         letter-spacing: 0.08em;
       }
 
       .visual-note-text {
         min-width: 0;
 
-        font-size: 0.68em;
+        font-size: var(--type-caption);
         line-height: 1.35;
 
         overflow: hidden;
@@ -673,3 +673,12 @@
       }
     }
   
+/* No mobile truncation of research-log references or captions. */
+@media (max-width: 640px) {
+  .log-paper, .visual-note-text {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+  }
+}

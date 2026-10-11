@@ -49,6 +49,8 @@
     })();
   </script>
 
+  <link rel="stylesheet" href="/assets/css/type-scale.css?v=1">
+
   <style>
     :root {
       --ink: #0B1F3A;
@@ -69,7 +71,7 @@
       padding-top: 60px;
       padding-bottom: 30px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
+      font-size: var(--type-body);
       color: var(--ink);
       background: var(--bg);
       line-height: 1.6;
@@ -92,7 +94,7 @@
     .header-row h1 {
       margin: 0 0 -5px;
 
-      font-size: 3.5em;
+      font-size: var(--type-display);
       line-height: 1;
       letter-spacing: 0.022em;
     }
@@ -171,7 +173,7 @@
     .page-content {
       transform: translateY(6px);
       transition: transform 0.12s ease-out;
-      font-size: 1.02em;
+      font-size: inherit;
     }
 
     .page-content.loaded {
@@ -179,7 +181,7 @@
     }
 
     h1 {
-      font-size: 3.2em;
+      font-size: var(--type-display);
       font-weight: normal;
       letter-spacing: 0.02em;
       margin: 0 0 0px 0;
@@ -190,7 +192,7 @@
       position: absolute;
       left: 2px;
       bottom: -30px;
-      font-size: 0.38em;
+      font-size: var(--type-caption);
       letter-spacing: 0.18em;
       color: #64748b;
       opacity: 0.65;
@@ -204,7 +206,7 @@
     }
 
     .lang-switch {
-      font-size: 0.65em;
+      font-size: var(--type-caption);
       margin-bottom: -40px;
       letter-spacing: 0.22em;
       color: #64748b;
@@ -244,20 +246,20 @@
     .tagline .line-strong {
       display: block;
       font-weight: normal;
-      font-size: 1.12em;
+      font-size: var(--type-lead);
       color: var(--ink);
     }
 
     .tagline .line-muted {
       display: block;
       margin-top: 2px;
-      font-size: 1em;
+      font-size: inherit;
       color: var(--accent);
     }
 
     .affiliation {
       margin-top: 27px;
-      font-size: 0.86em;
+      font-size: var(--type-body);
       line-height: 1.5;
       color: #4b5f77;
     }
@@ -268,7 +270,7 @@
     }
 
     .affiliation-status-label {
-      font-size: 0.78em;
+      font-size: var(--type-small);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(11, 31, 58, 0.64);
@@ -280,19 +282,19 @@
     }
 
     .affiliation-role {
-      font-size: 0.94em;
+      font-size: var(--type-body);
       letter-spacing: 0.02em;
       color: rgba(11, 31, 58, 0.68);
     }
 
     .affiliation-institution {
-      font-size: 0.8em;
+      font-size: var(--type-small);
       letter-spacing: 0.05em;
       color: rgba(71, 85, 105, 0.98);
     }
 
     .keywords {
-      font-size: 0.80em;
+      font-size: var(--type-small);
       letter-spacing: 0.28em;
       opacity: 0.7;
       color: #94a3b8;
@@ -334,7 +336,7 @@
 
     .nav-index {
       display: block;
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       letter-spacing: 0.32em;
       color: #526274;
       margin-bottom: 6px;
@@ -343,7 +345,7 @@
 
     .nav-label {
       display: inline;
-      font-size: 1.12em;
+      font-size: var(--type-lead);
       letter-spacing: normal;
       color: var(--ink);
       opacity: 0.92;
@@ -441,7 +443,7 @@
     }
 
     .meta {
-      font-size: 0.8em;
+      font-size: var(--type-small);
       opacity: 0.55;
     }
 
@@ -479,7 +481,7 @@
       display: block;
       margin: 0 0 6px;
 
-      font-size: 0.62em;
+      font-size: var(--type-caption);
       line-height: 1.2;
       letter-spacing: 0.19em;
       text-transform: uppercase;
@@ -552,7 +554,7 @@
       color: rgba(11, 31, 58, 0.64);
       text-decoration: none;
 
-      font-size: 0.9em;
+      font-size: var(--type-body);
       line-height: 1;
       letter-spacing: 0.09em;
       text-transform: uppercase;
@@ -569,7 +571,7 @@
       margin-right: 8px;
 
       color: rgba(82, 92, 105, 0.32);
-      font-size: 1em;
+      font-size: inherit;
       line-height: 1;
       letter-spacing: 0;
     }
@@ -595,7 +597,7 @@
       width: 100%;
       min-width: 0;
 
-      font-size: 0.93em;
+      font-size: var(--type-body);
       line-height: 1.4;
       letter-spacing: -0.01em;
 
@@ -615,7 +617,7 @@
       display: block;
       margin-top: 3px;
       margin-left: 2px;
-      font-size: 0.71em;
+      font-size: var(--type-caption);
       line-height: 1.32;
       letter-spacing: 0.012em;
 
@@ -649,7 +651,7 @@
       display: block;
       margin-bottom: 3px;
 
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.035em;
 
@@ -661,7 +663,7 @@
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.2s ease, color 0.2s ease;
-      font-size: 0.93em;
+      font-size: var(--type-body);
     }
 
     .email-link:hover {
@@ -724,7 +726,7 @@
 
 
     .footer-label {
-      font-size: 0.6em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -750,7 +752,7 @@
 
       margin-bottom: 4px;
 
-      font-size: 0.62em;
+      font-size: var(--type-caption);
       line-height: 1.3;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -772,7 +774,7 @@
     .research-focus-title {
       display: block;
 
-      font-size: 0.94em;
+      font-size: var(--type-body);
       line-height: 1.4;
 
       color: rgba(11, 31, 58, 0.90);
@@ -783,7 +785,7 @@
 
       margin-top: 2px;
 
-      font-size: 0.78em;
+      font-size: var(--type-small);
       line-height: 1.48;
 
       color: rgba(71, 85, 105, 0.70);
@@ -796,7 +798,7 @@
 
       margin-top: 5px;
 
-      font-size: 0.7em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.035em;
 
@@ -819,7 +821,7 @@
       display: inline-block;
       width: fit-content;
 
-      font-size: 0.74em;
+      font-size: var(--type-small);
       line-height: 1.5;
 
       color: rgba(71, 85, 105, 0.72);
@@ -845,7 +847,7 @@
 
       gap: 3px;
 
-      font-size: 0.58em;
+      font-size: var(--type-caption);
       line-height: 1.5;
       letter-spacing: 0.045em;
       text-align: right;
@@ -915,7 +917,7 @@
 
       margin-bottom: 8px;
 
-      font-size: 0.76em;
+      font-size: var(--type-small);
       line-height: 1.4;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -935,7 +937,7 @@
 
       min-width: 0;
 
-      font-size: 1.01em;
+      font-size: inherit;
       line-height: 1.4;
 
       color: rgba(11, 31, 58, 0.84);
@@ -951,7 +953,7 @@
 
       margin: 0;
 
-      font-size: 0.82em;
+      font-size: var(--type-small);
       line-height: 1.4;
       letter-spacing: 0.06em;
       white-space: nowrap;
@@ -966,7 +968,7 @@
       min-width: 0;
       margin: 0;
 
-      font-size: 0.82em;
+      font-size: var(--type-small);
       line-height: 1.4;
 
       white-space: nowrap;
@@ -997,7 +999,7 @@
       position: relative;
 
       padding-left: 13px;
-      font-size: 0.72em;
+      font-size: var(--type-caption);
       line-height: 1.4;
     }
 
@@ -1050,7 +1052,7 @@
       margin-top: 9px;
       padding-left: 13px;
 
-      font-size: 0.8em;
+      font-size: var(--type-small);
       line-height: 1.4;
 
       color: rgba(71, 85, 105, 0.82);
@@ -1163,7 +1165,7 @@
     .home-rail-open p {
       margin: 0 0 7px;
 
-      font-size: 0.65em;
+      font-size: var(--type-caption);
       line-height: 1.5;
       font-style: italic;
       color: rgba(71, 85, 105, 0.58);
@@ -1173,7 +1175,7 @@
       width: fit-content;
       margin-left: auto;
 
-      font-size: 0.68em;
+      font-size: var(--type-caption);
       line-height: 1.4;
 
       color: rgba(11, 31, 58, 0.58);
@@ -1193,7 +1195,7 @@
     }
 
     .home-rail-timeline-link {
-      font-size: 0.58em;
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.05em;
 
@@ -1339,12 +1341,12 @@
     @media (max-width: 640px) {
       body {
         padding: 64px 18px 56px;
-        font-size: 15.5px;
+        font-size: var(--type-body);
         line-height: 1.55;
       }
 
       .header {
-        font-size: 0.8em;
+        font-size: var(--type-small);
       }
 
       .header-row {
@@ -1362,7 +1364,7 @@
         min-width: 0;
         margin: 0;
 
-        font-size: clamp(2.2em, 9.3vw, 2.65em);
+        font-size: var(--type-display);
         line-height: 0.98;
         letter-spacing: 0.005em;
 
@@ -1370,7 +1372,7 @@
       }
 
       .tagline .line-muted {
-        font-size: 0.95em;
+        font-size: var(--type-body);
 
       }
 
@@ -1404,7 +1406,7 @@
       .lang-switch {
         margin: 0;
 
-        font-size: 0.75em;
+        font-size: var(--type-small);
         line-height: 1;
         letter-spacing: 0.17em;
       }
@@ -1417,7 +1419,7 @@
       .tagline {
         margin-left: 10px;
 
-        font-size: 1.06em;
+        font-size: var(--type-lead);
         line-height: 1.6;
       }
 
@@ -1425,7 +1427,7 @@
         left: 1px;
         bottom: -20px;
 
-        font-size: 0.32em;
+        font-size: var(--type-caption);
         letter-spacing: 0.15em;
       }
 
@@ -1443,12 +1445,12 @@
       }
 
       .affiliation-role {
-        font-size: 0.84em;
+        font-size: var(--type-body);
         letter-spacing: 0.01em;
       }
 
       .affiliation-role {
-        font-size: 0.96em;
+        font-size: var(--type-body);
       }
 
       .affiliation-status-line {
@@ -1458,14 +1460,14 @@
       .affiliation-status-institution {
         margin-top: 2px;
 
-        font-size: 0.88em;
+        font-size: var(--type-body);
         line-height: 1.4;
 
         color: rgba(71, 85, 105, 0.72);
       }
 
       .affiliation-status-label {
-        font-size: 0.72em;
+        font-size: var(--type-caption);
         letter-spacing: 0.11em;
       }
 
@@ -1493,26 +1495,26 @@
       .research-focus-label {
         margin-bottom: 3px;
 
-        font-size: 0.67em;
+        font-size: var(--type-caption);
         letter-spacing: 0.16em;
       }
 
       .research-focus-title {
-        font-size: 0.92em;
+        font-size: var(--type-body);
         line-height: 1.35;
       }
 
       .research-focus-description {
         margin-top: 1px;
 
-        font-size: 0.84em;
+        font-size: var(--type-body);
         line-height: 1.42;
       }
 
       .research-focus-more {
         margin-top: 4px;
 
-        font-size: 0.72em;
+        font-size: var(--type-caption);
       }
 
       .recent-work {
@@ -1540,7 +1542,7 @@
       .recent-label {
         margin-bottom: 5px;
         opacity: 0.8;
-        font-size: 0.68em;
+        font-size: var(--type-caption);
         letter-spacing: 0.17em;
       }
 
@@ -1549,7 +1551,7 @@
         min-width: 0;
         width: 100%;
 
-        font-size: 0.97em;
+        font-size: var(--type-body);
         line-height: 1.38;
         letter-spacing: -0.001em;
 
@@ -1561,7 +1563,7 @@
       .recent-citation {
         margin-top: 3px;
 
-        font-size: 0.88em;
+        font-size: var(--type-body);
         line-height: 1.42;
 
         color: rgba(71, 85, 105, 0.76);
@@ -1589,7 +1591,7 @@
       .recent-doi {
         margin-left: 6px;
 
-        font-size: 0.92em;
+        font-size: var(--type-body);
         letter-spacing: 0.07em;
       }
 
@@ -1648,7 +1650,7 @@
 
         width: 100%;
 
-        font-size: 0.57em;
+        font-size: var(--type-caption);
         text-align: left;
       }
 
@@ -1715,7 +1717,7 @@
       }
 
       .home-mobile-recent-label {
-        font-size: 0.66em;
+        font-size: var(--type-caption);
         line-height: 1.4;
         letter-spacing: 0.16em;
         text-transform: uppercase;
@@ -1733,7 +1735,7 @@
         margin: 0;
         padding: 4px 0;
 
-        font-size: 0.72em;
+        font-size: var(--type-caption);
         line-height: 1.4;
 
         color: rgba(38, 51, 68, 0.78);
@@ -1751,7 +1753,7 @@
 
         margin: 1px 0 0;
         margin-left: 10px;
-        font-size: 0.88em;
+        font-size: var(--type-body);
         line-height: 1.2;
         letter-spacing: 0.045em;
 
@@ -1786,7 +1788,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        font-size: 0.86em;
+        font-size: var(--type-body);
         line-height: 1.4;
 
         text-align: right;
@@ -1808,7 +1810,7 @@
       body {
         padding: 60px 18px 48px;
 
-        font-size: 16px;
+        font-size: var(--type-body);
         line-height: 1.55;
       }
 
@@ -1817,7 +1819,7 @@
    * header 내부 전체가 연쇄적으로 너무 작아지는 문제 해결.
    */
       .header {
-        font-size: 1em;
+        font-size: inherit;
       }
 
 
@@ -1834,7 +1836,7 @@
       .header-row h1 {
         margin: 0;
 
-        font-size: clamp(2.15rem, 10vw, 2.6rem);
+        font-size: var(--type-display);
         line-height: 0.98;
         letter-spacing: 0;
 
@@ -1851,14 +1853,14 @@
       }
 
       .lang-switch {
-        font-size: 0.65rem;
+        font-size: var(--type-caption);
         letter-spacing: 0.14em;
       }
 
       .name-ja {
         bottom: -19px;
 
-        font-size: 0.68rem;
+        font-size: var(--type-caption);
         letter-spacing: 0.13em;
       }
 
@@ -1875,19 +1877,19 @@
       .tagline {
         margin-left: 10px;
 
-        font-size: 1rem;
+        font-size: var(--type-body);
         line-height: 1.5;
       }
 
       .tagline .line-strong {
-        font-size: 1.05rem;
+        font-size: var(--type-body);
         line-height: 1.45;
       }
 
       .tagline .line-muted {
         margin-top: 3px;
 
-        font-size: 0.86rem;
+        font-size: var(--type-small);
         line-height: 1.5;
       }
 
@@ -1905,19 +1907,19 @@
       }
 
       .affiliation-status-label {
-        font-size: 0.63rem;
+        font-size: var(--type-caption);
         letter-spacing: 0.1em;
       }
 
       .affiliation-role {
-        font-size: 0.86rem;
+        font-size: var(--type-small);
         letter-spacing: 0.01em;
       }
 
       .affiliation-status-institution {
         margin-top: 3px;
 
-        font-size: 0.75rem;
+        font-size: var(--type-caption);
         line-height: 1.4;
       }
 
@@ -1934,26 +1936,26 @@
       .research-focus-label {
         margin-bottom: 4px;
 
-        font-size: 0.62rem;
+        font-size: var(--type-caption);
         letter-spacing: 0.14em;
       }
 
       .research-focus-title {
-        font-size: 0.91rem;
+        font-size: var(--type-small);
         line-height: 1.4;
       }
 
       .research-focus-description {
         margin-top: 2px;
 
-        font-size: 0.76rem;
+        font-size: var(--type-caption);
         line-height: 1.45;
       }
 
       .research-focus-more {
         margin-top: 5px;
 
-        font-size: 0.69rem;
+        font-size: var(--type-caption);
       }
 
 
@@ -1973,19 +1975,19 @@
       .recent-label {
         margin-bottom: 6px;
 
-        font-size: 0.62rem;
+        font-size: var(--type-caption);
         letter-spacing: 0.15em;
       }
 
       .recent-title {
-        font-size: 0.9rem;
+        font-size: var(--type-small);
         line-height: 1.4;
       }
 
       .recent-citation {
         margin-top: 4px;
 
-        font-size: 0.73rem;
+        font-size: var(--type-caption);
         line-height: 1.4;
 
         color: rgba(71, 85, 105, 0.68);
@@ -1993,7 +1995,7 @@
       }
 
       .recent-doi {
-        font-size: 0.82em;
+        font-size: var(--type-small);
       }
 
       /* =========================================================
@@ -2013,12 +2015,12 @@
       .nav-index {
         margin-bottom: 4px;
 
-        font-size: 0.62rem;
+        font-size: var(--type-caption);
         letter-spacing: 0.25em;
       }
 
       .nav-label {
-        font-size: 1rem;
+        font-size: var(--type-body);
         line-height: 1.35;
       }
 
@@ -2033,19 +2035,19 @@
       }
 
       .footer-label {
-        font-size: 0.58rem;
+        font-size: var(--type-caption);
         letter-spacing: 0.14em;
       }
 
       .email-link {
-        font-size: 0.72rem;
+        font-size: var(--type-caption);
         line-height: 1.45;
       }
 
       .footer-meta {
         margin-top: 2px;
 
-        font-size: 0.58rem;
+        font-size: var(--type-caption);
         line-height: 1.45;
         letter-spacing: 0.02em;
       }
@@ -2060,7 +2062,10 @@
       border: 1px solid rgba(11, 31, 58, 0.28);
       background: #fff;
       color: #0B1F3A;
-      font: 600 0.9rem/1.2 Georgia, serif;
+      font-family: Georgia, serif;
+  font-weight: 600;
+  font-size: var(--type-small);
+  line-height: 1.2;
       text-decoration: none;
       transform: translateY(-180%);
       transition: transform 0.15s ease;
@@ -2091,6 +2096,37 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+    }
+
+    /* Mobile composition: keep the quiet artwork as authored; reveal copy naturally. */
+    @media (max-width: 640px) {
+      .recent-title {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        overflow-wrap: anywhere;
+      }
+      .home-mobile-recent .home-rail-update-title {
+        white-space: normal;
+        text-overflow: clip;
+        overflow: visible;
+        overflow-wrap: anywhere;
+        line-height: 1.45;
+      }
+      .home-mobile-recent .home-rail-update-meta {
+        white-space: normal;
+        text-overflow: clip;
+        overflow: visible;
+      }
+    }
+    @media (max-width: 360px) {
+      .header-row {
+        grid-template-columns: minmax(0, 1fr) 52px;
+        column-gap: 8px;
+      }
+      .profile-block, .id-photo-wrap { width: 52px; }
+      .id-photo-wrap { height: 52px; }
+      .header-row h1 { min-width: 0; }
     }
 </style>
 </head>
