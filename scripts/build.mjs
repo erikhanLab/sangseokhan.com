@@ -346,7 +346,7 @@ async function appendPaletteStylesheet() {
   const tag = [
     '  <link rel="stylesheet" href="/assets/css/cool-academic.css?v=1">',
     '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=1">',
-    '  <link rel="stylesheet" href="/assets/css/editorial-link-marks.css?v=1">',
+    '  <link rel="stylesheet" href="/assets/css/editorial-link-marks.css?v=2">',
   ].join('\n');
   for (const route of paths) {
     const file = route === "/404.html" ? path.join(DIST, "404.html") : routeFile(DIST, route);

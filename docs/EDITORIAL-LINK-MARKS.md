@@ -1,10 +1,16 @@
-# Editorial Link Marks — Patch 10
+# Editorial Link Marks — Patch 11 refinement
 
-- External/open-new-tab links: small staggered open corners instead of `↗`.
-- Local route/section navigation: slender terminal rule instead of `→`.
-- Back and back-to-top navigation: the same restrained geometry.
-- DOI links are intentionally excluded from link-marker treatment.
-- Home selected-work DOI: caption-scale, quieter color, reduced letterspacing.
-- Publications DOI: no label underline or hover underline (keyboard focus outline remains).
+## Link semantics
+- External destination: a slim north-east arrow (↗), without a box or corner frame.
+- Internal forward navigation: a clear horizontal right arrow (→).
+- Back and back-to-top: clear left and up arrows (← / ↑).
 
-The CSS geometry is centralized in `assets/css/editorial-link-marks.css`. In HTML, decorative markers have `aria-hidden="true"`. No research graphics, textual content, URLs, or outgoing link targets were changed.
+Icons are small, muted, and standardized in `assets/css/editorial-link-marks.css`, with screen-reader-hidden marker spans. Links and destinations were not changed.
+
+## Publications DOI
+- Removed the remaining hover underline rule in `src/templates/publications-index.html`.
+- Anchor and label borders, shadows, and text-decoration are explicitly removed in the shared stylesheet, including hover and focus states.
+- Keyboard focus still has a visible outline.
+- Version query updated to `v=2` so previously cached marker CSS cannot mask the update.
+
+The same stylesheet is linked by all 17 generated pages; only its version reference and the Publications template required HTML changes. No text, data, content ordering or site visualizations were altered.

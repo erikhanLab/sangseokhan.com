@@ -1,6 +1,9 @@
-/* Editorial links v1 — no typographic arrow glyphs.
-   Forward links use a fine terminal; new-window links use two open corners.
-   Back / top actions are the same quiet rule language. */
+/* Editorial navigation icons v2
+   Recognizable direction and external-destination conventions:
+   - internal: →  - external: ↗, clearly distinct from horizontal navigation
+   - back: ←  - top: ↑
+   Symbols are decorative; descriptive link text is preserved.
+*/
 :root {
   --editorial-mark-ink: #61778a;
   --editorial-mark-ink-hover: #3f5a72;
@@ -9,8 +12,8 @@
   position: relative;
   display: inline-block !important;
   box-sizing: border-box;
-  width: 12px;
-  height: 12px;
+  width: 12px !important;
+  height: 12px !important;
   min-width: 12px;
   flex: 0 0 12px;
   margin-left: 3px;
@@ -19,73 +22,62 @@
   letter-spacing: 0 !important;
   white-space: nowrap;
   color: var(--editorial-mark-ink);
-  opacity: 0.64;
+  opacity: 0.70;
   vertical-align: -1px;
   transform: none !important;
-  transition: opacity 160ms ease, color 160ms ease !important;
   pointer-events: none;
+  transition: opacity 160ms ease, color 160ms ease !important;
 }
-.editorial-mark::before,
-.editorial-mark::after {
-  content: "";
-  position: absolute;
-  display: block;
+.editorial-mark::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
   box-sizing: border-box;
-  font-size: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: currentColor !important;
+  transform: none !important;
+  opacity: 1 !important;
+  -webkit-mask: var(--editorial-symbol) center / contain no-repeat;
+  mask: var(--editorial-symbol) center / contain no-repeat;
 }
-/* Two staggered, open corners evoke an outward-opening frame, not an arrow. */
-.editorial-mark--external::before {
-  left: 1px;
-  bottom: 1px;
-  width: 8px;
-  height: 8px;
-  border-left: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
+.editorial-mark::after {
+  content: none !important;
+  display: none !important;
 }
-.editorial-mark--external::after {
-  top: 1px;
-  right: 1px;
-  width: 8px;
-  height: 8px;
-  border-top: 1px solid currentColor;
-  border-right: 1px solid currentColor;
-}
-/* An anchored, unobtrusive rule signals local page navigation. */
-.editorial-mark--forward::before,
-.editorial-mark--back::before {
-  top: 5.5px;
-  left: 1px;
-  width: 10px;
-  border-top: 1px solid currentColor;
-}
-.editorial-mark--forward::after,
-.editorial-mark--back::after {
-  top: 4px;
-  width: 2px;
-  height: 3px;
-  border-left: 1px solid currentColor;
-}
-.editorial-mark--forward::after { right: 0; }
-.editorial-mark--back::after { left: 0; }
-.editorial-mark--back { margin-left: 0; margin-right: 3px; }
-.editorial-mark--up::before {
-  left: 5.5px;
-  top: 1px;
-  height: 10px;
-  border-left: 1px solid currentColor;
-}
-.editorial-mark--up::after {
-  top: 0;
-  left: 4px;
-  width: 3px;
-  border-top: 1px solid currentColor;
+.editorial-mark--external { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.55%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2013%2012.5%203.5%22%2F%3E%3Cpath%20d%3D%22M6.5%203.5h6v6%22%2F%3E%3C%2Fsvg%3E"); }
+.editorial-mark--forward { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M2%208h11%22%2F%3E%3Cpath%20d%3D%22m9%204%204%204-4%204%22%2F%3E%3C%2Fsvg%3E"); }
+.editorial-mark--back { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%208H3%22%2F%3E%3Cpath%20d%3D%22m7%204-4%204%204%204%22%2F%3E%3C%2Fsvg%3E"); }
+.editorial-mark--up { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%2014V3%22%2F%3E%3Cpath%20d%3D%22m4%207%204-4%204%204%22%2F%3E%3C%2Fsvg%3E"); }
+
+.editorial-mark--back {
+  margin-left: 0;
+  margin-right: 3px;
 }
 a:is(:hover, :focus-visible) .editorial-mark,
 .footer-top:is(:hover, :focus-visible) .editorial-mark {
-  opacity: 0.95;
   color: var(--editorial-mark-ink-hover);
+  opacity: .98;
   transform: none !important;
 }
+
+/* DOI is a small metadata link, not an underlined call to action.
+   Neutralize both the anchor and label in every interactive state. */
+a.pub-doi,
+a.pub-doi:is(:hover, :focus, :focus-visible, :active),
+a.pub-doi .pub-doi-label,
+a.pub-doi:is(:hover, :focus, :focus-visible, :active) .pub-doi-label {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+}
+/* Preserve a visible keyboard focus indication independent of underlines. */
+a.pub-doi:focus-visible { outline: 1.5px solid currentColor; outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   .editorial-mark { transition: none !important; }
 }
