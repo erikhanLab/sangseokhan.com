@@ -1,0 +1,72 @@
+/* Patch 9 — Contrast & Component Refinement
+   The Cool Academic palette remains the source of truth. This layer only
+   improves readable UI metadata, editorial dividers, tags and link states.
+   No changes to typography tiers, spacing, research visualisations,
+   Archive illustration, or the deliberately faint Home graphic.
+*/
+:root {
+  --ui-text-secondary: #526376;       /* 5.54:1 on #F1F3F5 */
+  --ui-text-caption: #566C80;         /* 4.90:1 on #F1F3F5 */
+  --ui-link: #48677B;                 /* accessible steel-blue derivative */
+  --ui-rule-hairline: rgba(11, 31, 58, .13);
+  --ui-rule-section: rgba(11, 31, 58, .20);
+  --ui-tag-ink: #435D72;
+  --ui-tag-surface: rgba(11, 31, 58, .028);
+  --ui-tag-rule: rgba(11, 31, 58, .16);
+}
+
+/* Muted labels remain secondary, but should remain legible. */
+.footer-field,
+.footer-top-arrow { color: var(--ui-text-caption); }
+.nav:not(:has(.nav-index)) a:not(.active) { color: var(--ui-text-caption); }
+.nav-index,
+.recent-label { color: var(--ui-text-caption); }
+
+/* Profile — readable dates and citations, without lifting focus from titles. */
+.profile-record-section .affiliation-year,
+.award-year,
+.award-source,
+.feature-writing-kind,
+.feature-writing-year,
+.feature-writing-source,
+.outside-research-tags {
+  color: var(--ui-text-secondary);
+}
+.feature-writing-actions a { color: var(--ui-link); }
+.awards-block,
+.features-writing-block,
+.outside-research-block { border-left-color: var(--ui-rule-section); }
+.award-item + .award-item,
+.feature-writing-item + .feature-writing-item { border-top-color: var(--ui-rule-hairline); }
+
+/* Research — quiet tags and metadata with a definite, repeatable edge.
+   Chart markers, research landscape network, and illustration colors stay as-is. */
+.current-project-topics span {
+  color: var(--ui-tag-ink);
+  background-color: var(--ui-tag-surface);
+  border-color: var(--ui-tag-rule);
+}
+.current-project-period,
+.current-project-caption-source,
+.current-project-outputs-heading,
+.research-network-heading,
+.research-network-role,
+.research-network-period,
+.role-tag { color: var(--ui-text-secondary); }
+.role-tag { border-left-color: var(--ui-rule-hairline); }
+.current-project-outputs { border-top-color: var(--ui-rule-hairline); }
+
+/* Publications — distinguish metadata from links and use one hairline system. */
+.publication-overview { border-bottom-color: var(--ui-rule-hairline); }
+.pub-legend,
+.pub-meta,
+.pub-year,
+.publication-count { color: var(--ui-text-secondary); }
+a.pub-doi { color: var(--ui-link); }
+a.pub-doi .pub-doi-label {
+  border-bottom: 1px solid rgba(72, 103, 123, .38);
+}
+a.pub-doi:is(:hover, :focus-visible) { color: var(--tone-display); }
+a.pub-doi:is(:hover, :focus-visible) .pub-doi-label {
+  border-bottom-color: currentColor;
+}

@@ -343,12 +343,17 @@ for (const publication of publications) await renderPublicationDetail(publicatio
 // the reviewed Home/Publications color-study cascade exactly.
 async function appendPaletteStylesheet() {
   const paths = [ ...routes.map((route) => route.path), "/404.html" ];
-  const tag = '  <link rel="stylesheet" href="/assets/css/cool-academic.css?v=1">';
+  const tag = [
+    '  <link rel="stylesheet" href="/assets/css/cool-academic.css?v=1">',
+    '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=1">',
+  ].join('\n');
   for (const route of paths) {
     const file = route === "/404.html" ? path.join(DIST, "404.html") : routeFile(DIST, route);
     let html = await readFile(file, "utf8");
     if (!html.includes("</head>")) throw new Error(`${route}: no closing head for palette inclusion`);
-    if (html.includes("cool-academic.css")) throw new Error(`${route}: duplicate palette inclusion`);
+    if (html.includes("cool-academic.css") || html.includes("component-refinement.css")) {
+      throw new Error(`${route}: duplicate color/component stylesheet inclusion`);
+    }
     html = html.replace("</head>", `${tag}\n</head>`);
     await writeFile(file, html);
   }
