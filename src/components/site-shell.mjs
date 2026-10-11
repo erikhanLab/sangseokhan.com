@@ -45,7 +45,7 @@ export function renderStandardFooter(person, site) {
     </div>
     <a class="footer-top" href="#top">
       <span data-en="Back to top" data-ja="ページ上部へ">Back to top</span>
-      <span class="footer-top-arrow" aria-hidden="true">↑</span>
+      <span class="footer-top-arrow editorial-mark editorial-mark--up" aria-hidden="true"></span>
     </a>
   </footer>`;
 }

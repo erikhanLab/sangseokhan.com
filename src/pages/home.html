@@ -2129,6 +2129,26 @@
       .id-photo-wrap { height: 52px; }
       .header-row h1 { min-width: 0; }
     }
+    /* Home DOI is metadata, not a second visual headline. */
+    .recent-citation a.recent-doi {
+      font-size: var(--type-caption);
+      line-height: 1.2;
+      font-weight: 400;
+      letter-spacing: 0.045em;
+      color: #718394;
+      opacity: 0.78;
+    }
+    .recent-citation a.recent-doi::before {
+      color: #718394;
+      opacity: 0.46;
+    }
+    .recent-citation a.recent-doi:is(:hover, :focus-visible) {
+      color: #48677b;
+      opacity: 1;
+    }
+    .recent-citation a.recent-doi .recent-doi-label {
+      border-bottom: 0;
+    }
 </style>
 </head>
 
@@ -2152,14 +2172,14 @@
           <span data-en="Spatial Hull Roughness" data-ja="船体粗さの空間分布">
             Spatial Hull Roughness
           </span>
-          <span aria-hidden="true">→</span>
+          <span class="editorial-mark editorial-mark--forward" aria-hidden="true"></span>
         </a>
 
         <a href="/research/#added-resistance">
           <span data-en="Added Resistance in Waves" data-ja="波浪中付加抵抗">
             Added Resistance in Waves
           </span>
-          <span aria-hidden="true">→</span>
+          <span class="editorial-mark editorial-mark--forward" aria-hidden="true"></span>
         </a>
 
         <!--
@@ -2168,7 +2188,7 @@
           <span data-en="CFD–MBD / Wave Energy" data-ja="CFD–MBD・波力エネルギー">
             CFD–MBD / Wave Energy
           </span>
-          <span aria-hidden="true">→</span>
+          <span class="editorial-mark editorial-mark--forward" aria-hidden="true"></span>
         </a>
       -->
       </nav>
@@ -2206,7 +2226,7 @@
           Enquiries
         </span>
 
-        <span aria-hidden="true">→</span>
+        <span class="editorial-mark editorial-mark--forward" aria-hidden="true"></span>
       </a>
 
     </div>
@@ -2330,7 +2350,7 @@
               <span data-en="Explore research" data-ja="研究を見る">
                 Explore research
               </span>
-              <span aria-hidden="true">→</span>
+              <span class="editorial-mark editorial-mark--forward" aria-hidden="true"></span>
             </span>
 
           </a>
@@ -2396,7 +2416,7 @@
           <span data-en="Timeline" data-ja="年表">
             Timeline
           </span>
-          <span aria-hidden="true">→</span>
+          <span class="editorial-mark editorial-mark--forward" aria-hidden="true"></span>
         </a>
       </div>
 

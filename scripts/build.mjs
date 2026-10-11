@@ -304,7 +304,7 @@ async function renderPublicationDetail(p) {
 <body id="top">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MMRV373" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <nav class="top-back" aria-label="Back navigation">← <a href="/publications/">Back to Publications</a></nav>
+  <nav class="top-back" aria-label="Back navigation"><span class="editorial-mark editorial-mark--back" aria-hidden="true"></span> <a href="/publications/">Back to Publications</a></nav>
   <main id="main-content" tabindex="-1">
     <h1>${esc(p.title)}</h1>
     <div class="meta">${p.detailMetaHtml}</div>
@@ -346,12 +346,13 @@ async function appendPaletteStylesheet() {
   const tag = [
     '  <link rel="stylesheet" href="/assets/css/cool-academic.css?v=1">',
     '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=1">',
+    '  <link rel="stylesheet" href="/assets/css/editorial-link-marks.css?v=1">',
   ].join('\n');
   for (const route of paths) {
     const file = route === "/404.html" ? path.join(DIST, "404.html") : routeFile(DIST, route);
     let html = await readFile(file, "utf8");
     if (!html.includes("</head>")) throw new Error(`${route}: no closing head for palette inclusion`);
-    if (html.includes("cool-academic.css") || html.includes("component-refinement.css")) {
+    if (html.includes("cool-academic.css") || html.includes("component-refinement.css") || html.includes("editorial-link-marks.css")) {
       throw new Error(`${route}: duplicate color/component stylesheet inclusion`);
     }
     html = html.replace("</head>", `${tag}\n</head>`);

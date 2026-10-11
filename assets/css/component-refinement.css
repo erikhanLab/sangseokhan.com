@@ -63,10 +63,5 @@
 .pub-year,
 .publication-count { color: var(--ui-text-secondary); }
 a.pub-doi { color: var(--ui-link); }
-a.pub-doi .pub-doi-label {
-  border-bottom: 1px solid rgba(72, 103, 123, .38);
-}
+a.pub-doi .pub-doi-label { border-bottom: 0; }
 a.pub-doi:is(:hover, :focus-visible) { color: var(--tone-display); }
-a.pub-doi:is(:hover, :focus-visible) .pub-doi-label {
-  border-bottom-color: currentColor;
-}

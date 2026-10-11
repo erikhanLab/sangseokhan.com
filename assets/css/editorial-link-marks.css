@@ -1,0 +1,91 @@
+/* Editorial links v1 — no typographic arrow glyphs.
+   Forward links use a fine terminal; new-window links use two open corners.
+   Back / top actions are the same quiet rule language. */
+:root {
+  --editorial-mark-ink: #61778a;
+  --editorial-mark-ink-hover: #3f5a72;
+}
+.editorial-mark {
+  position: relative;
+  display: inline-block !important;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  flex: 0 0 12px;
+  margin-left: 3px;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap;
+  color: var(--editorial-mark-ink);
+  opacity: 0.64;
+  vertical-align: -1px;
+  transform: none !important;
+  transition: opacity 160ms ease, color 160ms ease !important;
+  pointer-events: none;
+}
+.editorial-mark::before,
+.editorial-mark::after {
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  font-size: 0 !important;
+}
+/* Two staggered, open corners evoke an outward-opening frame, not an arrow. */
+.editorial-mark--external::before {
+  left: 1px;
+  bottom: 1px;
+  width: 8px;
+  height: 8px;
+  border-left: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+}
+.editorial-mark--external::after {
+  top: 1px;
+  right: 1px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+}
+/* An anchored, unobtrusive rule signals local page navigation. */
+.editorial-mark--forward::before,
+.editorial-mark--back::before {
+  top: 5.5px;
+  left: 1px;
+  width: 10px;
+  border-top: 1px solid currentColor;
+}
+.editorial-mark--forward::after,
+.editorial-mark--back::after {
+  top: 4px;
+  width: 2px;
+  height: 3px;
+  border-left: 1px solid currentColor;
+}
+.editorial-mark--forward::after { right: 0; }
+.editorial-mark--back::after { left: 0; }
+.editorial-mark--back { margin-left: 0; margin-right: 3px; }
+.editorial-mark--up::before {
+  left: 5.5px;
+  top: 1px;
+  height: 10px;
+  border-left: 1px solid currentColor;
+}
+.editorial-mark--up::after {
+  top: 0;
+  left: 4px;
+  width: 3px;
+  border-top: 1px solid currentColor;
+}
+a:is(:hover, :focus-visible) .editorial-mark,
+.footer-top:is(:hover, :focus-visible) .editorial-mark {
+  opacity: 0.95;
+  color: var(--editorial-mark-ink-hover);
+  transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .editorial-mark { transition: none !important; }
+}
