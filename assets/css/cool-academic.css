@@ -1,0 +1,77 @@
+/* Cool Academic — approved site-wide color palette.
+   Applied last to preserve the approved Home / Publications color study,
+   while sharing the same quiet navigation and text palette across pages.
+   Intentionally contains only color / background / border-color / tokens.
+   No type, spacing, positioning, layout or research-graphic changes.
+*/
+:root {
+  --bg-light: #F1F3F5;
+  --bg: #F1F3F5;
+  --ink: #0B1F3A;
+  --muted: #526376;
+  --accent: #56758A;
+  --tone-display: #0B1F3A;
+  --tone-heading: #152B45;
+  --tone-body: #28384B;
+  --tone-secondary: #526376;
+  --tone-meta: #63758A;
+  --tone-label: #63758A;
+  --rule-soft: rgba(11, 31, 58, .095);
+  --rule-standard: rgba(11, 31, 58, .145);
+}
+body {
+  background-color: #F1F3F5;
+  color: #28384B;
+}
+/* Preserve the deliberately faint home research illustration and photo edge.
+   This block only retunes the surrounding editorial labels. */
+.tagline .line-muted {
+  color: #56758A;
+}
+.affiliation {
+  color: #526376;
+}
+.affiliation-institution {
+  color: #465A6E;
+}
+.nav-index,
+.recent-label {
+  color: #657B90;
+}
+/* Shared interior navigation + editorial publication hierarchy. */
+.site-name {
+  color: #0B1F3A;
+}
+.nav:not(:has(.nav-index)) {
+  background-color: rgba(229, 236, 242, .97);
+  border-top-color: rgba(11, 31, 58, .07);
+  border-bottom-color: rgba(11, 31, 58, .10);
+}
+.nav:not(:has(.nav-index)).is-scrolled {
+  background-color: rgba(229, 236, 242, .96);
+}
+.nav:not(:has(.nav-index)) a:not(.active) {
+  color: #65778B;
+}
+.nav:not(:has(.nav-index)) a.active {
+  color: #0B1F3A;
+}
+.pub-title {
+  color: #203247;
+}
+.pub-authors .main-author {
+  color: #253B52;
+}
+.pub-meta,
+.pub-year,
+.publication-count,
+.scholar-profile-link {
+  color: #526376;
+}
+.pub-doi {
+  color: #56758A;
+}
+.pub-legend {
+  color: #526376;
+}
+

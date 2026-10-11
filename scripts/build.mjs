@@ -338,6 +338,23 @@ await copyGeneratedPageAssets();
 await renderGeneratedContentPages();
 await renderPublicationsIndex();
 for (const publication of publications) await renderPublicationDetail(publication);
+// The shared palette is the final stylesheet on every page. Keeping it
+// after page-specific styles prevents scattered color overrides and matches
+// the reviewed Home/Publications color-study cascade exactly.
+async function appendPaletteStylesheet() {
+  const paths = [ ...routes.map((route) => route.path), "/404.html" ];
+  const tag = '  <link rel="stylesheet" href="/assets/css/cool-academic.css?v=1">';
+  for (const route of paths) {
+    const file = route === "/404.html" ? path.join(DIST, "404.html") : routeFile(DIST, route);
+    let html = await readFile(file, "utf8");
+    if (!html.includes("</head>")) throw new Error(`${route}: no closing head for palette inclusion`);
+    if (html.includes("cool-academic.css")) throw new Error(`${route}: duplicate palette inclusion`);
+    html = html.replace("</head>", `${tag}\n</head>`);
+    await writeFile(file, html);
+  }
+}
+await appendPaletteStylesheet();
+
 await writeRobotsAndSitemap();
 
 const generated = routes.filter((r) => r.source.startsWith("generated")).length;
