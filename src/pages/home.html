@@ -1211,61 +1211,6 @@
       isolation: isolate;
     }
 
-    .kinetic-line-field {
-      position: absolute;
-      top: 28px;
-      right: -18px;
-
-      width: min(560px, 78%);
-      height: 226px;
-
-      pointer-events: none;
-      user-select: none;
-      overflow: hidden;
-
-      z-index: 1;
-      opacity: 0.92;
-      isolation: isolate;
-
-      -webkit-mask-image:
-        radial-gradient(ellipse at 62% 48%, black 0%, black 56%, rgba(0, 0, 0, 0.78) 74%, transparent 100%),
-        linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.72) 10%, black 24%, black 86%, transparent 100%);
-      mask-image:
-        radial-gradient(ellipse at 62% 48%, black 0%, black 56%, rgba(0, 0, 0, 0.78) 74%, transparent 100%),
-        linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.72) 10%, black 24%, black 86%, transparent 100%);
-
-      filter: saturate(0.95);
-    }
-
-    .kinetic-line-field::before,
-    .kinetic-line-field::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .kinetic-line-field::before {
-      background:
-        radial-gradient(circle at 68% 50%, rgba(86, 117, 138, 0.08) 0%, rgba(86, 117, 138, 0.03) 26%, rgba(86, 117, 138, 0) 70%);
-      opacity: 0.9;
-      mix-blend-mode: multiply;
-    }
-
-    .kinetic-line-field::after {
-      background:
-        linear-gradient(180deg, rgba(241, 243, 245, 0.72) 0%, rgba(241, 243, 245, 0.14) 22%, rgba(241, 243, 245, 0.10) 78%, rgba(241, 243, 245, 0.72) 100%);
-    }
-
-    .kinetic-line-field-canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
-
-      filter: blur(1.6px);
-      opacity: 0.95;
-    }
-
     .research-transition-graphic {
       position: absolute;
       top: 88px;
@@ -1394,29 +1339,7 @@
       }
     }
 
-    @media (max-width: 900px) {
-      .kinetic-line-field {
-        top: 42px;
-        right: -24px;
-        width: min(430px, 82%);
-        height: 188px;
-        opacity: 0.72;
-      }
-    }
-
     @media (max-width: 640px) {
-      .kinetic-line-field {
-        top: 58px;
-        right: -34px;
-        width: min(320px, 88%);
-        height: 138px;
-        opacity: 0.44;
-      }
-
-      .kinetic-line-field-canvas {
-        filter: blur(1.25px);
-      }
-
       body {
         padding: 64px 18px 56px;
         font-size: var(--type-body);
@@ -2198,11 +2121,6 @@
       }
     }
     @media (max-width: 360px) {
-      .kinetic-line-field {
-        right: -42px;
-        width: min(284px, 92%);
-      }
-
       .header-row {
         grid-template-columns: minmax(0, 1fr) 52px;
         column-gap: 8px;
@@ -2348,10 +2266,6 @@
       </div>
 
       <div class="research-transition">
-        <div class="kinetic-line-field" aria-hidden="true">
-          <canvas class="kinetic-line-field-canvas"></canvas>
-        </div>
-
         <div class="affiliation">
 
           <div class="desktop-only affiliation-status">
@@ -2541,8 +2455,6 @@
     </footer>
 
   </div>
-
-  <script src="/assets/js/home-kinetic-field.js?v=1" defer></script>
 
   <script>
     window.addEventListener('load', () => {

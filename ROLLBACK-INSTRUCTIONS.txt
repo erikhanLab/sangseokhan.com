@@ -1,0 +1,18 @@
+KINETIC LINE FIELD ROLLBACK
+
+This rollback reverses ONLY the last Home Kinetic Line Field patch.
+All earlier design and content changes are preserved.
+
+STEP 1: Extract this archive into your project root and overwrite the existing files.
+Files restored:
+- src/pages/home.html
+- dist/index.html
+
+STEP 2: Delete the following three files added by the kinetic patch:
+- assets/js/home-kinetic-field.js
+- dist/assets/js/home-kinetic-field.js
+- docs/KINETIC-LINE-FIELD.md
+
+STEP 3: If building from source, run npm run build.
+
+The animation and its canvas markup are gone. Do not remove any other scripts or CSS.
