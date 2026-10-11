@@ -1,0 +1,99 @@
+/* Interaction & editorial rhythm · follows the 6-level type and spacing systems.
+   No new type sizes, movement-heavy effects, or changes to research graphics. */
+:root {
+  --interaction-ink: var(--tone-display);
+  --interaction-focus: rgba(11, 31, 58, .78);
+  --interaction-hover: rgba(11, 31, 58, .055);
+  --interaction-duration: 160ms;
+  --rhythm-heading-gap: var(--flow-item);
+  --rhythm-subgroup-gap: var(--flow-group);
+}
+
+/* Stable active/hover states: navigation must not jump or change tracking. */
+.nav a:hover {
+  letter-spacing: .09em;
+  transform: none;
+}
+.nav a:is(:hover, :focus-visible) { color: var(--interaction-ink); }
+.nav a.active { color: var(--interaction-ink); }
+.lang-switch a:is(:hover, :focus-visible) { color: var(--interaction-ink); opacity: 1; }
+
+/* One consistent keyboard indication for actionable elements, even in custom pages. */
+:where(a[href], button, summary, select, input, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid var(--interaction-focus) !important;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+:where(a[href]):focus-visible { text-decoration-thickness: 1px; text-underline-offset: .2em; }
+:where(a[href], button, summary) { -webkit-tap-highlight-color: rgba(11,31,58,.10); }
+
+/* Consistent quiet affordance for inline links, without altering illustration links. */
+:where(main, #main-content) :where(p, li, figcaption) a[href]:not([class]) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: .17em;
+  transition: color var(--interaction-duration) ease, text-decoration-color var(--interaction-duration) ease;
+}
+:where(main, #main-content) :where(p, li, figcaption) a[href]:not([class]):hover {
+  color: var(--interaction-ink);
+  text-decoration-color: currentColor;
+}
+
+/* Anchored headings should clear the sticky masthead and remain easy to scan. */
+:where(main, #main-content) :where(section[id], article[id], h2[id], h3[id], .year-section[id], .subsection[id]) {
+  scroll-margin-top: calc(var(--space-8) + var(--space-5));
+}
+:where(main, #main-content) :where(.section, .year-section, .ongoing-research, .research-timeline) :where(h2, h3) {
+  text-wrap: balance;
+}
+
+/* Editorial rhythm: section-to-subsection and subsection-to-entry; bespoke
+   figure / timeline geometries remain controlled by their original styles. */
+:where(main, #main-content) .section > :where(h2, .section-heading-row) + :where(.subsection, .affiliation-block, .awards-block, .features-writing-block, .reviewer-block) {
+  margin-top: var(--rhythm-heading-gap);
+}
+:where(main, #main-content) .section .subsection > h3 + :where(ol, ul, div) {
+  margin-top: var(--flow-item);
+}
+
+@media (max-width: 640px) {
+  .nav a:hover { letter-spacing: .015em; transform: none; }
+  :root { --rhythm-heading-gap: var(--space-3); --rhythm-subgroup-gap: var(--space-4); }
+  :where(main, #main-content) :where(section[id], article[id], h2[id], h3[id], .year-section[id]) {
+    scroll-margin-top: calc(var(--space-8) + var(--space-4));
+  }
+}
+@media (hover: none) { .nav a:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  :where(main, #main-content) a, .nav a { transition: none !important; }
+}
+
+/* Patch 6: optical refinement — no new font-size tiers.
+   Progressive enhancement: unsupported text-wrap values are ignored.
+   Limit changes to editorial text; do not retouch research graphics,
+   timelines, citations with deliberate line breaks, or the home illustration. */
+:root {
+  --optical-prose-leading: 1.68;
+  --optical-mobile-leading: 1.64;
+}
+
+/* Avoid one-word final lines in running prose without forcing fixed breaks. */
+@supports (text-wrap: pretty) {
+  :where(main, #main-content) :where(.section, .subsection) > p {
+    text-wrap: pretty;
+  }
+}
+
+/* Long URLs and long unspaced words may wrap instead of forcing sideways scroll. */
+:where(main, #main-content) :where(p, li, figcaption) a[href] {
+  overflow-wrap: break-word;
+}
+
+/* Paragraph leading is tuned separately from labels, data, and headings. */
+:where(main, #main-content) :where(.section, .subsection) > p {
+  line-height: var(--optical-prose-leading);
+}
+@media (max-width: 640px) {
+  :where(main, #main-content) :where(.section, .subsection) > p {
+    line-height: var(--optical-mobile-leading);
+  }
+}

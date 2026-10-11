@@ -170,7 +170,7 @@
     .current-project {
       display: grid;
       grid-template-columns: minmax(290px, 320px) minmax(0, 1fr);
-      gap: 28px;
+      gap: var(--space-6);
       align-items: start;
 
       padding: 0;
@@ -228,7 +228,7 @@
       line-height: 1.48;
       letter-spacing: 0.015em;
 
-      color: rgba(18, 32, 51, 0.88);
+      color: var(--tone-heading);
     }
 
     .current-project-description {
@@ -236,7 +236,7 @@
       font-size: var(--type-small);
       line-height: 1.62;
       letter-spacing: 0.005em;
-      color: rgba(34, 42, 53, 0.76);
+      color: var(--tone-secondary);
       text-align: justify;
       text-align-last: left;
       text-justify: inter-word;
@@ -250,7 +250,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 14px;
+      margin-top: var(--space-4);
     }
 
     .current-project-topics span {
@@ -931,8 +931,8 @@
 
     .current-project+.current-project {
       position: relative;
-      margin-top: 20px;
-      padding-top: 28px;
+      margin-top: var(--space-5);
+      padding-top: var(--space-6);
     }
 
     .current-project+.current-project::before {
@@ -962,14 +962,14 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 28px;
+      gap: var(--space-6);
 
       box-sizing: border-box;
       width: 100%;
       max-width: 1320px;
 
-      margin: 44px 0 58px;
-      padding: 18px 4px 20px;
+      margin: var(--flow-section) 0 var(--space-8);
+      padding: var(--space-4) var(--space-1) var(--space-5);
     }
 
     .research-contact-cta::before {
@@ -1051,13 +1051,13 @@
       width: 100%;
       max-width: 1320px;
 
-      margin: 44px 0 58px;
-      padding-top: 24px;
-      padding-bottom: 20px;
+      margin: var(--flow-section) 0 var(--space-8);
+      padding-top: var(--space-5);
+      padding-bottom: var(--space-5);
     }
 
     .research-context-heading {
-      margin: 0 0 20px;
+      margin: 0 0 var(--flow-group);
 
       font-size: var(--type-lead);
       font-weight: 500;
@@ -1077,13 +1077,13 @@
       display: grid;
       grid-template-columns:
         190px minmax(0, 1fr) auto;
-      column-gap: 28px;
+      column-gap: var(--space-6);
       align-items: baseline;
 
       box-sizing: border-box;
       width: 100%;
 
-      padding: 12px 4px;
+      padding: var(--space-3) var(--space-1);
 
       font-size: var(--type-body);
 
