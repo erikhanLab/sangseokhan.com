@@ -143,7 +143,7 @@
 
       width: fit-content;
       max-width: 100%;
-      margin-top: -8px;
+      margin: -8px 0 0 auto;
       color: var(--tone-body);
     }
 
@@ -158,17 +158,17 @@
       gap: var(--space-2);
       box-sizing: border-box;
       min-width: 0;
-      min-height: 42px;
-      padding: 10px 2px 11px;
+      min-height: 36px;
+      padding: 6px 2px;
 
-      border-bottom: 1px solid var(--rule-standard);
+      border-bottom: none;
       color: var(--tone-body);
       font-size: var(--type-small);
       line-height: 1.45;
       letter-spacing: 0.015em;
       text-decoration: none;
 
-      transition: color 0.2s ease, border-color 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     .icon-label {
@@ -197,7 +197,6 @@
     .icons a:hover,
     .icons a:focus-visible {
       color: var(--ink);
-      border-bottom-color: rgba(11, 31, 58, 0.32);
     }
 
     .icons a:hover .profile-link-indicator,
@@ -245,9 +244,9 @@
       background: var(--rule-soft);
     }
 
-    .icons+.divider {
-      margin-top: var(--space-4);
-      margin-bottom: var(--flow-group);
+    .profile-intro + .divider {
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
 
     .desktop-only {
@@ -1888,7 +1887,7 @@
         width: 100%;
         max-width: none;
         column-gap: var(--space-4);
-        margin: 0 0 var(--space-5);
+        margin: 0 0 var(--space-3);
       }
 
       .icons a {
@@ -2291,14 +2290,51 @@
       }
     }
   
+    /* Mobile profile — quiet but readable records and fewer competing dividers. */
     @media (max-width: 640px) {
+      .section { margin-bottom: 0; }
+      .section h2 {
+        font-size: var(--type-small);
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 0.04em;
+        text-transform: none;
+        margin-bottom: 14px;
+      }
+      .divider { margin: 12px 0 20px; opacity: .48; }
+      .icons { column-gap: var(--space-4); margin-bottom: 6px; }
+      .icons a {
+        min-height: 44px;
+        font-size: var(--type-caption);
+        font-weight: 400;
+      }
+      .profile-record-section .affiliation-item { padding-top: 9px; padding-bottom: 9px; }
+      .profile-record-section .affiliation-primary {
+        font-size: var(--type-small);
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 1.48;
+      }
+      .profile-record-section .affiliation-country {
+        font-size: var(--type-caption);
+        letter-spacing: .04em;
+      }
+      .profile-record-section .affiliation-context,
+      .profile-record-section .affiliation-unit,
+      .profile-record-section .affiliation-secondary { line-height: 1.5; }
+      .current-role { font-size: var(--type-small); }
+      .current-affiliation { font-size: var(--type-caption); }
+      .award-title { font-size: var(--type-small); font-weight: 400; }
+      .award-source, .award-year { font-size: var(--type-caption); }
       .feature-writing-title,
       .feature-writing-source {
         overflow: visible;
         white-space: normal;
         text-overflow: clip;
-        overflow-wrap: anywhere;
+        overflow-wrap: break-word;
       }
+      .feature-writing-title { font-size: var(--type-small); font-weight: 400; line-height: 1.5; }
+      .feature-writing-kind, .feature-writing-year, .feature-writing-source { font-size: var(--type-caption); }
     }
 </style>
 </head>

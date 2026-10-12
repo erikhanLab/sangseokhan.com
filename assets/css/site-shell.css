@@ -613,34 +613,94 @@ html[data-lang="ja"] .footer-top {
   }
 }
 
-/* Mobile editorial masthead: five balanced tabs, without decorative tracking.
-   The six-step type scale is unchanged; the caption role is used only at 360px and below. */
+/* Mobile editorial masthead — a compact, predictable navigation rhythm.
+   All sizes are drawn from the established six-role scale. */
 @media (max-width: 640px) {
-  .site-header { margin-top: 32px; margin-bottom: var(--space-5); }
-  .nav:not(:has(.nav-index)) {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0;
-    padding: 2px max(8px, env(safe-area-inset-right)) 2px max(8px, env(safe-area-inset-left));
-    margin-bottom: var(--space-5);
+  body {
+    margin-top: 0;
+    padding-right: var(--space-4);
+    padding-left: var(--space-4);
   }
+
+  .site-header {
+    margin: 0 0 0;
+    padding: 24px 0 23px;
+  }
+
+  .site-header-row { align-items: center; }
+
+  .site-name {
+    margin-left: 0;
+    font-size: var(--type-heading);
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+  }
+
+  .site-name:hover { letter-spacing: 0.025em; }
+
+  .lang-switch {
+    right: 0;
+    bottom: 5px;
+    gap: 6px;
+    font-size: var(--type-caption);
+    letter-spacing: 0.06em;
+  }
+
+  .nav:not(:has(.nav-index)) {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 8px;
+    width: 100vw;
+    margin: 0 calc(50% - 50vw) 26px;
+    padding: 0 max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
+    min-height: 46px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(11, 31, 58, 0.055);
+    border-bottom: 1px solid rgba(11, 31, 58, 0.085);
+    background: rgba(232, 236, 241, 0.72);
+  }
+
   .nav:not(:has(.nav-index)) a {
     display: flex;
+    flex: 0 0 auto;
+    min-width: 0;
+    min-height: 46px;
+    height: 46px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 2px;
     align-items: center;
     justify-content: center;
-    min-width: 0;
-    min-height: 44px;
-    padding: 8px 1px;
-    font-size: var(--type-small);
+    white-space: nowrap;
+    font-size: var(--type-caption);
+    font-weight: 400;
     line-height: 1.25;
     letter-spacing: 0;
-    white-space: nowrap;
     transition: color 0.18s ease;
   }
+
   .nav:not(:has(.nav-index)) a:hover,
-  .nav:not(:has(.nav-index)) a.active { letter-spacing: 0; }
-  .nav:not(:has(.nav-index)) a.active::after { bottom: 5px; width: 15px; }
+  .nav:not(:has(.nav-index)) a.active { letter-spacing: 0; transform: none; }
+
+  .nav:not(:has(.nav-index)) a.active { font-weight: 500; }
+
+  .nav:not(:has(.nav-index)) a.active::after {
+    width: 17px;
+    height: 1px;
+    bottom: 3px;
+    background: rgba(11,31,58,.58);
+  }
+
+  .site-footer {
+    margin-top: 28px;
+    padding-top: 18px;
+  }
 }
+
 @media (max-width: 360px) {
-  .nav:not(:has(.nav-index)) a { font-size: var(--type-caption); }
+  .site-name { letter-spacing: 0.02em; }
+  .lang-switch { bottom: 3px; }
+  .nav:not(:has(.nav-index)) { padding-left: 6px; padding-right: 6px; }
 }
