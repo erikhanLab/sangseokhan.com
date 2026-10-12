@@ -1492,6 +1492,11 @@
       }
       .scholar-profile-link .external-link-icon { width: 9px; height: 9px; margin: 0; }
       .section { margin: 0 0 32px; }
+      /* Clear, full-width divider between the journal and conference groups. */
+      #conference-papers {
+        border-top: 1px solid rgba(11, 31, 58, 0.22);
+        padding-top: 18px;
+      }
       .section-heading-row { margin: 0 0 5px; }
       .section h2 {
         font-size: var(--type-body);
@@ -1520,6 +1525,19 @@
         opacity: 0.85;
         text-transform: uppercase;
       }
+      /* A short right-aligned rule belongs to each status heading. */
+      .subsection-completed > h3 {
+        position: relative;
+      }
+      .subsection-completed > h3::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -9px;
+        width: 33.333%;
+        height: 1px;
+        background: var(--rule-soft);
+      }
       .subsection-completed .pub-item,
       .pub-item {
         margin: 0;
@@ -1529,6 +1547,7 @@
       }
       .subsection-completed .pub-item + .pub-item,
       .pub-item + .pub-item { margin-top: 0; }
+      .subsection-completed > .pub-item:first-of-type { border-top: 0; }
       .pub-title {
         margin: 0;
         font-size: var(--type-small);
