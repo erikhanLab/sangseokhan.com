@@ -1530,12 +1530,14 @@
       .pub-item + .pub-item { margin-top: 0; }
       .pub-title {
         margin: 0;
-        font-size: var(--type-small);
+        font-size: var(--type-caption);
         font-weight: 400;
-        line-height: 1.55;
+        line-height: 1.45;
         letter-spacing: 0;
         color: var(--tone-heading);
-        text-wrap: pretty;
+        /* Balance ragged line lengths without stretching word spaces. */
+        text-align: left;
+        text-wrap: balance;
         overflow: visible;
         white-space: normal;
         text-overflow: clip;

@@ -2388,7 +2388,7 @@
   .page-content { transform: none; transition: none; }
   .rt-header.ongoing-header {
     margin: 0 0 17px;
-    font-size: var(--type-small);
+    font-size: var(--type-caption);
     font-weight: 400;
     line-height: 1.4;
     letter-spacing: 0.04em;
@@ -2409,7 +2409,7 @@
   .current-project h2 {
     max-width: none;
     margin: 0;
-    font-size: var(--type-body);
+    font-size: var(--type-small);
     font-weight: 400;
     line-height: 1.48;
     letter-spacing: 0;

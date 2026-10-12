@@ -245,6 +245,7 @@
     }
 
     .profile-intro + .divider {
+      max-width: 100%;
       margin-top: 6px;
       margin-bottom: 6px;
     }
@@ -2335,6 +2336,33 @@
       }
       .feature-writing-title { font-size: var(--type-small); font-weight: 400; line-height: 1.5; }
       .feature-writing-kind, .feature-writing-year, .feature-writing-source { font-size: var(--type-caption); }
+      /* Free the source from the actions column: it was wrapping at 320/390px
+         even though it already used the minimum of the six type roles (12px). */
+      .feature-writing-item {
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+          "meta meta"
+          "title title"
+          "source source"
+          "actions actions"
+          "summary summary";
+      }
+      .feature-writing-meta { min-width: 0; gap: 8px; }
+      .feature-writing-year { margin-right: 0; }
+      .feature-writing-actions {
+        align-self: baseline;
+        justify-self: start;
+        margin: 2px 0 0;
+        gap: 6px;
+        font-size: var(--type-caption);
+      }
+      .feature-writing-title-link { padding-right: 0; }
+      .feature-writing-source {
+        min-width: 0;
+        margin-top: 4px;
+        line-height: 1.5;
+        white-space: normal;
+      }
     }
 </style>
 </head>
