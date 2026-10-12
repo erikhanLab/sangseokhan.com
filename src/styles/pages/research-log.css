@@ -64,7 +64,7 @@
     }
 
     .log-meta {
-      font-size: var(--type-body);
+      font-size: var(--type-small);
       letter-spacing: 0.06em;
       color: var(--research-blue);
       margin-bottom: 8px;
