@@ -1457,6 +1457,94 @@
       .pub-doi { margin-left: auto; }
       .pub-item { margin-top: 18px; }
     }
+
+    /* Mobile publication entries: editorial hierarchy instead of bullets,
+       hanging indents and split metadata. All sizes use the six-step scale. */
+    @media (max-width: 640px) {
+      .publication-overview { margin-bottom: 26px; padding: 5px 0 12px; }
+      .publication-count { margin-left: 0; letter-spacing: 0.01em; }
+      .publication-count strong { font-size: var(--type-body); }
+      .scholar-profile-link { font-size: var(--type-caption); letter-spacing: 0; }
+      .section { margin-top: 0; margin-bottom: var(--space-7); }
+      .section h2 {
+        font-size: var(--type-small);
+        line-height: 1.4;
+        letter-spacing: 0.11em;
+        font-weight: 600;
+      }
+      .subsection h3 {
+        font-size: var(--type-caption);
+        letter-spacing: 0.10em;
+        line-height: 1.4;
+        margin: 0 0 12px;
+        color: var(--tone-meta);
+      }
+      .subsection-completed { margin: 0; padding: 0; }
+      .subsection-completed .pub-item,
+      .pub-item {
+        padding: 13px 0 0;
+        margin: 0;
+        border-top: 1px solid var(--rule-soft);
+      }
+      .subsection-completed .pub-item + .pub-item,
+      .pub-item + .pub-item { margin-top: 17px; }
+      .pub-title {
+        margin: 0;
+        font-size: var(--type-body);
+        font-weight: 500;
+        line-height: 1.48;
+        letter-spacing: -0.01em;
+        text-wrap: pretty;
+      }
+      .pub-title .status { display: none; }
+      .pub-meta-block { margin: 7px 0 0; padding: 0; }
+      .pub-authors {
+        margin: 0;
+        font-size: var(--type-small);
+        line-height: 1.5;
+        color: var(--tone-secondary);
+      }
+      .pub-authors + .pub-meta { margin-top: 3px; }
+      .pub-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px 5px;
+        align-items: baseline;
+        font-size: var(--type-caption);
+        line-height: 1.5;
+        letter-spacing: 0;
+        color: var(--tone-secondary);
+      }
+      .pub-meta-text { font-size: var(--type-caption); line-height: inherit; }
+      .pub-year { margin: 0; font-size: var(--type-caption); line-height: inherit; }
+      .pub-doi {
+        display: inline-flex;
+        align-items: baseline;
+        margin: 0 0 0 4px;
+        padding: 0;
+        font-size: var(--type-caption);
+        line-height: inherit;
+        letter-spacing: 0.045em;
+        transform: none;
+      }
+      .pub-doi::before {
+        content: "·";
+        display: inline;
+        margin: 0 7px 0 0;
+        color: var(--tone-meta);
+      }
+      .pub-status-note {
+        margin-left: 0;
+        padding: 0;
+        font-size: var(--type-caption);
+      }
+      .pub-status-note::before {
+        content: "·";
+        display: inline;
+        margin-right: 5px;
+        color: var(--tone-meta);
+      }
+    }
 </style>
 </head>
 <body id="top">
