@@ -134,14 +134,14 @@
       color: #555;
     }
 
-    /* Profile contact directory: quiet editorial rows, not miniature logos. */
+    /* Desktop: one compact editorial row; mobile retains the 2 × 2 grid. */
     .icons {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(4, max-content);
       column-gap: var(--space-5);
       row-gap: 0;
 
-      width: min(100%, 456px);
+      width: fit-content;
       max-width: 100%;
       margin-top: -8px;
       color: var(--tone-body);
@@ -1884,6 +1884,7 @@
 
       .icons {
         display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
         max-width: none;
         column-gap: var(--space-4);
