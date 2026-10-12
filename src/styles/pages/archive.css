@@ -1305,6 +1305,10 @@
         width: 56px;
       }
 
+      .record-meta {
+        font-size: var(--type-caption);
+      }
+
       .curated-entry {
         gap: 20px;
 
@@ -1313,7 +1317,8 @@
         font-size: var(--type-small);
       }
 
-      .curated-year {
+      .curated-year,
+      .curated-org {
         font-size: var(--type-caption);
       }
 
@@ -1427,6 +1432,10 @@
         letter-spacing: 0.22em;
 
         opacity: 0.89;
+      }
+
+      .node-label .country {
+        font-size: var(--type-caption);
       }
 
       .hover-zone:hover+.node-label,

@@ -643,6 +643,7 @@
 
       .year-tabs span.active {
         opacity: 0.85;
+        font-size: var(--type-small);
       }
 
       .divider {
@@ -654,7 +655,7 @@
       .trace-year {
         margin: 17px 0 15px;
 
-        font-size: var(--type-small);
+        font-size: var(--type-caption);
         letter-spacing: 0.16em;
 
         opacity: 0.76;
@@ -891,10 +892,10 @@
 
         color: #535b66;
 
-        font-size: var(--type-body);
+        font-size: var(--type-caption);
         font-style: italic;
         font-weight: 400;
-        line-height: 1.05;
+        line-height: 1.4;
         letter-spacing: 0.01em;
 
         opacity: 0.85;

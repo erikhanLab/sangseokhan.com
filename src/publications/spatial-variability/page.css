@@ -402,7 +402,7 @@
       }
 
       .meta {
-        font-size: var(--type-small);
+        font-size: var(--type-caption);
       }
 
       .keywords {
@@ -436,7 +436,7 @@
       .abstract {
         margin-top: 0;
         margin-bottom: 0;
-        font-size: var(--type-caption);
+        font-size: var(--type-small);
       }
 
       .section-title {
@@ -445,6 +445,11 @@
 
       .figure {
         font-size: var(--type-small);
+      }
+
+      .caption, .subcaption {
+        font-size: var(--type-caption);
+        line-height: 1.55;
       }
 
       .pub-meta {
@@ -506,7 +511,7 @@
       }
 
       .subcaption {
-        font-size: var(--type-small);
+        font-size: var(--type-caption);
       }
 
       .top-back {

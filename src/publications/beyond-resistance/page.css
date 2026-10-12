@@ -215,7 +215,7 @@
       }
 
       .meta {
-        font-size: var(--type-small);
+        font-size: var(--type-caption);
       }
 
       .authors {
@@ -245,7 +245,7 @@
         margin-top: 0;
         margin-bottom: 45px;
 
-        font-size: var(--type-caption);
+        font-size: var(--type-small);
       }
 
       .section-title {
@@ -265,6 +265,11 @@
         margin-bottom: 30px;
 
         font-size: var(--type-small);
+      }
+
+      .caption, .subcaption {
+        font-size: var(--type-caption);
+        line-height: 1.55;
       }
 
       .figure-note {

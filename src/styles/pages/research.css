@@ -2462,7 +2462,7 @@
     font-weight: 400;
   }
   .rt-block { border-left-color: var(--rule-soft); border-left-width: 1px; }
-  .rt-output { font-size: var(--type-small); font-weight: 400; }
+  .rt-output { font-size: var(--type-caption); font-weight: 400; }
   .rt-subtitle { font-size: var(--type-small); line-height: 1.5; }
   .rt-meta, .rt-year, .rt-venue { font-size: var(--type-caption); line-height: 1.45; }
 }

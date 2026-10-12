@@ -1322,6 +1322,7 @@
         display: block;
 
         margin-top: 0;
+        font-size: var(--type-caption);
 
         overflow: hidden;
         text-overflow: ellipsis;
