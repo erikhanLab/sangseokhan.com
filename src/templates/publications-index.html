@@ -1515,6 +1515,7 @@
         font-weight: 400;
         line-height: 1.4;
         letter-spacing: 0.075em;
+        text-align: right;
         color: var(--tone-meta);
         opacity: 0.85;
         text-transform: uppercase;
@@ -1530,18 +1531,18 @@
       .pub-item + .pub-item { margin-top: 0; }
       .pub-title {
         margin: 0;
-        font-size: var(--type-caption);
+        font-size: var(--type-small);
         font-weight: 400;
-        line-height: 1.45;
+        line-height: 1.48;
         letter-spacing: 0;
         color: var(--tone-heading);
-        /* Balance ragged line lengths without stretching word spaces. */
-        text-align: left;
-        text-wrap: balance;
+        text-align: justify;
+        text-align-last: left;
+        text-wrap: wrap;
         overflow: visible;
         white-space: normal;
         text-overflow: clip;
-        overflow-wrap: break-word;
+        overflow-wrap: normal;
       }
       .pub-title a { font-weight: inherit; text-decoration: none; }
       .pub-title .status { display: none; }
