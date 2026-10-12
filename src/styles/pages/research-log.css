@@ -674,12 +674,14 @@
       }
     }
   
-/* No mobile truncation of research-log references or captions. */
+/* Mobile reference previews stay on one line; full titles remain in the markup. */
 @media (max-width: 640px) {
   .log-paper, .visual-note-text {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    overflow-wrap: anywhere;
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

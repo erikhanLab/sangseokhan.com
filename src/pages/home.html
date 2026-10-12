@@ -2101,18 +2101,13 @@
 
     /* Mobile composition: keep the quiet artwork as authored; reveal copy naturally. */
     @media (max-width: 640px) {
-      .recent-title {
-        white-space: normal;
-        overflow: visible;
-        text-overflow: clip;
-        overflow-wrap: anywhere;
-      }
-      .home-mobile-recent .home-rail-update-title {
-        white-space: normal;
-        text-overflow: clip;
-        overflow: visible;
-        overflow-wrap: anywhere;
-        line-height: 1.45;
+      .recent-title, .home-mobile-recent .home-rail-update-title {
+        display: block;
+        min-width: 0;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .home-mobile-recent .home-rail-update-meta {
         white-space: normal;

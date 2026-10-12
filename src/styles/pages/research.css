@@ -2346,14 +2346,14 @@
 
 /* Mobile research entries: reading first; do not crop the work title. */
 @media (max-width: 640px) {
-  .rt-subtitle,
-  .rt-subtitle a,
-  .current-project-output-text,
-  .current-project-caption-title {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
-    overflow-wrap: anywhere;
+  .rt-subtitle, .rt-subtitle a,
+  .current-project-output-text, .current-project-caption-title {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .rt-meta {
     flex-wrap: wrap;

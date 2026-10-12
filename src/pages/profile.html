@@ -2327,7 +2327,15 @@
       .current-affiliation { font-size: var(--type-caption); }
       .award-title { font-size: var(--type-small); font-weight: 400; }
       .award-source, .award-year { font-size: var(--type-caption); }
-      .feature-writing-title,
+      .feature-writing-title {
+        display: -webkit-box;
+        min-width: 0;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        white-space: normal;
+      }
       .feature-writing-source {
         overflow: visible;
         white-space: normal;
