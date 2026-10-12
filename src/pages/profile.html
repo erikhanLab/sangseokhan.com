@@ -134,78 +134,81 @@
       color: #555;
     }
 
+    /* Profile contact directory: quiet editorial rows, not miniature logos. */
     .icons {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-5);
+      row-gap: 0;
 
-      gap: 0;
-
+      width: min(100%, 456px);
+      max-width: 100%;
       margin-top: -8px;
+      color: var(--tone-body);
+    }
 
-      font-size: var(--type-small);
-      letter-spacing: 0.045em;
-
-      color: #3f4a5f;
+    .icons > [data-nosnippet] {
+      display: contents;
     }
 
     .icons a {
-      display: inline-flex;
+      display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      box-sizing: border-box;
+      min-width: 0;
+      min-height: 42px;
+      padding: 10px 2px 11px;
 
-      gap: 5px;
-
-      line-height: 13px;
-
-      color: inherit;
+      border-bottom: 1px solid var(--rule-standard);
+      color: var(--tone-body);
+      font-size: var(--type-small);
+      line-height: 1.45;
+      letter-spacing: 0.015em;
       text-decoration: none;
 
-      opacity: 0.72;
-
-      transition:
-        opacity 0.15s ease,
-        color 0.15s ease;
-    }
-
-    .icons a svg {
-      display: block;
-
-      width: 13px;
-      height: 13px;
-      flex: 0 0 13px;
-
-      fill: currentColor;
-
-      opacity: 0.75;
+      transition: color 0.2s ease, border-color 0.2s ease;
     }
 
     .icon-label {
       display: block;
-      line-height: 13px;
+      min-width: 0;
+      line-height: 1.45;
       white-space: nowrap;
     }
 
-    .icons a[aria-label="LinkedIn"] svg {
-      transform: translateY(-1.5px);
+    .profile-link-indicator {
+      flex: 0 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: var(--type-caption);
+      line-height: 1;
+      letter-spacing: 0;
+      color: var(--tone-meta);
+      opacity: 0.76;
+      transition: color 0.2s ease, opacity 0.2s ease;
     }
 
-    .icons>[data-nosnippet] {
-      display: contents;
+    .copy-email .profile-link-indicator {
+      font-family: inherit;
+      letter-spacing: 0.025em;
     }
 
-    .icons a:hover {
+    .icons a:hover,
+    .icons a:focus-visible {
+      color: var(--ink);
+      border-bottom-color: rgba(11, 31, 58, 0.32);
+    }
+
+    .icons a:hover .profile-link-indicator,
+    .icons a:focus-visible .profile-link-indicator {
+      color: var(--accent);
       opacity: 1;
-      color: var(--accent-dark);
     }
 
-    .icons a:not(:last-child)::after {
-      content: "·";
-
-      margin: 0 12px;
-
-      color: #8a93a3;
-
-      opacity: 0.65;
+    .icons a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
     }
 
     .section {
@@ -1880,7 +1883,15 @@
       }
 
       .icons {
-        display: none;
+        display: grid;
+        width: 100%;
+        max-width: none;
+        column-gap: var(--space-4);
+        margin: 0 0 var(--space-5);
+      }
+
+      .icons a {
+        min-height: 44px;
       }
 
       #education .education-layout,
@@ -4770,9 +4781,9 @@
         const email =
           emailLink.dataset.email;
 
-        const label =
+        const actionLabel =
           emailLink.querySelector(
-            ".icon-label"
+            ".profile-link-indicator"
           );
 
         try {
@@ -4781,8 +4792,7 @@
               email
             );
 
-          label.textContent =
-            "Copied";
+          if (actionLabel) actionLabel.textContent = "Copied";
 
           emailLink.setAttribute(
             "aria-label",
@@ -4791,8 +4801,7 @@
 
           setTimeout(
             () => {
-              label.textContent =
-                "Email";
+              if (actionLabel) actionLabel.textContent = "Copy";
 
               emailLink.setAttribute(
                 "aria-label",
