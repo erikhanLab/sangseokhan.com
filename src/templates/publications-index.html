@@ -1563,6 +1563,18 @@
         text-overflow: clip;
         overflow-wrap: normal;
       }
+      /* Mobile publication index is a compact preview; full titles remain on detail pages. */
+      .pub-title,
+      .pub-title .title-text,
+      .pub-title a {
+        display: block;
+        min-width: 0;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+      }
       .pub-title a { font-weight: inherit; text-decoration: none; }
       .pub-title .status { display: none; }
       .pub-meta-block { margin: 6px 0 0; padding: 0; }
@@ -1577,6 +1589,15 @@
         overflow: visible;
         text-overflow: clip;
         letter-spacing: 0;
+      }
+      .pub-authors,
+      .pub-authors .author-full,
+      .pub-authors .author-short {
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       .pub-authors .main-author { font-weight: 500; color: var(--tone-body); }
       .pub-authors + .pub-meta { margin-top: 3px; }
@@ -1605,6 +1626,11 @@
         overflow: visible;
         white-space: normal;
         text-overflow: clip;
+      }
+      .pub-meta-text {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       .pub-year {
         display: inline;

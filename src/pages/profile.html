@@ -2371,6 +2371,25 @@
         line-height: 1.5;
         white-space: normal;
       }
+      /* Keep Profile records compact on mobile; the underlying content stays intact. */
+      .feature-writing-title,
+      .feature-writing-source,
+      .feature-writing-summary,
+      .award-title,
+      .award-source,
+      .profile-record-section .affiliation-primary,
+      .profile-record-section .affiliation-context,
+      .profile-record-section .affiliation-unit,
+      .profile-record-section .affiliation-secondary {
+        display: block;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .feature-writing-summary { margin-bottom: 0; }
+
     }
 </style>
 </head>
