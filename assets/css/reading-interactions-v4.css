@@ -1,0 +1,156 @@
+/* HAN v4 — Quiet interaction layer.
+   Strictly desktop. No font, content, figure source or layout redesign.
+   All interaction affordances are additive and accessible. */
+@media screen and (min-width: 1024px) {
+  /* Focus responds to the reader; never mute surrounding scholarship. */
+  .pub-item,
+  .current-project-outputs-list li,
+  .rt-block {
+    transition: background-color 170ms ease, box-shadow 170ms ease;
+  }
+  .pub-item:hover,
+  .pub-item:focus-within {
+    background-color: rgba(48, 79, 110, 0.035);
+    box-shadow: inset 2px 0 0 rgba(38, 70, 101, 0.40);
+  }
+  .current-project-outputs-list li:hover,
+  .current-project-outputs-list li:focus-within,
+  .rt-block:focus-within {
+    background-color: rgba(48, 79, 110, 0.04);
+  }
+  .pub-item a:focus-visible,
+  .current-project-outputs-list a:focus-visible,
+  .v4-figure-trigger:focus-visible,
+  .v4-figure-viewer button:focus-visible,
+  .v4-figure-viewer a:focus-visible {
+    outline: 2px solid #385e7c;
+    outline-offset: 3px;
+  }
+  .research-side-nav a[aria-current="location"],
+  .publication-side-nav a[aria-current="location"] {
+    color: #203b57;
+    font-weight: 600;
+  }
+
+  /* Reading location: the existing section nav remains authoritative. */
+  .v4-reading-progress {
+    margin: 17px 0 0 10px;
+    max-width: 150px;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #637487;
+    user-select: none;
+  }
+  .v4-reading-progress-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: .015em;
+    line-height: 1.4;
+  }
+  .v4-reading-progress-track {
+    margin-top: 7px;
+    height: 2px;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(33, 63, 92, .14);
+  }
+  .v4-reading-progress-fill {
+    height: 100%;
+    width: 100%;
+    background: #355775;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  /* Figure inspection is a deliberate action, not a scroll animation. */
+  .v4-figure-trigger {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    margin: 9px 0 0;
+    padding: 5px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(40, 70, 100, .35);
+    background: transparent;
+    color: #34536f;
+    font: 12px/1.4 Georgia, 'Times New Roman', serif;
+    cursor: zoom-in;
+    text-align: left;
+    transition: color 170ms ease, border-color 170ms ease;
+  }
+  .v4-figure-trigger:hover {
+    color: #132d49;
+    border-bottom-color: currentColor;
+  }
+  .v4-figure-trigger::after { content: '↗'; font-size: 12px; }
+  .v4-figure-viewer {
+    box-sizing: border-box;
+    position: fixed;
+    width: min(1180px, calc(100vw - 64px));
+    height: min(880px, calc(100vh - 64px));
+    max-width: none;
+    max-height: none;
+    margin: auto;
+    padding: 0;
+    border: 1px solid rgba(39, 65, 88, .26);
+    border-radius: 3px;
+    background: #f6f7f9;
+    color: #152d45;
+    box-shadow: 0 24px 76px rgba(16, 34, 53, .23);
+    overflow: hidden;
+  }
+  .v4-figure-viewer::backdrop { background: rgba(17, 32, 48, .65); }
+  .v4-viewer-shell { display: flex; flex-direction: column; height: 100%; }
+  .v4-viewer-toolbar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+    padding: 12px 19px;
+    border-bottom: 1px solid rgba(37, 66, 94, .16);
+    background: #f7f8fa;
+    font: 13px/1.4 Georgia, 'Times New Roman', serif;
+  }
+  .v4-viewer-title {
+    min-width: 0; flex: 1 1 220px; font-size: 13px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .v4-viewer-controls { display: flex; align-items: center; gap: 6px; }
+  .v4-figure-viewer button {
+    padding: 5px 9px; min-height: 29px;
+    border: 1px solid rgba(42, 66, 91, .24);
+    border-radius: 2px;
+    font: inherit; background: transparent; color: inherit; cursor: pointer;
+  }
+  .v4-figure-viewer button:hover { background: rgba(43, 76, 107, .075); }
+  .v4-viewer-zoom-status { min-width: 40px; text-align: center; font-size: 12px; }
+  .v4-viewer-stage {
+    flex: 1 1 auto; min-height: 0;
+    padding: 24px;
+    overflow: auto;
+    background: #e9edf1;
+    text-align: center;
+  }
+  .v4-viewer-stage img {
+    display: block; width: 100%; max-width: none; height: auto;
+    margin: auto;
+    background: white;
+  }
+  .v4-viewer-caption {
+    flex: 0 0 auto;
+    max-height: 150px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 20px 15px;
+    border-top: 1px solid rgba(37, 66, 94, .16);
+    font: 13px/1.5 Georgia, 'Times New Roman', serif;
+  }
+  .v4-viewer-caption .v4-caption-text { max-width: 940px; }
+  .v4-viewer-caption .v4-source-links { display: flex; flex-wrap: wrap; gap: 17px; font-size: 12px; }
+  .v4-viewer-caption a { color: #264c6e; text-underline-offset: 3px; }
+  .v4-viewer-note { color: #667789; font-size: 11px; }
+}
+@media screen and (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .pub-item,.current-project-outputs-list li,.rt-block,.v4-figure-trigger { transition: none !important; }
+}
