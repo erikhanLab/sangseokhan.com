@@ -1,0 +1,319 @@
+/* HAN v5 — Scientific Editorial Design
+   A desktop-only reading and evidence hierarchy layer.
+   Scientific source images, research claims, mobile layout and interaction scripts remain unchanged.
+   No rules in this stylesheet apply below 1024px.
+*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --v5-rule: rgba(22, 43, 67, .17);
+    --v5-subtle-rule: rgba(22, 43, 67, .11);
+    --v5-reading: #34485e;
+    --v5-ink: #142c45;
+  }
+
+  /* A calm but deliberate hierarchy across inner-page section openings. */
+  .page-content .rt-header,
+  body:has(.pub-legend) .section-heading-row h2,
+  body:has(.profile-intro) .section-title {
+    color: var(--v5-ink);
+  }
+
+  /* RESEARCH — make published evidence the visual anchor of the project.
+     Retain the original figure, aspect ratio, caption and source links. */
+  .ongoing-project-list { padding-left: 18px; }
+  .ongoing-project-list::before {
+    left: 0;
+    background: linear-gradient(to bottom, transparent, var(--v5-subtle-rule) 9%, var(--v5-subtle-rule) 91%, transparent);
+  }
+  .current-project {
+    grid-template-columns: minmax(330px, 365px) minmax(0, 1fr);
+    gap: 42px;
+  }
+  .current-project-figure--published { min-width: 0; }
+  .current-project-figure--published img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .current-project-content { padding: 0 4px 0 0; }
+  .current-project-heading { margin-bottom: 17px; gap: 13px; }
+  .current-project h2 {
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: -.014em;
+    line-height: 1.34;
+    color: var(--v5-ink);
+    text-wrap: pretty;
+  }
+  .current-project-period {
+    font-size: 12px;
+    color: #667b8e;
+    padding-top: 7px;
+  }
+  .current-project-description {
+    max-width: 58ch;
+    font-size: 15px;
+    line-height: 1.74;
+    letter-spacing: 0;
+    text-align: left;
+    color: var(--v5-reading);
+    overflow-wrap: break-word;
+  }
+  .current-project-description .desc-second-line { margin-top: 12px; }
+  .current-project-topics { margin-top: 22px; gap: 7px 15px; }
+  .current-project-topics span {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #58718a;
+    letter-spacing: .015em;
+  }
+  .research-network {
+    margin-top: 27px;
+    padding-top: 13px;
+    border-top: 1px solid var(--v5-subtle-rule);
+  }
+  .research-network-heading {
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: #65788c;
+  }
+  .research-network-list li { min-height: 32px; height: auto; padding: 7px 2px 8px; }
+  .research-network-list li::after { width: 100%; background: var(--v5-subtle-rule); }
+  .research-network-name { font-size: 13px; color: #243c56; }
+  .research-network-role, .research-network-period { font-size: 11.5px; }
+
+  /* Keep the caption attached to its original Figure instead of floating below. */
+  .current-project-figure--published .current-project-caption {
+    margin-top: 12px;
+    text-align: left;
+    padding-left: 0;
+    line-height: 1.52;
+    opacity: 1;
+  }
+  .current-project-figure--published .current-project-caption-title {
+    display: block;
+    font-size: 12.5px;
+    color: #40566d;
+    letter-spacing: 0;
+  }
+  .current-project-figure--published .current-project-caption-source {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #61788f;
+    letter-spacing: 0;
+  }
+  .current-project-figure--published .current-project-outputs {
+    margin-top: 23px;
+    padding-top: 13px;
+    border-top: 1px solid var(--v5-rule);
+  }
+  .current-project-figure--published .current-project-outputs-heading {
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: #65798e;
+    text-align: left;
+  }
+  .current-project-figure--published .current-project-outputs-list {
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .current-project-figure--published .current-project-outputs-list li {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .current-project + .current-project {
+    margin-top: 45px;
+    padding-top: 36px;
+  }
+  .current-project + .current-project::before {
+    background: var(--v5-rule);
+  }
+  /* Pending research has no invented image, but keeps its authored status label. */
+  .current-project:has(> .current-project-figure--pending) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  .current-project-figure--pending {
+    display: block;
+    width: min(100%, 730px);
+    min-height: 0;
+    margin: 0;
+    text-align: left;
+  }
+  .current-project-pending-note {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    font-style: normal;
+    letter-spacing: .1em;
+    text-align: left;
+    text-transform: uppercase;
+    color: #65798e;
+  }
+  .current-project-pending-note::before { display: none; }
+  .current-project:has(> .current-project-figure--pending) .current-project-content {
+    width: min(100%, 730px);
+    max-width: 730px;
+    margin-left: auto;
+  }
+
+  /* PUBLICATIONS — the bibliography itself forms the graphic rhythm. */
+  body:has(.pub-legend) .publication-overview {
+    padding-bottom: 19px;
+    margin-bottom: 31px;
+    border-bottom: 1px solid var(--v5-rule);
+  }
+  body:has(.pub-legend) .section-heading-row {
+    margin-bottom: 23px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--v5-subtle-rule);
+  }
+  body:has(.pub-legend) .section-heading-row h2 {
+    font-size: 18px;
+    letter-spacing: .075em;
+    font-weight: 400;
+  }
+  body:has(.pub-legend) .subsection,
+  body:has(.pub-legend) .subsection-completed {
+    padding-left: 0;
+    border-left: 0;
+  }
+  body:has(.pub-legend) .subsection h3 {
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: #6b7f91;
+  }
+  body:has(.pub-legend) .subsection-completed .pub-item,
+  body:has(.pub-legend) .pub-item {
+    margin: 0;
+    padding: 19px 0 20px 14px;
+    border-top: 1px solid var(--v5-subtle-rule);
+    border-left: 2px solid transparent;
+  }
+  body:has(.pub-legend) .subsection-completed .pub-item + .pub-item { margin-top: 0; }
+  body:has(.pub-legend) .pub-title {
+    margin: 0;
+    font-size: 17.5px;
+    font-weight: 400;
+    letter-spacing: -.012em;
+    line-height: 1.48;
+    color: var(--v5-ink);
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-wrap: pretty;
+  }
+  body:has(.pub-legend) .pub-meta-block {
+    margin: 8px 0 0;
+  }
+  body:has(.pub-legend) .pub-authors {
+    font-size: 13.5px;
+    line-height: 1.62;
+    color: #53677b;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  body:has(.pub-legend) .pub-meta {
+    margin-top: 4px;
+    font-size: 12.5px;
+    line-height: 1.58;
+    color: #627589;
+  }
+
+  /* PROFILE — refine records and timelines, without changing the interactive matrix. */
+  body:has(.profile-intro) .profile-intro + .divider {
+    margin-top: 23px;
+    margin-bottom: 26px;
+  }
+  body:has(.profile-intro) .current-layout {
+    padding-bottom: 11px;
+  }
+  body:has(.profile-intro) .profile-record-section .affiliation-item {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-bottom-color: var(--v5-subtle-rule);
+  }
+  body:has(.profile-intro) .profile-record-section .affiliation-primary {
+    color: var(--v5-ink);
+    line-height: 1.42;
+  }
+  body:has(.profile-intro) .profile-record-section .affiliation-secondary {
+    line-height: 1.6;
+  }
+  body:has(.profile-intro) .award-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  body:has(.profile-intro) .education-timeline {
+    border-color: var(--v5-subtle-rule);
+  }
+
+  /* HOME — promote Selected Work to an editorial feature, not a faint footnote. */
+  body:has(.home-research-rail) .recent-work {
+    display: grid;
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 0 22px;
+    max-width: none;
+    width: 100%;
+    margin: 20px 0 24px;
+    padding: 20px 0 14px;
+    text-align: left;
+  }
+  body:has(.home-research-rail) .recent-work::before {
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--v5-rule);
+  }
+  body:has(.home-research-rail) .recent-label {
+    grid-column: 1;
+    margin: 4px 0 0;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: .11em;
+    opacity: 1;
+    color: #677c90;
+  }
+  body:has(.home-research-rail) .recent-entry {
+    grid-column: 2;
+    padding: 0 0 9px;
+    text-align: left;
+  }
+  body:has(.home-research-rail) .recent-entry::after { display: none; }
+  body:has(.home-research-rail) .recent-title {
+    font-size: 18px;
+    line-height: 1.42;
+    letter-spacing: -.012em;
+    font-weight: 400;
+    color: var(--v5-ink);
+    opacity: 1;
+    text-wrap: pretty;
+  }
+  body:has(.home-research-rail) .recent-citation {
+    margin: 9px 0 0;
+    font-size: 12.5px;
+    line-height: 1.6;
+    letter-spacing: 0;
+    color: #5e7285;
+    opacity: 1;
+  }
+  body:has(.home-research-rail) .research-focus { margin-top: 31px; }
+  body:has(.home-research-rail) .research-focus-title {
+    font-size: 17px;
+    line-height: 1.45;
+    color: var(--v5-ink);
+  }
+  body:has(.home-research-rail) .research-focus-description {
+    line-height: 1.65;
+  }
+}
