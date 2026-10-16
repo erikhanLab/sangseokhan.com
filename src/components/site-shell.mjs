@@ -50,6 +50,27 @@ export function renderStandardFooter(person, site) {
   </footer>`;
 }
 
+export function researcherEntity(person) {
+  const alternateName = [person.scholarlyName, person.nameJa]
+    .filter((name) => name && name !== person.name);
+  return {
+    "@type": "Person",
+    "@id": `${person.site}/#person`,
+    name: person.name,
+    ...(alternateName.length ? { alternateName } : {}),
+    url: `${person.site}${person.profilePath}`,
+    image: `${person.site}${person.image}`,
+    sameAs: [person.profiles.googleScholar, person.profiles.orcid, person.profiles.linkedin],
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "ORCID",
+      value: person.profiles.orcid.replace("https://orcid.org/", ""),
+      url: person.profiles.orcid,
+    },
+    knowsAbout: person.knowsAbout,
+  };
+}
+
 export function homeJsonLd(person) {
   return {
     "@context": "https://schema.org",
@@ -61,15 +82,7 @@ export function homeJsonLd(person) {
         name: person.name,
         publisher: { "@id": `${person.site}/#person` },
       },
-      {
-        "@type": "Person",
-        "@id": `${person.site}/#person`,
-        name: person.name,
-        url: `${person.site}${person.profilePath}`,
-        image: `${person.site}${person.image}`,
-        sameAs: [person.profiles.googleScholar, person.profiles.orcid, person.profiles.linkedin],
-        knowsAbout: person.knowsAbout,
-      },
+      researcherEntity(person),
     ],
   };
 }
@@ -80,17 +93,12 @@ export function profileJsonLd(person) {
     "@type": "ProfilePage",
     url: `${person.site}${person.profilePath}`,
     mainEntity: {
-      "@type": "Person",
-      "@id": `${person.site}/#person`,
-      name: person.name,
-      url: `${person.site}${person.profilePath}`,
-      image: `${person.site}${person.image}`,
+      ...researcherEntity(person),
       jobTitle: person.currentAppointment.role.en,
       affiliation: {
         "@type": "Organization",
         name: person.currentAppointment.schemaAffiliation,
       },
-      sameAs: [person.profiles.googleScholar, person.profiles.orcid, person.profiles.linkedin],
     },
   };
 }

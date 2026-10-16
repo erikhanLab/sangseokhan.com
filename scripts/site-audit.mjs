@@ -141,20 +141,33 @@ for (const page of generatedPages) {
   if (builtJs !== sourceJs) errors.push(`${page.path}: built page JavaScript differs from source`);
 }
 
-// Publication detail pages are portfolio pages, not scholarly-hosting/index targets.
-// Keep their visible bibliographic information canonical, while forbidding Scholar-oriented machine signals.
+// Portfolio detail pages represent the publisher's work in a separate WebPage graph.
+// Only explicitly CC BY open-access journal records are indexable; figures never are.
 const pubIndex = await readFile(path.join(ROOT, "publications", "index.html"), "utf8");
 for (const p of publications) {
   const route = `/publications/${p.slug}/`;
   const html = await readFile(path.join(ROOT, "publications", p.slug, "index.html"), "utf8");
   const routePolicy = routeMap.get(route);
   if (h1s(html)[0] !== p.title) errors.push(`${route}: visible H1 differs from canonical publication title`);
-  if (routePolicy?.index !== false) errors.push(`${route}: publication detail must remain noindex in route manifest`);
-  if (!meta(html, "robots").toLowerCase().includes("noindex")) errors.push(`${route}: publication detail must emit noindex`);
-  if (!meta(html, "bingbot").toLowerCase().includes("noindex")) errors.push(`${route}: Bing publication detail policy must emit noindex`);
+  const shouldIndex = p.kind === "journal" && p.openAccess === true && p.bibliography?.license === "CC BY 4.0";
+  if (routePolicy?.index !== shouldIndex) errors.push(`${route}: route indexing disagrees with verified OA/CC BY policy`);
+  const pageRobots = meta(html, "robots").toLowerCase();
+  const bingRobots = meta(html, "bingbot").toLowerCase();
+  if (pageRobots.includes("noindex") === shouldIndex) errors.push(`${route}: robots index policy mismatch`);
+  if (bingRobots.includes("noindex") === shouldIndex) errors.push(`${route}: Bing index policy mismatch`);
+  if (!pageRobots.includes("noimageindex")) errors.push(`${route}: images must remain noimageindex`);
   const scholarMeta = [...html.matchAll(/<meta\b[^>]*name=["'](?:citation_|bepress_citation_|prism\.)[^"']*["'][^>]*>/gi)];
   if (scholarMeta.length) errors.push(`${route}: Scholar-oriented bibliographic meta tags are forbidden`);
-  if (jsonLd(html).some((x) => hasType(x, "ScholarlyArticle"))) errors.push(`${route}: ScholarlyArticle JSON-LD is forbidden`);
+  const graph = jsonLd(html).find((x) => Array.isArray(x["@graph"]));
+  const work = graph?.["@graph"].find((x) => x["@type"] === "ScholarlyArticle");
+  const webpage = graph?.["@graph"].find((x) => x["@type"] === "WebPage");
+  if (!work || !webpage) errors.push(`${route}: scholarly paper / portfolio WebPage entities missing`);
+  else {
+    if (work.name !== p.title) errors.push(`${route}: structured work title mismatch`);
+    if (JSON.stringify(work.author.map((x) => x.name)) !== JSON.stringify(p.authors)) errors.push(`${route}: structured author order mismatch`);
+    if (p.doi && work.url !== `https://doi.org/${p.doi}`) errors.push(`${route}: structured DOI mismatch`);
+    if (webpage.url !== SITE + route || webpage.mainEntity?.["@id"] !== work["@id"]) errors.push(`${route}: WebPage/work identity mismatch`);
+  }
   if (prop(html, "og:type").toLowerCase() === "article") errors.push(`${route}: publication portfolio detail should not advertise itself as an article object`);
   if (!pubIndex.includes(`data-publication-slug="${p.slug}"`)) errors.push(`/publications/: missing ${p.slug}`);
   if (!pubIndex.includes(`/publications/${p.slug}/`)) errors.push(`/publications/: missing link to ${p.slug}`);
@@ -162,10 +175,23 @@ for (const p of publications) {
 const renderedCards = [...pubIndex.matchAll(/data-publication-slug="([^"]+)"/g)].map((m) => m[1]);
 if (renderedCards.length !== publications.length || new Set(renderedCards).size !== publications.length) errors.push(`/publications/: generated card count/uniqueness mismatch`);
 
+const builtResearch = await readFile(path.join(ROOT, "research", "index.html"), "utf8");
+const researchSchema = jsonLd(builtResearch).find((x) => x["@type"] === "AboutPage");
+if (researchSchema?.url !== `${SITE}/research/` || researchSchema?.about?.length !== person.knowsAbout.length) errors.push(`/research/: structured AboutPage missing or inconsistent`);
 const home = await readFile(path.join(ROOT, "index.html"), "utf8");
 const profile = await readFile(path.join(ROOT, "profile", "index.html"), "utf8");
 if (!jsonLd(home).some((x) => hasType(x, "WebSite")) || !jsonLd(home).some((x) => hasType(x, "Person"))) errors.push(`/: missing WebSite/Person JSON-LD`);
 if (!jsonLd(profile).some((x) => hasType(x, "ProfilePage"))) errors.push(`/profile/: missing ProfilePage JSON-LD`);
+const homePerson = jsonLd(home).flatMap((x) => x["@graph"] || []).find((x) => x["@type"] === "Person");
+const profilePerson = jsonLd(profile).find((x) => x["@type"] === "ProfilePage")?.mainEntity;
+for (const entry of [homePerson, profilePerson]) {
+  if (entry?.["@id"] !== `${SITE}/#person`) errors.push(`Person @id is not shared consistently`);
+  if (!entry?.alternateName?.includes(person.scholarlyName)) errors.push(`Person scholarlyName alternateName missing`);
+  if (!entry?.sameAs?.includes(person.profiles.orcid)) errors.push(`Person ORCID missing`);
+}
+const pubIndexGraph = jsonLd(pubIndex).find((x) => x["@type"] === "CollectionPage");
+if (pubIndexGraph?.mainEntity?.numberOfItems !== publications.length) errors.push(`/publications/: ItemList cardinality mismatch`);
+if (pubIndexGraph?.mainEntity?.itemListElement?.length !== publications.length) errors.push(`/publications/: ItemList element count mismatch`);
 if (!home.includes(`mailto:${person.email}`) || !home.includes(person.currentAppointment.role.en)) errors.push(`/: person identity/current appointment drifted from src/content/person.json`);
 const featured = publications.find((p) => p.slug === site.homeFeaturedPublication);
 if (!featured || !home.includes(`/publications/${featured.slug}/`) || !home.includes(featured.title) || (featured.doi && !home.includes(`https://doi.org/${featured.doi}`))) errors.push(`/: selected work drifted from canonical publication data`);
@@ -186,4 +212,4 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
-console.log(`PASS: P2-D dist — ${authored.length} authored routes, ${indexable.length} indexable; all routes are source-generated, shared shell policies hold, ${generatedPages.length} content pages and ${publications.length} publication records match canonical sources, publication detail pages carry no Scholar-oriented indexing signals, and canonicals/sitemap/links/assets are consistent.`);
+console.log(`PASS: P2-D dist — ${authored.length} authored routes, ${indexable.length} indexable; all routes are source-generated, shared shell policies hold, ${generatedPages.length} content pages and ${publications.length} publication records match canonical sources, publication record index policy/schema/canonicals verified, and canonicals/sitemap/links/assets are consistent.`);

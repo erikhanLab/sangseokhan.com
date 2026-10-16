@@ -9,6 +9,7 @@ import {
   homeJsonLd,
   profileJsonLd,
 } from "../src/components/site-shell.mjs";
+import { publicationPageJsonLd, publicationsIndexJsonLd, researchPageJsonLd } from "../src/components/scholarly-metadata.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist");
@@ -98,6 +99,9 @@ async function renderGeneratedContentPages() {
     if (page.shell?.nav) html = html.replace("<!--SITE_STANDARD_NAV-->", renderStandardNav(site, route.nav));
     if (page.shell?.footer) html = html.replace("<!--SITE_STANDARD_FOOTER-->", renderStandardFooter(person, site));
     html = replaceTokens(html, { PERSON_NAME: person.name });
+    if (page.path === "/research/") {
+      html = html.replace("<!--RESEARCH_JSONLD-->", `<script type="application/ld+json">${escJson(researchPageJsonLd(person))}</script>`);
+    }
     const leftovers = [...html.matchAll(/<!--SITE_[A-Z0-9_]+-->/g)].map((m) => m[0]);
     if (leftovers.length) throw new Error(`${page.path}: unresolved site marker(s): ${[...new Set(leftovers)].join(", ")}`);
     const file = routeFile(DIST, page.path);
@@ -257,6 +261,7 @@ async function renderPublicationsIndex() {
     .replace("__P2_JOURNAL_COUNT__", String(journals.length))
     .replace("__P2_CONFERENCE_COUNT__", String(conferences.length));
   html = replaceTokens(html, { PERSON_NAME: person.name });
+  html = html.replace("</head>", `  <script type="application/ld+json">${escJson(publicationsIndexJsonLd(person, publications))}</script>\n</head>`);
   const dir = path.join(DIST, "publications");
   await mkdir(dir, { recursive: true });
   await writeFile(path.join(dir, "index.html"), html);
@@ -308,6 +313,8 @@ async function renderPublicationDetail(p) {
   const canonical = `${SITE}/publications/${p.slug}/`;
   const route = routes.find((entry) => entry.path === `/publications/${p.slug}/`);
   if (!route) throw new Error(`Publication route missing from manifest: ${p.slug}`);
+  // Public scholarly records remain distinct from their publisher-hosted articles.
+  // All figures keep noimageindex regardless of HTML indexability.
   const robots = route.index ? "index, follow, noimageindex" : "noindex, follow, noimageindex";
   const bingRobots = route.index ? "index, follow, max-image-preview:none" : "noindex, follow, max-image-preview:none";
   const html = `<!DOCTYPE html>
@@ -321,6 +328,7 @@ async function renderPublicationDetail(p) {
   <meta name="author" content="${esc(person.name)}">
   <meta name="description" content="${esc(p.description)}">
   <link rel="canonical" href="${canonical}">
+  <script type="application/ld+json">${escJson(publicationPageJsonLd(person, p, canonical))}</script>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
   <meta property="og:title" content="${esc(p.title)} | ${esc(person.name)}">
