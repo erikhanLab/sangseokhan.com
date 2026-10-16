@@ -1,0 +1,267 @@
+/* HAN — desktop refinements, consolidated v3
+ * v1 (type) + v2 (visual) + v3 (reading experience), in cascade order.
+ * Scope: min-width 1024px. Zero rules apply at 1023px or below.
+ * Original scientific figures, content and fonts are preserved.
+ */
+@media screen and (min-width: 1024px) {
+  /* Previous v1 typography adjustments */
+
+  /* Inner-page masthead: less mechanically spaced serif. */
+  .site-name {
+    letter-spacing: 0.04em;
+  }
+  .site-name:hover {
+    letter-spacing: 0.05em;
+  }
+
+  /* Inner-page navigation: retain its understated character,
+     but remove excessive tracking and improve default readability. */
+  .nav:not(:has(.nav-index)) a {
+    letter-spacing: 0.045em;
+    color: rgba(38, 54, 74, 0.76);
+  }
+  .nav:not(:has(.nav-index)) a:hover {
+    letter-spacing: 0.055em;
+  }
+  .nav:not(:has(.nav-index)) a.active {
+    color: rgba(11, 31, 58, 0.98);
+  }
+
+  /* Home: keep the 56px identity and typography, adjust spacing only. */
+  .header-row h1 {
+    letter-spacing: 0.012em;
+  }
+  .nav-index {
+    letter-spacing: 0.21em;
+    opacity: 0.80;
+  }
+  .recent-label {
+    letter-spacing: 0.13em;
+  }
+
+  /* Home publication metadata: remove stacked transparency,
+     preserve small-caption hierarchy without making the line disappear. */
+  .recent-citation {
+    color: #617186;
+    opacity: 1;
+  }
+
+  /* Publication section labels: distinguish by capitalization and
+     hierarchy, not through extreme letter spacing. */
+  body:has(.pub-legend) .section h2 {
+    letter-spacing: 0.085em;
+  }
+
+  /* Previous v2 visual adjustments */
+
+  /* 01 — Home / Selected Work. Restore a proper title > citation hierarchy.
+     Do not truncate a paper title just to fit the visual composition. */
+  .recent-work {
+    max-width: 760px;
+    margin-left: auto;
+  }
+  .recent-label {
+    opacity: 0.84;
+    letter-spacing: 0.115em;
+    margin-bottom: 7px;
+  }
+  .recent-title {
+    font-size: 16.5px;
+    line-height: 1.47;
+    letter-spacing: -0.008em;
+    opacity: 1;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-wrap: pretty;
+  }
+  .recent-citation {
+    margin-top: 5px;
+    font-size: 12.5px;
+    line-height: 1.48;
+    letter-spacing: 0;
+    color: #52677d;
+    opacity: 1;
+  }
+  .recent-work::before {
+    background: rgba(11, 31, 58, 0.17);
+  }
+
+  /* 02 — Interior masthead/navigation: a stable shared baseline.
+     Keep the original menu model and color palette. */
+  .site-header {
+    margin-top: 56px;
+    margin-bottom: 29px;
+  }
+  .site-name {
+    line-height: 1.1;
+  }
+  .lang-switch {
+    bottom: -18px;
+    color: #586d80;
+  }
+  .nav:not(:has(.nav-index)) {
+    padding-top: 12px;
+    padding-bottom: 11px;
+  }
+  .nav:not(:has(.nav-index)) a {
+    letter-spacing: 0.032em;
+  }
+  .nav:not(:has(.nav-index)) a:hover {
+    letter-spacing: 0.04em;
+  }
+
+  /* 03 — Publications: refine rhythm, not the established bibliography look. */
+  body:has(.pub-legend) .pub-title {
+    line-height: 1.42;
+  }
+  body:has(.pub-legend) .pub-authors {
+    line-height: 1.55;
+  }
+  body:has(.pub-legend) .pub-meta-block {
+    margin-top: 5px;
+  }
+  body:has(.pub-legend) .subsection-completed .pub-item + .pub-item {
+    margin-top: 18px;
+  }
+  body:has(.pub-legend) .publication-overview {
+    border-bottom-color: rgba(11, 31, 58, 0.13);
+  }
+
+  /* 04 — Research: lead with the project title, recede metadata and labels. */
+  .current-project-heading {
+    margin-bottom: 12px;
+  }
+  .current-project h2 {
+    line-height: 1.43;
+    letter-spacing: 0.005em;
+  }
+  .current-project-description {
+    line-height: 1.68;
+  }
+  .current-project-period {
+    color: #637589;
+  }
+  .current-project-topics {
+    margin-top: 15px;
+  }
+  .current-project-outputs-heading {
+    letter-spacing: 0.105em;
+  }
+  .current-project-caption-source {
+    color: #53687c;
+  }
+  .current-project-outputs {
+    border-top-color: rgba(11, 31, 58, 0.13);
+  }
+
+  /* 05 — Quiet, shared section dividers. No cards, fills, shadows or effects. */
+  body:has(.pub-legend) .subsection-completed .pub-item {
+    border-top-color: rgba(11, 31, 58, 0.11);
+  }
+
+  /* v3 reading experience */
+
+  /* 01 — Research and Publications: navigation serves orientation,
+     not decoration. Only increase existing contrast and tighten tracking. */
+  .research-side-nav nav,
+  .publication-side-nav nav {
+    gap: 19px;
+  }
+  .research-side-nav nav::before,
+  .publication-side-nav nav::before {
+    background: linear-gradient(to bottom,
+      rgba(11, 31, 58, 0),
+      rgba(11, 31, 58, 0.16) 18%,
+      rgba(11, 31, 58, 0.16) 82%,
+      rgba(11, 31, 58, 0));
+  }
+  .research-side-nav a,
+  .publication-side-nav a {
+    color: rgba(11, 31, 58, 0.57);
+    letter-spacing: 0.045em;
+  }
+  .research-side-nav a:hover,
+  .publication-side-nav a:hover {
+    color: rgba(11, 31, 58, 0.82);
+  }
+  .research-side-nav a.active,
+  .publication-side-nav a.active {
+    color: rgba(11, 31, 58, 0.94);
+  }
+  .research-side-nav-years a,
+  .publication-side-nav-subitems a {
+    color: rgba(11, 31, 58, 0.48);
+    letter-spacing: 0.05em;
+  }
+  .research-side-nav-years a.active,
+  .publication-side-nav-subitems a.active {
+    color: rgba(11, 31, 58, 0.92);
+  }
+
+  /* 02 — Paper figure: preserve pixels and proportions; align only
+     caption, reference, and related-output spacing. */
+  .current-project-figure--published .current-project-caption {
+    margin-top: 12px;
+    line-height: 1.52;
+  }
+  .current-project-figure--published .current-project-caption-title {
+    letter-spacing: 0.014em;
+  }
+  .current-project-figure--published .current-project-caption-source {
+    margin-top: 4px;
+    line-height: 1.48;
+    letter-spacing: 0.015em;
+  }
+  .current-project-figure--published .current-project-outputs {
+    margin-top: 19px;
+    padding-top: 14px;
+  }
+  .current-project-figure--published .current-project-outputs-list {
+    gap: 3px;
+  }
+
+  /* 03 — Publication links: a subtle, discoverable hover/focus state.
+     Only real links, not plain text or the status indicator. */
+  body:has(.pub-legend) .pub-title .title-text a {
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.18s ease, color 0.18s ease;
+  }
+  body:has(.pub-legend) .pub-title .title-text a:hover,
+  body:has(.pub-legend) .pub-title .title-text a:focus-visible {
+    text-decoration-color: currentColor;
+  }
+  body:has(.pub-legend) a.pub-doi .pub-doi-label {
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.18s ease;
+  }
+  body:has(.pub-legend) a.pub-doi:hover .pub-doi-label,
+  body:has(.pub-legend) a.pub-doi:focus-visible .pub-doi-label {
+    text-decoration-color: currentColor;
+  }
+  body:has(.pub-legend) .pub-title .title-text a:focus-visible,
+  body:has(.pub-legend) a.pub-doi:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  /* 04 — Home: modestly refine the overview-to-work reading rhythm.
+     No reflow, font replacement, alignment flip, or new decoration. */
+  .recent-work {
+    margin-top: 11px;
+    margin-bottom: 13px;
+  }
+  .research-focus {
+    margin-top: calc(var(--space-5) + 2px);
+  }
+
+  /* 05 — Shared desktop patch is consolidated. No further broad
+     overrides here: existing fine hairlines and page spacing remain. */
+
+}

@@ -347,14 +347,13 @@ async function appendPaletteStylesheet() {
     '  <link rel="stylesheet" href="/assets/css/cool-academic.css?v=1">',
     '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=1">',
     '  <link rel="stylesheet" href="/assets/css/editorial-link-marks.css?v=2">',
-    '  <link rel="stylesheet" href="/assets/css/desktop-type-tuning.css?v=2">',
-    '  <link rel="stylesheet" href="/assets/css/desktop-visual-refinement.css?v=1">',
+    '  <link rel="stylesheet" href="/assets/css/desktop-refinements.css?v=3">',
   ].join('\n');
   for (const route of paths) {
     const file = route === "/404.html" ? path.join(DIST, "404.html") : routeFile(DIST, route);
     let html = await readFile(file, "utf8");
     if (!html.includes("</head>")) throw new Error(`${route}: no closing head for palette inclusion`);
-    if (html.includes("cool-academic.css") || html.includes("component-refinement.css") || html.includes("editorial-link-marks.css") || html.includes("desktop-type-tuning.css") || html.includes("desktop-visual-refinement.css")) {
+    if (html.includes("cool-academic.css") || html.includes("component-refinement.css") || html.includes("editorial-link-marks.css") || html.includes("desktop-type-tuning.css") || html.includes("desktop-visual-refinement.css") || html.includes("desktop-refinements.css")) {
       throw new Error(`${route}: duplicate color/component stylesheet inclusion`);
     }
     html = html.replace("</head>", `${tag}\n</head>`);
