@@ -1,0 +1,53 @@
+/*
+ * Han — Desktop typography refinement, v1
+ * Scope: desktop >= 1024px only.
+ * No changes to mobile/tablet, layout, content, images or research figures.
+ * Loaded last, after each page's existing inline and linked styles.
+ */
+@media screen and (min-width: 1024px) {
+  /* Inner-page masthead: less mechanically spaced serif. */
+  .site-name {
+    letter-spacing: 0.04em;
+  }
+  .site-name:hover {
+    letter-spacing: 0.05em;
+  }
+
+  /* Inner-page navigation: retain its understated character,
+     but remove excessive tracking and improve default readability. */
+  .nav:not(:has(.nav-index)) a {
+    letter-spacing: 0.045em;
+    color: rgba(38, 54, 74, 0.76);
+  }
+  .nav:not(:has(.nav-index)) a:hover {
+    letter-spacing: 0.055em;
+  }
+  .nav:not(:has(.nav-index)) a.active {
+    color: rgba(11, 31, 58, 0.98);
+  }
+
+  /* Home: keep the 56px identity and typography, adjust spacing only. */
+  .header-row h1 {
+    letter-spacing: 0.012em;
+  }
+  .nav-index {
+    letter-spacing: 0.21em;
+    opacity: 0.80;
+  }
+  .recent-label {
+    letter-spacing: 0.13em;
+  }
+
+  /* Home publication metadata: remove stacked transparency,
+     preserve small-caption hierarchy without making the line disappear. */
+  .recent-citation {
+    color: #617186;
+    opacity: 1;
+  }
+
+  /* Publication section labels: distinguish by capitalization and
+     hierarchy, not through extreme letter spacing. */
+  body:has(.pub-legend) .section h2 {
+    letter-spacing: 0.085em;
+  }
+}
