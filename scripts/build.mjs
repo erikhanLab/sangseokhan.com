@@ -332,8 +332,8 @@ async function renderPublicationDetail(p) {
   <script src="/assets/js/site-analytics.js?v=1"></script>
   <link rel="stylesheet" href="/assets/css/site-shell.css?v=1">
   <style>\n${css}\n  </style>
-  <link rel="stylesheet" href="/assets/css/paper-margin-nav.css?v=4.2">
-  <script defer src="/assets/js/paper-margin-nav.js?v=4.2"></script>
+  <link rel="stylesheet" href="/assets/css/paper-margin-nav.css?v=4.3">
+  <script defer src="/assets/js/paper-margin-nav.js?v=4.3"></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main-content">Skip to main content</a>

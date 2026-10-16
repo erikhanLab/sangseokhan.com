@@ -1,13 +1,12 @@
-/* HAN v4.2 — paper-only margin navigation.
-   No layout or style changes below 1280px; body/content flow is untouched. */
+/* HAN v4.3 — adaptive paper-only margin navigation.
+   No layout changes below 1280px; rail hidden when paper needs the margin. */
 .paper-margin-nav { display: none; }
 
 @media screen and (min-width: 1280px) {
   .paper-margin-nav {
-    display: block;
     position: fixed;
     top: 148px;
-    left: max(16px, calc(50% - 640px));
+    left: var(--paper-nav-left, 16px);
     width: 124px;
     max-height: calc(100vh - 190px);
     overflow-y: auto;
@@ -17,6 +16,8 @@
     color: #566272;
     scrollbar-width: thin;
   }
+
+  .paper-margin-nav[data-paper-nav-ready] { display: block; }
 
   .paper-margin-nav__label {
     margin: 0 0 16px 9px;
