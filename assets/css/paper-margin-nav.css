@@ -1,0 +1,77 @@
+/* HAN v4.2 — paper-only margin navigation.
+   No layout or style changes below 1280px; body/content flow is untouched. */
+.paper-margin-nav { display: none; }
+
+@media screen and (min-width: 1280px) {
+  .paper-margin-nav {
+    display: block;
+    position: fixed;
+    top: 148px;
+    left: max(16px, calc(50% - 640px));
+    width: 124px;
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+    z-index: 8;
+    box-sizing: border-box;
+    font-family: Georgia, serif;
+    color: #566272;
+    scrollbar-width: thin;
+  }
+
+  .paper-margin-nav__label {
+    margin: 0 0 16px 9px;
+    font-family: Georgia, serif;
+    font-size: 10px;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: .105em;
+    text-transform: uppercase;
+    color: #6f7988;
+  }
+
+  .paper-margin-nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-left: 1px solid #cbd2db;
+  }
+
+  .paper-margin-nav__link {
+    display: block;
+    padding: 7px 7px 7px 11px;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    color: #677180;
+    font-size: 12px;
+    line-height: 1.45;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 170ms ease, border-color 170ms ease;
+  }
+
+  .paper-margin-nav__link:hover,
+  .paper-margin-nav__link:focus-visible {
+    color: #0B1F3A;
+  }
+
+  .paper-margin-nav__link[aria-current="location"] {
+    color: #0B1F3A;
+    border-left-color: #344f69;
+  }
+
+  .paper-margin-nav__link:focus-visible {
+    outline: 1px solid #566a80;
+    outline-offset: 2px;
+  }
+
+  #paper-overview,
+  #paper-abstract,
+  #paper-publication,
+  [id^="paper-section-"] {
+    scroll-margin-top: 88px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-margin-nav__link { transition: none; }
+}

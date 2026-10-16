@@ -262,6 +262,30 @@ async function renderPublicationsIndex() {
   await writeFile(path.join(dir, "index.html"), html);
 }
 
+function addPaperFigureAnchors(figuresHtml) {
+  const segments = [];
+  let counter = 0;
+  const html = figuresHtml.replace(/<div\s+class="(section-title(?:\s+[^"]+)?)"([^>]*)>(\s*<strong>([^<]+)<\/strong>)/gi,
+    (match, className, attrs, opening, title) => {
+      const label = title.trim();
+      const id = `paper-section-${++counter}`;
+      segments.push({ id, label: /ITTC Hull Roughness Timeline/i.test(label) ? "ITTC timeline" : label });
+      return `<div class="${className}" id="${id}"${attrs}>${opening}`;
+    });
+  return { html, segments };
+}
+
+function renderPaperMarginNav(sections) {
+  // Link to existing content anchors only. Visual rail stays outside the document flow.
+  const links = sections.map(({ id, label }, index) =>
+    `<li><a class="paper-margin-nav__link" href="#${id}"${index === 0 ? ' aria-current="location"' : ''}>${esc(label)}</a></li>`
+  ).join("\n      ");
+  return `<nav class="paper-margin-nav" aria-label="On this paper">
+    <div class="paper-margin-nav__label">On this page</div>
+    <ol class="paper-margin-nav__list">${links}</ol>
+  </nav>`;
+}
+
 async function renderPublicationDetail(p) {
   const base = path.join(ROOT, "src/publications", p.slug);
   const [authorsHtml, affilsHtml, abstractHtml, afterAbstractHtml, pubMetaHtml, figuresHtml, css] = await Promise.all([
@@ -272,6 +296,14 @@ async function renderPublicationDetail(p) {
     readFile(path.join(base, "publication-meta.html"), "utf8"),
     readFile(path.join(base, "figures.html"), "utf8"),
     readFile(path.join(base, "page.css"), "utf8"),
+  ]);
+  const figureSections = addPaperFigureAnchors(figuresHtml);
+  const abstractLabel = /<h2[^>]*>\s*Summary\s*<\/h2>/i.test(abstractHtml) ? "Summary" : "Abstract";
+  const paperNav = renderPaperMarginNav([
+    {id: "paper-overview", label: "Overview"},
+    {id: "paper-abstract", label: abstractLabel},
+    {id: "paper-publication", label: "Publication"},
+    ...figureSections.segments,
   ]);
   const canonical = `${SITE}/publications/${p.slug}/`;
   const route = routes.find((entry) => entry.path === `/publications/${p.slug}/`);
@@ -300,20 +332,23 @@ async function renderPublicationDetail(p) {
   <script src="/assets/js/site-analytics.js?v=1"></script>
   <link rel="stylesheet" href="/assets/css/site-shell.css?v=1">
   <style>\n${css}\n  </style>
+  <link rel="stylesheet" href="/assets/css/paper-margin-nav.css?v=4.2">
+  <script defer src="/assets/js/paper-margin-nav.js?v=4.2"></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MMRV373" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="top-back" aria-label="Back navigation"><span class="editorial-mark editorial-mark--back" aria-hidden="true"></span> <a href="/publications/">Back to Publications</a></nav>
+  ${paperNav}
   <main id="main-content" tabindex="-1">
-    <h1>${esc(p.title)}</h1>
+    <h1 id="paper-overview">${esc(p.title)}</h1>
     <div class="meta">${p.detailMetaHtml}</div>
     <div class="authors">${authorsHtml}</div>
     <div class="affils">${affilsHtml}</div>
-    <div class="abstract">${abstractHtml}</div>
+    <div class="abstract" id="paper-abstract">${abstractHtml}</div>
     ${afterAbstractHtml}
-    <div class="pub-meta">${pubMetaHtml}</div>
-    ${figuresHtml}
+    <div class="pub-meta" id="paper-publication">${pubMetaHtml}</div>
+    ${figureSections.html}
   </main>
   ${renderStandardFooter(person, site)}
 </body>
