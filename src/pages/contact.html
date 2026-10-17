@@ -30,7 +30,7 @@
     <!--SITE_LANGUAGE_BOOTSTRAP-->
 
     <link rel="stylesheet" href="/assets/css/site-shell.css?v=1">
-    <link rel="stylesheet" href="/assets/css/pages/contact.css?v=1">
+    <link rel="stylesheet" href="/assets/css/pages/contact.css?v=2">
 </head>
 
 <body>
@@ -62,10 +62,15 @@
                 <div class="contact-email-block">
 
 
-                    <div data-nosnippet>
+                    <div class="contact-email-actions" data-nosnippet>
                         <a class="contact-email-link" href="mailto:sangseok.han.contact@gmail.com">
                             sangseok.han.contact@gmail.com
                         </a>
+                        <button type="button" class="contact-copy-button"
+                            aria-label="Copy email address">
+                            <span class="contact-copy-label" data-en="Copy" data-ja="コピー">Copy</span>
+                        </button>
+                        <span class="contact-copy-status" role="status" aria-live="polite" aria-atomic="true"></span>
                     </div>
 
                     <div class="contact-email-meta">
@@ -415,7 +420,7 @@
         </div>
     </div>
 
-    <script src="/assets/js/pages/contact.js?v=1"></script>
+    <script src="/assets/js/pages/contact.js?v=2"></script>
 
     
 

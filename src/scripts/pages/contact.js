@@ -1068,3 +1068,70 @@ document.addEventListener("DOMContentLoaded", () => {
             "DOMContentLoaded",
             initialiseResearchVisuals
         );
+
+// Email copying is deliberately independent from the research visual controls.
+// The mailto link remains available as a separate action.
+document.addEventListener("DOMContentLoaded", () => {
+    const button = document.querySelector(".contact-copy-button");
+    const label = button?.querySelector(".contact-copy-label");
+    const status = document.querySelector(".contact-copy-status");
+    if (!button || !label || !status) return;
+
+    let resetTimer;
+    const isJapanese = () => document.documentElement.getAttribute("lang") === "ja";
+    const words = () => isJapanese()
+        ? { copy: "コピー", copied: "コピーしました", failed: "コピーできませんでした", action: "メールアドレスをコピー" }
+        : { copy: "Copy", copied: "Copied", failed: "Could not copy", action: "Copy email address" };
+
+    // Keep the accessible label in step with the existing EN/JP switch.
+    const syncLanguage = () => {
+        if (button.hasAttribute("data-state")) return;
+        const w = words();
+        label.textContent = w.copy;
+        button.setAttribute("aria-label", w.action);
+    };
+    new MutationObserver(syncLanguage).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["lang"]
+    });
+    syncLanguage();
+
+    async function copyText(value) {
+        if (navigator.clipboard?.writeText) {
+            try {
+                await navigator.clipboard.writeText(value);
+                return true;
+            } catch { /* Try the legacy fallback below. */ }
+        }
+        const temp = document.createElement("textarea");
+        temp.value = value;
+        temp.setAttribute("readonly", "");
+        temp.style.position = "fixed";
+        temp.style.left = "-9999px";
+        document.body.appendChild(temp);
+        temp.select();
+        let success = false;
+        try { success = document.execCommand("copy"); } catch { /* Clipboard blocked. */ }
+        temp.remove();
+        return success;
+    }
+
+    button.addEventListener("click", async () => {
+        clearTimeout(resetTimer);
+        const email = document.querySelector(".contact-email-link")?.textContent.trim();
+        if (!email) return;
+        const ok = await copyText(email);
+        const w = words();
+        label.textContent = ok ? w.copied : w.failed;
+        button.dataset.state = ok ? "copied" : "failed";
+        button.setAttribute("aria-label", ok ? w.copied : w.failed);
+        status.textContent = ok ? `${email} — ${w.copied}` : w.failed;
+        resetTimer = setTimeout(() => {
+            const current = words();
+            label.textContent = current.copy;
+            button.setAttribute("aria-label", current.action);
+            button.removeAttribute("data-state");
+            status.textContent = "";
+        }, 1800);
+    });
+});

@@ -128,8 +128,9 @@ for (const file of authored) {
 for (const page of generatedPages) {
   const file = page.path === "/" ? path.join(ROOT, "index.html") : path.join(ROOT, page.path.replace(/^\//, ""), "index.html");
   const html = await readFile(file, "utf8");
-  const cssHref = `/assets/css/pages/${page.assetKey}.css?v=1`;
-  const jsSrc = `/assets/js/pages/${page.assetKey}.js?v=1`;
+  const assetVersion = page.assetKey === "contact" ? 2 : 1;
+  const cssHref = `/assets/css/pages/${page.assetKey}.css?v=${assetVersion}`;
+  const jsSrc = `/assets/js/pages/${page.assetKey}.js?v=${assetVersion}`;
   if (!html.includes(`href="${cssHref}"`)) errors.push(`${page.path}: generated stylesheet link missing`);
   if (!html.includes(`src="${jsSrc}"`)) errors.push(`${page.path}: generated script link missing`);
   if (/<style\b/i.test(html)) errors.push(`${page.path}: page-local CSS leaked back inline`);
