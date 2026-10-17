@@ -2470,3 +2470,42 @@
   .research-context-enquiry { align-items: flex-start; }
   .research-context-enquiry p { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.5; }
 }
+
+/* v7.4 — Research Timeline hierarchy. Desktop only; preserve mobile verbatim. */
+@media (min-width: 1024px) {
+  .research-timeline .rt-topline { margin-bottom: 12px; gap: 20px; }
+  .research-timeline .rt-stage {
+    letter-spacing: 0.075em;
+    color: rgba(11, 37, 69, 0.72);
+  }
+  .research-timeline .rt-title { color: rgba(70, 82, 98, 0.76); }
+  .research-timeline .rt-block-group + .rt-topline { margin-top: 36px; }
+  .research-timeline .rt-block { margin-bottom: 25px; }
+  .research-timeline .rt-output { margin-bottom: 7px; }
+  .research-timeline .rt-output-label {
+    font-weight: 400;
+    color: rgba(70, 82, 98, 0.73);
+  }
+  .research-timeline .role-tag { color: rgba(70, 82, 98, 0.66); }
+  .research-timeline .rt-subtitle {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    overflow-wrap: break-word;
+    font-size: var(--type-body);
+    line-height: 1.55;
+    font-weight: 500;
+    color: #192b3b;
+  }
+  .research-timeline .rt-meta {
+    margin-top: 5px;
+    color: rgba(70, 82, 98, 0.77);
+    opacity: 1;
+  }
+  .research-timeline .rt-meta > em,
+  .research-timeline .rt-meta > .rt-venue {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+}

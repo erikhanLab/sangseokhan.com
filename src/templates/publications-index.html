@@ -1458,6 +1458,40 @@
       .pub-item { margin-top: 18px; }
     }
 
+    /* Research areas are an editorial orientation, not interactive filters. */
+    .publication-areas {
+      margin: 0 0 27px;
+      padding: 0 0 15px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .publication-areas-label {
+      margin: 0 0 7px;
+      font-size: var(--type-caption);
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: var(--tone-secondary);
+    }
+    .publication-areas-text {
+      margin: 0;
+      font-size: var(--type-small);
+      line-height: 1.65;
+      letter-spacing: 0;
+      color: var(--tone-heading);
+    }
+    .publication-areas-separator {
+      display: inline-block;
+      margin: 0 9px;
+      color: var(--tone-meta);
+    }
+    @media (max-width: 640px) {
+      .publication-areas { margin: -5px 0 24px; padding-bottom: 15px; }
+      .publication-areas-label { margin-bottom: 6px; letter-spacing: 0.09em; }
+      .publication-areas-text { line-height: 1.8; }
+      .publication-areas-separator { margin: 0 7px; }
+    }
+
     /* Mobile publications — quiet editorial list, not a stack of competing headings.
        Preserves six step sizes and the authored bibliography verbatim. */
     @media (max-width: 640px) {
@@ -1680,6 +1714,55 @@
       .subsection-accepted .pub-item,
       .subsection-prep-box .pub-item { padding-left: 0; }
     }
+
+    /* HAN v7.5 — Publication index reading hierarchy.
+       Titles are the primary reading target; authors and bibliographic data
+       remain legible but subordinate. Preserve the existing mobile layout. */
+    @media (min-width: 641px) {
+      .pub-title,
+      .pub-title .title-text,
+      .pub-title a {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        overflow-wrap: break-word;
+      }
+      .pub-title {
+        max-width: 100%;
+        line-height: 1.47;
+        font-weight: 500;
+        letter-spacing: -0.008em;
+        color: var(--tone-heading);
+      }
+      .pub-meta-block {
+        margin-top: 7px;
+      }
+      .pub-authors {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        line-height: 1.55;
+        color: var(--tone-secondary);
+      }
+      .pub-authors .main-author {
+        font-weight: 600;
+      }
+      .pub-authors + .pub-meta {
+        margin-top: 4px;
+      }
+      .pub-meta {
+        line-height: 1.5;
+        color: var(--tone-meta);
+      }
+      .pub-meta-text,
+      .pub-year,
+      .pub-doi {
+        line-height: inherit;
+      }
+      .subsection-completed .pub-item + .pub-item {
+        margin-top: 22px;
+      }
+    }
 </style>
 </head>
 <body id="top">
@@ -1753,6 +1836,15 @@
 </svg>
 </a>
 </div>
+</section>
+<!-- Editorial topic guide: descriptive, not a filter. Keep publication order unchanged. -->
+<section class="publication-areas" aria-labelledby="publication-areas-heading">
+  <h2 class="publication-areas-label" id="publication-areas-heading" data-en="Research areas" data-ja="研究分野">Research areas</h2>
+  <p class="publication-areas-text">
+    <span data-en="Hull roughness &amp; ship resistance" data-ja="船体粗度・船舶抵抗">Hull roughness &amp; ship resistance</span><span class="publication-areas-separator" aria-hidden="true">·</span>
+    <span data-en="Model–ship extrapolation" data-ja="模型船から実船への外挿">Model–ship extrapolation</span><span class="publication-areas-separator" aria-hidden="true">·</span>
+    <span data-en="Offshore energy systems" data-ja="海洋エネルギーシステム">Offshore energy systems</span>
+  </p>
 </section>
 <div class="section" id="journal-articles">
 <div class="section-heading-row">

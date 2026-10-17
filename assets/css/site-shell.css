@@ -704,3 +704,13 @@ html[data-lang="ja"] .footer-top {
   .lang-switch { bottom: 3px; }
   .nav:not(:has(.nav-index)) { padding-left: 6px; padding-right: 6px; }
 }
+
+/* Narrow-phone navigation: preserve the full set of links without overflow. */
+@media (max-width: 340px) {
+  .nav:not(:has(.nav-index)) {
+    gap: 2px;
+    padding-right: max(4px, env(safe-area-inset-right));
+    padding-left: max(4px, env(safe-area-inset-left));
+  }
+  .nav:not(:has(.nav-index)) a { padding-right: 0; padding-left: 0; }
+}
