@@ -92,18 +92,29 @@
         title.textContent = figureNumber || img.alt || 'Research figure';
         caption.textContent = (originalCaption?.textContent || img.alt || captionText).replace(/\s+/g, ' ').trim();
         links.replaceChildren();
-        const assetLink = make('a', '', translated('Open source image ↗', '元画像を開く ↗'));
+        const appendMark = (anchor, kind) => {
+          const mark = make('span', `editorial-mark editorial-mark--${kind}`);
+          mark.setAttribute('aria-hidden', 'true');
+          anchor.append(mark);
+        };
+        const assetLink = make('a', '', translated('Open source image', '元画像を開く'));
         assetLink.href = img.getAttribute('src');
         assetLink.target = '_blank'; assetLink.rel = 'noopener noreferrer';
+        appendMark(assetLink, 'external'); // Image opens in a separate tab.
         links.append(assetLink);
         // Citation information is drawn only from links already on this page.
         const publishedSource = figure.querySelector('.current-project-caption-source');
         const doiLink = document.querySelector('.pub-meta a[href^="https://doi.org/"]');
         const cited = publishedSource || doiLink;
         if (cited) {
-          const cite = make('a', '', publishedSource ? translated('Publication details ↗', '論文詳細 ↗') : translated('Publication DOI ↗', '論文 DOI ↗'));
+          const cite = make('a', '', publishedSource ? translated('Publication details', '論文詳細') : translated('Publication DOI', '論文 DOI'));
           cite.href = cited.href;
-          if (cited.origin !== location.origin) { cite.target = '_blank'; cite.rel = 'noopener noreferrer'; }
+          // The publication link is often a same-site relative URL. Keep its
+          // ordinary forward mark; only DOI/off-site sources use external marks.
+          const sourceHref = cited.getAttribute('href') || '';
+          const isExternal = /^https?:\/\//i.test(sourceHref) && new URL(sourceHref, document.baseURI).origin !== window.location.origin;
+          if (isExternal) { cite.target = '_blank'; cite.rel = 'noopener noreferrer'; }
+          appendMark(cite, isExternal ? 'external' : 'forward');
           links.append(cite);
         }
         stage.scrollTop = 0; stage.scrollLeft = 0;

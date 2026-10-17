@@ -1,6 +1,6 @@
 /* Editorial navigation icons v2
    Recognizable direction and external-destination conventions:
-   - internal: →  - external: ↗, clearly distinct from horizontal navigation
+   - internal: →  - external: Google Scholar’s square-arrow SVG
    - back: ←  - top: ↑
    Symbols are decorative; descriptive link text is preserved.
 */
@@ -48,7 +48,7 @@
   content: none !important;
   display: none !important;
 }
-.editorial-mark--external { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.55%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%2013%2012.5%203.5%22%2F%3E%3Cpath%20d%3D%22M6.5%203.5h6v6%22%2F%3E%3C%2Fsvg%3E"); }
+.editorial-mark--external { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.15%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%203h7v7%22%2F%3E%3Cpath%20d%3D%22M13%203%206.5%209.5%22%2F%3E%3Cpath%20d%3D%22M11%208.5V13H3V5h4.5%22%2F%3E%3C%2Fsvg%3E"); }
 .editorial-mark--forward { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M2%208h11%22%2F%3E%3Cpath%20d%3D%22m9%204%204%204-4%204%22%2F%3E%3C%2Fsvg%3E"); }
 .editorial-mark--back { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M14%208H3%22%2F%3E%3Cpath%20d%3D%22m7%204-4%204%204%204%22%2F%3E%3C%2Fsvg%3E"); }
 .editorial-mark--up { --editorial-symbol: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8%2014V3%22%2F%3E%3Cpath%20d%3D%22m4%207%204-4%204%204%22%2F%3E%3C%2Fsvg%3E"); }

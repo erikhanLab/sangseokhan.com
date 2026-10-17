@@ -189,7 +189,19 @@
       transition: color 0.2s ease, opacity 0.2s ease;
     }
 
-    .profile-external-link-icon { display: none; }
+    /* Reuse the existing Google Scholar external-link glyph at all widths. */
+    .profile-external-link-icon {
+      display: block;
+      width: 11px;
+      height: 11px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.70;
+    }
 
     .copy-email .profile-link-indicator {
       font-family: inherit;
