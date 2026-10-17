@@ -41,10 +41,9 @@
 
 /* Research — quiet tags and metadata with a definite, repeatable edge.
    Chart markers, research landscape network, and illustration colors stay as-is. */
+/* Ongoing Research topics are plain editorial metadata, not badges. */
 .current-project-topics span {
   color: var(--ui-tag-ink);
-  background-color: var(--ui-tag-surface);
-  border-color: var(--ui-tag-rule);
 }
 .current-project-period,
 .current-project-caption-source,

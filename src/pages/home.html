@@ -1890,8 +1890,11 @@
       .tagline .line-muted {
         margin-top: 3px;
 
-        font-size: var(--type-small);
+        /* Keep the complete mobile subtitle on one line, even at 320px,
+           without hiding or shortening the authored English/JP copy. */
+        font-size: clamp(0.715rem, 3.4vw, var(--type-small));
         line-height: 1.5;
+        letter-spacing: -0.035em;
       }
 
 

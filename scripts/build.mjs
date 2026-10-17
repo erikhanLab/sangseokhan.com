@@ -388,7 +388,7 @@ async function appendPaletteStylesheet() {
   const paths = [ ...routes.map((route) => route.path), "/404.html" ];
   const tag = [
     '  <link rel="stylesheet" href="/assets/css/cool-academic.css?v=1">',
-    '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=1">',
+    '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=2">',
     '  <link rel="stylesheet" href="/assets/css/editorial-link-marks.css?v=7.3">',
     '  <link rel="stylesheet" href="/assets/css/desktop-refinements.css?v=7.2">',
     '  <link rel="stylesheet" href="/assets/css/reading-interactions-v4.css?v=4.1">',

@@ -1220,8 +1220,13 @@
                 letter-spacing: 0.012em;
             }
 
+            /* Mobile contact: email flows directly into Current / Degree. */
             .contact-email-block {
                 margin-bottom: var(--flow-group);
+            }
+
+            .contact-email-meta {
+                display: none;
             }
 
             .contact-email-actions {
@@ -1363,20 +1368,9 @@
                 color: rgba(67, 78, 93, 0.25);
             }
 
+            /* The enquiry shortcuts belong to the desktop contact layout only. */
             .contact-enquiry-options {
-                width: min(340px, 94%);
-                margin-top: 17px;
-            }
-
-            .contact-enquiry-label {
                 display: none;
-            }
-
-            .contact-enquiry-links a {
-                padding: 6px 2px;
-
-                font-size: var(--type-caption);
-                line-height: 1.45;
             }
 
             .desktop-only {
