@@ -390,7 +390,7 @@ async function appendPaletteStylesheet() {
     '  <link rel="stylesheet" href="/assets/css/cool-academic.css?v=1">',
     '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=1">',
     '  <link rel="stylesheet" href="/assets/css/editorial-link-marks.css?v=2">',
-    '  <link rel="stylesheet" href="/assets/css/desktop-refinements.css?v=3">',
+    '  <link rel="stylesheet" href="/assets/css/desktop-refinements.css?v=7.2">',
     '  <link rel="stylesheet" href="/assets/css/reading-interactions-v4.css?v=4.1">',
     '  <script defer src="/assets/js/reading-interactions-v4.js?v=4.1"></script>',
   ].join('\n');

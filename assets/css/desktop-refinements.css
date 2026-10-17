@@ -265,3 +265,28 @@
      overrides here: existing fine hairlines and page spacing remain. */
 
 }
+
+
+/* v7.2 — Keep desktop section navigation on one line when bold.
+ * The rail keeps its original visual styling; only its safe allocation changes.
+ * On narrower desktops prioritize readable content rather than clipping nav.
+ */
+@media screen and (min-width: 1420px) {
+  .research-side-nav,
+  .publication-side-nav {
+    width: 210px;
+    left: min(calc(50% + var(--side-nav-offset)), calc(100vw - 210px));
+  }
+
+  .research-side-nav a,
+  .publication-side-nav a {
+    white-space: nowrap;
+  }
+}
+
+@media screen and (min-width: 1321px) and (max-width: 1419px) {
+  .research-side-nav,
+  .publication-side-nav {
+    display: none;
+  }
+}
