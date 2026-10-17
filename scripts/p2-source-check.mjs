@@ -90,8 +90,9 @@ for (const p of publications) {
   }
   const route = routes.find((r) => r.path === `/publications/${p.slug}/`);
   assert.equal(route?.source, "generated-publication", `${p.slug}: publication route must be generated`);
-  const canIndex = p.kind === "journal" && p.openAccess === true && p.bibliography?.license === "CC BY 4.0";
-  assert.equal(route.index, canIndex, `${p.slug}: public indexing requires documented CC BY 4.0 open-access journal status`);
+  const canIndex = p.searchVisibility === "index";
+  assert.ok(["index", "noindex"].includes(p.searchVisibility), `${p.slug}: searchVisibility must be explicit`);
+  assert.equal(route.index, canIndex, `${p.slug}: journal record summaries are indexable independently of publisher reuse licences`);
 }
 
 const featured = publications.find((p) => p.slug === site.homeFeaturedPublication);
@@ -112,4 +113,4 @@ if (legacyStillPresent.length) {
 }
 for (const requiredStatic of ["assets", "favicon.ico", "CNAME", "googlef5cfb479256c421d.html"]) assert.equal(await exists(requiredStatic), true, `required static source missing: ${requiredStatic}`);
 
-console.log(`PASS: P2-D sources — all ${routes.length} authored routes are source-generated; ${generatedPages.length} content pages, ${publications.length} canonical publications, publication indexing follows verified CC BY open-access policy, shared identity/site data, and zero legacy HTML deployment snapshots are internally consistent.`);
+console.log(`PASS: P2-D sources — all ${routes.length} authored routes are source-generated; ${generatedPages.length} content pages, ${publications.length} canonical publications, publication indexing follows explicitly reviewed journal-summary policy, shared identity/site data, and zero legacy HTML deployment snapshots are internally consistent.`);

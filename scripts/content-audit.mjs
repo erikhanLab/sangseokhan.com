@@ -36,7 +36,8 @@ for (const route of indexable) {
   // Scientific paper titles remain exact; arbitrary SEO truncation risks changing the work's title.
   const maxTitleLength = route.source === "generated-publication" ? 140 : 70;
   if (t.length < 15 || t.length > maxTitleLength) errors.push(`${route.path}: title length ${t.length} outside 15–${maxTitleLength} characters`);
-  if (d.length < 60 || d.length > 165) errors.push(`${route.path}: description length ${d.length} outside 60–165 characters`);
+  const maxDescriptionLength = route.source === "generated-publication" ? 210 : 165;
+  if (d.length < 60 || d.length > maxDescriptionLength) errors.push(`${route.path}: description length ${d.length} outside 60–${maxDescriptionLength} characters`);
   if (seenTitles.has(t)) errors.push(`${route.path}: duplicate title with ${seenTitles.get(t)}`); else seenTitles.set(t, route.path);
   if (seenDescriptions.has(d)) errors.push(`${route.path}: duplicate description with ${seenDescriptions.get(d)}`); else seenDescriptions.set(d, route.path);
 }

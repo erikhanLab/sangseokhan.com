@@ -205,9 +205,9 @@ function renderJournalItem(p) {
             <span class="title-text"><a href="/publications/${esc(p.slug)}/">${esc(p.presentation.indexTitle || p.title)}</a></span>
           </div>
           <div class="pub-meta-block">
-            <div class="pub-authors">
-              <span class="author-full">${p.presentation.authorsFullHtml}</span>
-              <span class="author-short">${p.presentation.authorsShortHtml}</span>
+            <div class="pub-authors" role="group" aria-label="Authors: ${esc(p.authors.join(", "))}">
+              <span class="author-full" aria-hidden="true">${p.presentation.authorsFullHtml}</span>
+              <span class="author-short" aria-hidden="true">${p.presentation.authorsShortHtml}</span>
             </div>
             <div class="pub-meta">
               <span class="pub-meta-text">${metric}</span>
@@ -234,9 +234,9 @@ function renderConferenceItem(p) {
               <span class="title-text"><a href="/publications/${esc(p.slug)}/">${esc(p.presentation.indexTitle || p.title)}</a></span>
             </div>
             <div class="pub-meta-block">
-              <div class="pub-authors">
-                <span class="author-full">${p.presentation.authorsFullHtml}</span>
-                <span class="author-short">${p.presentation.authorsShortHtml}</span>
+              <div class="pub-authors" role="group" aria-label="Authors: ${esc(p.authors.join(", "))}">
+                <span class="author-full" aria-hidden="true">${p.presentation.authorsFullHtml}</span>
+                <span class="author-short" aria-hidden="true">${p.presentation.authorsShortHtml}</span>
               </div>
               <div class="pub-meta">
                 <span class="pub-meta-text meta-tooltip"${tooltip}><span class="conference-name-full">${full}</span><span class="conference-name-short">${short}</span>,</span>

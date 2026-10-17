@@ -61,7 +61,7 @@
   },
   {
     "path": "/publications/spatial-variability/",
-    "index": false,
+    "index": true,
     "source": "generated-publication",
     "nav": "publications"
   },
@@ -79,7 +79,7 @@
   },
   {
     "path": "/publications/naval-roughness/",
-    "index": false,
+    "index": true,
     "source": "generated-publication",
     "nav": "publications"
   },

@@ -62,6 +62,7 @@ export function publicationsIndexJsonLd(person, publications) {
     "@id": `${person.site}/publications/#webpage`,
     url: `${person.site}/publications/`,
     name: `Publications | ${person.name}`,
+    inLanguage: "en",
     isPartOf: { "@id": `${person.site}/#website` },
     mainEntity: {
       "@type": "ItemList",

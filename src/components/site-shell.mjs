@@ -21,9 +21,9 @@ export function renderStandardHeader(person) {
     <div class="site-header-row">
       <a href="/" class="site-name">${esc(person.name)}</a>
       <div class="lang-switch" role="group" aria-label="Language selection">
-        <a href="#" data-lang="en">EN</a>
+        <a href="#" data-lang="en" lang="en">EN</a>
         <span aria-hidden="true">·</span>
-        <a href="#" data-lang="ja">JP</a>
+        <a href="#" data-lang="ja" lang="ja">JP</a>
       </div>
     </div>
   </header>`;
@@ -80,6 +80,7 @@ export function homeJsonLd(person) {
         "@id": `${person.site}/#website`,
         url: `${person.site}/`,
         name: person.name,
+        inLanguage: "en",
         publisher: { "@id": `${person.site}/#person` },
       },
       researcherEntity(person),
@@ -92,6 +93,7 @@ export function profileJsonLd(person) {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     url: `${person.site}${person.profilePath}`,
+    inLanguage: "en",
     mainEntity: {
       ...researcherEntity(person),
       jobTitle: person.currentAppointment.role.en,

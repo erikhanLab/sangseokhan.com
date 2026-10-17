@@ -142,15 +142,15 @@ for (const page of generatedPages) {
 }
 
 // Portfolio detail pages represent the publisher's work in a separate WebPage graph.
-// Only explicitly CC BY open-access journal records are indexable; figures never are.
+// All four journal summary pages are indexable; conference records remain curated noindex; figures retain noimageindex.
 const pubIndex = await readFile(path.join(ROOT, "publications", "index.html"), "utf8");
 for (const p of publications) {
   const route = `/publications/${p.slug}/`;
   const html = await readFile(path.join(ROOT, "publications", p.slug, "index.html"), "utf8");
   const routePolicy = routeMap.get(route);
   if (h1s(html)[0] !== p.title) errors.push(`${route}: visible H1 differs from canonical publication title`);
-  const shouldIndex = p.kind === "journal" && p.openAccess === true && p.bibliography?.license === "CC BY 4.0";
-  if (routePolicy?.index !== shouldIndex) errors.push(`${route}: route indexing disagrees with verified OA/CC BY policy`);
+  const shouldIndex = p.searchVisibility === "index";
+  if (routePolicy?.index !== shouldIndex) errors.push(`${route}: route indexing disagrees with scholarly summary policy`);
   const pageRobots = meta(html, "robots").toLowerCase();
   const bingRobots = meta(html, "bingbot").toLowerCase();
   if (pageRobots.includes("noindex") === shouldIndex) errors.push(`${route}: robots index policy mismatch`);

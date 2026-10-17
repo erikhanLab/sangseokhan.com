@@ -5,7 +5,7 @@
   "version": "2.6.0",
   "type": "module",
   "scripts": {
-    "build": "node scripts/p2-source-check.mjs && node scripts/build.mjs && node scripts/site-audit.mjs && node scripts/content-audit.mjs && node scripts/quality-audit.mjs && node scripts/inline-js-check.mjs",
+    "build": "node scripts/p2-source-check.mjs && node scripts/build.mjs && node scripts/site-audit.mjs && node scripts/content-audit.mjs && node scripts/quality-audit.mjs && node scripts/inline-js-check.mjs && node scripts/semantic-integrity-audit.mjs",
     "test": "npm run build",
     "audit": "node scripts/site-audit.mjs",
     "preview": "node scripts/serve.mjs",
@@ -14,6 +14,8 @@
     "audit:quality": "node scripts/quality-audit.mjs",
     "cleanup:quality": "node scripts/cleanup-obsolete-assets.mjs && npm test",
     "audit:content": "node scripts/content-audit.mjs",
+    "audit:semantics": "node scripts/semantic-integrity-audit.mjs",
+    "audit:publisher": "node scripts/verify-publisher-records.mjs",
     "dev": "concurrently -k \"npm run preview\" \"npm run dev:watch\" \"npm run dev:reload\"",
     "dev:watch": "nodemon --watch src --watch scripts --ext html,css,js,mjs,json,md,svg --delay 500ms --exec \"npm run build\"",
     "dev:reload": "browser-sync start --proxy http://localhost:4173 --files \"dist/**/*\" --port 3000 --no-notify"

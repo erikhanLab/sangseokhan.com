@@ -38,7 +38,8 @@
       "articleNumber": "127352",
       "publishedDate": "2026-09-01",
       "recordUrl": "https://doi.org/10.1016/j.oceaneng.2026.127352"
-    }
+    },
+    "searchVisibility": "index"
   },
   {
     "slug": "beyond-resistance",
@@ -87,7 +88,8 @@
       "publishedDate": "2026-04-15",
       "recordUrl": "https://doi.org/10.1016/j.oceaneng.2026.124462",
       "license": "CC BY 4.0"
-    }
+    },
+    "searchVisibility": "index"
   },
   {
     "slug": "temperature-ittc",
@@ -135,7 +137,8 @@
       "publishedDate": "2025-06-20",
       "recordUrl": "https://doi.org/10.3390/jmse13071203",
       "license": "CC BY 4.0"
-    }
+    },
+    "searchVisibility": "index"
   },
   {
     "slug": "naval-roughness",
@@ -183,7 +186,8 @@
       "articleNumber": "119058",
       "publishedDate": "2024-11-15",
       "recordUrl": "https://doi.org/10.1016/j.oceaneng.2024.119058"
-    }
+    },
+    "searchVisibility": "index"
   },
   {
     "slug": "cfd-spatial",
@@ -219,7 +223,8 @@
       "presentedDate": "2026-06-15",
       "location": "Busan, South Korea",
       "status": "Proceedings forthcoming"
-    }
+    },
+    "searchVisibility": "noindex"
   },
   {
     "slug": "wec-mpc",
@@ -256,7 +261,8 @@
       "publishedDate": "2025-11-17",
       "onlineReleaseDate": "2026-06-26",
       "recordUrl": "https://doi.org/10.14856/conf.41.0_979"
-    }
+    },
+    "searchVisibility": "noindex"
   },
   {
     "slug": "fowt-fsi",
@@ -294,6 +300,7 @@
       "presentedDate": "2025-06-23",
       "location": "Edinburgh, United Kingdom",
       "recordUrl": "https://doi.org/10.23967/marine.2025.141"
-    }
+    },
+    "searchVisibility": "noindex"
   }
 ]
