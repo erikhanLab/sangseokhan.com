@@ -1486,10 +1486,8 @@
       color: var(--tone-meta);
     }
     @media (max-width: 640px) {
-      .publication-areas { margin: -5px 0 24px; padding-bottom: 15px; }
-      .publication-areas-label { margin-bottom: 6px; letter-spacing: 0.09em; }
-      .publication-areas-text { line-height: 1.8; }
-      .publication-areas-separator { margin: 0 7px; }
+      /* Mobile: let the publication list follow the count and Scholar link directly. */
+      .publication-areas { display: none; }
     }
 
     /* Mobile publications — quiet editorial list, not a stack of competing headings.

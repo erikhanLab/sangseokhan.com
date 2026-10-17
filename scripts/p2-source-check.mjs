@@ -71,9 +71,10 @@ for (const page of generatedPages) {
   assert.equal(template.includes("<!--SITE_STANDARD_HEADER-->"), page.shell.header, `${page.path}: shared header marker/policy mismatch`);
   assert.equal(template.includes("<!--SITE_STANDARD_NAV-->"), page.shell.nav, `${page.path}: shared nav marker/policy mismatch`);
   assert.equal(template.includes("<!--SITE_STANDARD_FOOTER-->"), page.shell.footer, `${page.path}: shared footer marker/policy mismatch`);
-  const assetVersion = page.assetKey === "contact" ? 2 : 1;
-  assert.ok(template.includes(`/assets/css/pages/${page.assetKey}.css?v=${assetVersion}`), `${page.path}: generated stylesheet link missing`);
-  assert.ok(template.includes(`/assets/js/pages/${page.assetKey}.js?v=${assetVersion}`), `${page.path}: generated script link missing`);
+  const cssVersion = page.assetKey === "contact" ? 3 : 1;
+  const jsVersion = page.assetKey === "contact" ? 2 : 1;
+  assert.ok(template.includes(`/assets/css/pages/${page.assetKey}.css?v=${cssVersion}`), `${page.path}: generated stylesheet link missing`);
+  assert.ok(template.includes(`/assets/js/pages/${page.assetKey}.js?v=${jsVersion}`), `${page.path}: generated script link missing`);
   assert.ok(!/<style\b/i.test(template), `${page.path}: page CSS must live under src/styles/pages`);
   assert.ok((await readFile(path.join(ROOT, page.style), "utf8")).trim().length > 0, `${page.path}: page CSS is empty`);
   assert.ok((await readFile(path.join(ROOT, page.script), "utf8")).trim().length > 0, `${page.path}: page JavaScript is empty`);

@@ -1242,12 +1242,13 @@
             }
 
             .contact-email-meta {
-                max-width: 92%;
+                max-width: 100%;
                 margin-top: 7px;
 
-                font-size: var(--type-caption);
+                /* A quiet, single line on 320–430px screens without clipping. */
+                font-size: 0.72rem;
                 line-height: 1.55;
-                letter-spacing: 0.035em;
+                letter-spacing: 0;
             }
 
             .contact-profile {
@@ -1426,13 +1427,14 @@
             }
 
             .contact-archive-description {
-                max-width: 88%;
+                max-width: 100%;
 
                 margin: 6px 0 0 auto;
 
-                font-size: var(--type-caption);
+                /* Keep the Archive description on a single natural line. */
+                font-size: 0.72rem;
                 line-height: 1.55;
-                letter-spacing: 0.015em;
+                letter-spacing: 0;
             }
 
             .contact-site-meta {
