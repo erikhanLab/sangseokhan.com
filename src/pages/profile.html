@@ -1501,13 +1501,17 @@
     }
 
     .feature-writing-heading {
+      display: block;
+      width: 100%;
+    }
+
+    .feature-writing-source-row {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-
-      gap: 24px;
-
-      width: 100%;
+      gap: 12px;
+      min-width: 0;
+      margin-top: 4px;
     }
 
     .feature-writing-title-link {
@@ -1533,7 +1537,8 @@
       align-items: baseline;
 
       flex: 0 0 auto;
-
+      justify-content: flex-end;
+      margin-left: auto;
       gap: 8px;
 
       font-size: var(--type-caption);
@@ -1565,7 +1570,7 @@
     }
 
     .feature-writing-source {
-      margin-top: 4px;
+      min-width: 0;
 
       font-size: var(--type-caption);
       line-height: 1.5;
@@ -2181,7 +2186,7 @@
         grid-template-areas:
           "meta meta"
           "title title"
-          "source actions"
+          "source-row source-row"
           "summary summary";
 
         padding-bottom: 13px;
@@ -2236,12 +2241,13 @@
         text-overflow: ellipsis;
       }
 
-      .feature-writing-source {
-        grid-area: source;
-
-        min-width: 0;
-
+      .feature-writing-source-row {
+        grid-area: source-row;
         margin-top: 4px;
+      }
+
+      .feature-writing-source {
+        min-width: 0;
 
         overflow: hidden;
 
@@ -2252,18 +2258,9 @@
       }
 
       .feature-writing-actions {
-        grid-area: actions;
-
-        justify-self: end;
-
         width: auto;
-
-        margin-top: 4px;
-        margin-left: 12px;
-        margin-right: 10px;
-
+        margin-left: auto;
         gap: 7px;
-
         font-size: var(--type-caption);
       }
 
@@ -2366,32 +2363,34 @@
       }
       .feature-writing-title { font-size: var(--type-small); font-weight: 400; line-height: 1.5; }
       .feature-writing-kind, .feature-writing-year, .feature-writing-source { font-size: var(--type-caption); }
-      /* Free the source from the actions column: it was wrapping at 320/390px
-         even though it already used the minimum of the six type roles (12px). */
+      /* Source and links share one quiet editorial row; Original stays right-aligned. */
       .feature-writing-item {
-        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-columns: minmax(0, 1fr);
         grid-template-areas:
-          "meta meta"
-          "title title"
-          "source source"
-          "actions actions"
-          "summary summary";
+          "meta"
+          "title"
+          "source-row"
+          "summary";
+      }
+      .feature-writing-source-row {
+        min-width: 0;
+        gap: 7px;
+        align-items: baseline;
       }
       .feature-writing-meta { min-width: 0; gap: 8px; }
       .feature-writing-year { margin-right: 0; }
       .feature-writing-actions {
         align-self: baseline;
-        justify-self: start;
-        margin: 2px 0 0;
-        gap: 6px;
+        margin: 0 0 0 auto;
+        gap: 5px;
         font-size: var(--type-caption);
       }
       .feature-writing-title-link { padding-right: 0; }
       .feature-writing-source {
         min-width: 0;
-        margin-top: 4px;
+        margin-top: 0;
         line-height: 1.5;
-        white-space: normal;
+        white-space: nowrap;
       }
       /* Keep Profile records compact on mobile; the underlying content stays intact. */
       .feature-writing-title,
@@ -3016,6 +3015,13 @@
 
             </a>
 
+          </div>
+
+          <div class="feature-writing-source-row">
+            <div class="feature-writing-source" data-en="SNU Newspaper" data-ja="ソウル大学『大学新聞』">
+              SNU Newspaper
+            </div>
+
             <div class="feature-writing-actions" aria-label="Article links">
 
               <a href="/profile/writing/single-number/" data-en="Translation" data-ja="英訳">
@@ -3038,11 +3044,6 @@
               </a>
 
             </div>
-
-          </div>
-
-          <div class="feature-writing-source" data-en="Seoul National University Newspaper" data-ja="ソウル大学『大学新聞』">
-            Seoul National University Newspaper
           </div>
 
           <p class="feature-writing-summary">
@@ -3091,6 +3092,13 @@
 
             </a>
 
+          </div>
+
+          <div class="feature-writing-source-row">
+            <div class="feature-writing-source" data-en="University of Strathclyde" data-ja="ストラスクライド大学">
+              University of Strathclyde
+            </div>
+
             <div class="feature-writing-actions" aria-label="Article links">
 
               <a href="https://www.strath.ac.uk/whystrathclyde/news/2025/towingtanktemperature/" target="_blank"
@@ -3105,11 +3113,6 @@
               </a>
 
             </div>
-
-          </div>
-
-          <div class="feature-writing-source" data-en="University of Strathclyde" data-ja="ストラスクライド大学">
-            University of Strathclyde
           </div>
 
           <p class="feature-writing-summary">

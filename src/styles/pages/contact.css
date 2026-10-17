@@ -107,9 +107,9 @@
             display: flex;
             align-items: baseline;
             justify-content: center;
-            flex-wrap: wrap;
-            column-gap: 14px;
-            row-gap: 7px;
+            flex-wrap: nowrap;
+            column-gap: 8px;
+            row-gap: 0;
             max-width: 100%;
         }
 
@@ -1208,7 +1208,11 @@
             }
 
             .contact-welcome {
-                max-width: 94%;
+                max-width: 100%;
+                width: 100%;
+                text-align: justify;
+                text-align-last: left;
+                text-justify: inter-word;
                 margin: -2px 0 22px;
 
                 font-size: var(--type-small);
@@ -1221,14 +1225,19 @@
             }
 
             .contact-email-actions {
-                flex-direction: column;
-                align-items: center;
-                gap: 4px;
+                flex-direction: row;
+                align-items: baseline;
+                justify-content: center;
+                flex-wrap: nowrap;
+                gap: 6px;
+                max-width: 100%;
             }
 
             .contact-copy-button {
-                padding: 5px 6px;
+                flex: 0 0 auto;
+                padding: 4px 2px;
                 font-size: var(--type-caption);
+                letter-spacing: 0;
             }
 
             .contact-email-link {
@@ -1360,8 +1369,7 @@
             }
 
             .contact-enquiry-label {
-                font-size: var(--type-caption);
-                letter-spacing: 0.14em;
+                display: none;
             }
 
             .contact-enquiry-links a {

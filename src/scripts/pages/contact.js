@@ -1080,8 +1080,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let resetTimer;
     const isJapanese = () => document.documentElement.getAttribute("lang") === "ja";
     const words = () => isJapanese()
-        ? { copy: "コピー", copied: "コピーしました", failed: "コピーできませんでした", action: "メールアドレスをコピー" }
-        : { copy: "Copy", copied: "Copied", failed: "Could not copy", action: "Copy email address" };
+        ? { copy: "コピー", copied: "完了", copiedStatus: "コピーしました", failed: "再試行", failedStatus: "コピーできませんでした", action: "メールアドレスをコピー" }
+        : { copy: "Copy", copied: "Copied", failed: "Retry", failedStatus: "Could not copy", action: "Copy email address" };
 
     // Keep the accessible label in step with the existing EN/JP switch.
     const syncLanguage = () => {
@@ -1124,8 +1124,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const w = words();
         label.textContent = ok ? w.copied : w.failed;
         button.dataset.state = ok ? "copied" : "failed";
-        button.setAttribute("aria-label", ok ? w.copied : w.failed);
-        status.textContent = ok ? `${email} — ${w.copied}` : w.failed;
+        button.setAttribute("aria-label", ok ? w.copied : (w.failedStatus || w.failed));
+        status.textContent = ok ? `${email} — ${w.copiedStatus || w.copied}` : (w.failedStatus || w.failed);
         resetTimer = setTimeout(() => {
             const current = words();
             label.textContent = current.copy;

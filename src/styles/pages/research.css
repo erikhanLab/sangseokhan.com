@@ -249,8 +249,10 @@
     .current-project-topics {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-end;
       gap: 6px;
       margin-top: var(--space-4);
+      text-align: right;
     }
 
     .current-project-topics span {
@@ -2419,6 +2421,7 @@
   .current-project-topics {
     display: block;
     margin: 7px 0 0;
+    text-align: right;
     font-size: var(--type-caption);
     line-height: 1.6;
     letter-spacing: 0;

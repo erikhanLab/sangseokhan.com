@@ -128,8 +128,8 @@ for (const file of authored) {
 for (const page of generatedPages) {
   const file = page.path === "/" ? path.join(ROOT, "index.html") : path.join(ROOT, page.path.replace(/^\//, ""), "index.html");
   const html = await readFile(file, "utf8");
-  const cssVersion = page.assetKey === "contact" ? 3 : 1;
-  const jsVersion = page.assetKey === "contact" ? 2 : 1;
+  const cssVersion = page.assetKey === "contact" ? 4 : page.assetKey === "research" ? 2 : 1;
+  const jsVersion = page.assetKey === "contact" ? 3 : 1;
   const cssHref = `/assets/css/pages/${page.assetKey}.css?v=${cssVersion}`;
   const jsSrc = `/assets/js/pages/${page.assetKey}.js?v=${jsVersion}`;
   if (!html.includes(`href="${cssHref}"`)) errors.push(`${page.path}: generated stylesheet link missing`);
