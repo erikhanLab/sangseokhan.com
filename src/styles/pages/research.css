@@ -2495,3 +2495,31 @@
     text-overflow: clip;
   }
 }
+
+/* Shared editorial section-heading typography: Profile / Research / Publications.
+   Preserve the established responsive layout; unify only type styling. */
+@media (min-width: 641px) {
+  .rt-header,
+  .research-landscape-title,
+  .research-context-heading {
+    font-family: Georgia, serif;
+    font-size: var(--type-lead);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+@media (max-width: 640px) {
+  .rt-header.ongoing-header,
+  .research-landscape-title,
+  .research-context-heading,
+  .research-timeline > .rt-header {
+    font-family: Georgia, serif;
+    font-size: var(--type-small);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+}

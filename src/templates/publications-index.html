@@ -101,12 +101,15 @@
       margin-top: var(--space-4);
     }
 
-    .section h2 {
-      font-size: var(--type-body);
-      font-weight: 600;
+    /* Same heading family, scale and rhythm as Profile and Research. */
+    #main-content .section h2 {
+      font-family: Georgia, serif;
+      font-size: var(--type-lead);
+      font-weight: 500;
+      line-height: 1.4;
       margin-bottom: var(--flow-group);
       color: var(--tone-heading);
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       opacity: 1;
       text-transform: uppercase;
     }
@@ -119,7 +122,7 @@
       margin-bottom: var(--flow-group);
     }
 
-    .section-heading-row h2 {
+    #main-content .section-heading-row h2 {
       flex: 0 0 auto;
       margin: 0;
     }
@@ -1460,10 +1463,21 @@
 
     /* Research areas are an editorial orientation, not interactive filters. */
     .publication-areas {
+      position: relative;
       margin: 0 0 27px;
       padding: 0 0 15px;
-      border-bottom: 1px solid var(--rule-soft);
+      border-bottom: 0;
       text-align: right;
+    }
+    /* Short right-anchored rule under the right-aligned research-area summary. */
+    .publication-areas::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 55%;
+      height: 1px;
+      background: var(--rule-soft);
     }
     .publication-areas-label {
       margin: 0 0 7px;
@@ -1531,11 +1545,11 @@
         padding-top: 18px;
       }
       .section-heading-row { margin: 0 0 5px; }
-      .section h2 {
-        font-size: var(--type-body);
+      #main-content .section h2 {
+        font-size: var(--type-small);
         font-weight: 400;
         line-height: 1.4;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.04em;
         text-transform: none;
         color: var(--tone-heading);
       }

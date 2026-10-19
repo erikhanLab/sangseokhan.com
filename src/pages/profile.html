@@ -231,9 +231,11 @@
     .section h2 {
       margin-bottom: var(--flow-item);
 
+      /* Shared section-heading typography: Profile / Research / Publications. */
+      font-family: Georgia, serif;
       font-size: var(--type-lead);
-      font-weight: normal;
-
+      font-weight: 500;
+      line-height: 1.4;
       letter-spacing: 0.1em;
       text-transform: uppercase;
 
@@ -1453,6 +1455,14 @@
 
     .feature-writing-item {
       position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "meta meta"
+        "title source-row"
+        "summary summary";
+      column-gap: 16px;
+      align-items: baseline;
 
       margin: 0;
       padding: 0 0 16px;
@@ -1470,6 +1480,7 @@
     }
 
     .feature-writing-meta {
+      grid-area: meta;
       display: flex;
       align-items: baseline;
       justify-content: space-between;
@@ -1525,17 +1536,19 @@
     }
 
     .feature-writing-heading {
+      grid-area: title;
       display: block;
+      min-width: 0;
       width: 100%;
     }
 
     .feature-writing-source-row {
+      grid-area: source-row;
       display: flex;
       align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
+      justify-content: flex-end;
       min-width: 0;
-      margin-top: 4px;
+      margin-top: 0;
     }
 
     .feature-writing-title-link {
@@ -1605,6 +1618,7 @@
     }
 
     .feature-writing-summary {
+      grid-area: summary;
       max-width: 700px;
 
       margin: 6px 0 0;
@@ -2209,8 +2223,7 @@
 
         grid-template-areas:
           "meta meta"
-          "title title"
-          "source-row source-row"
+          "title source-row"
           "summary summary";
 
         padding-bottom: 13px;
@@ -2240,11 +2253,13 @@
       }
 
       .feature-writing-heading {
-        display: contents;
+        grid-area: title;
+        display: block;
+        min-width: 0;
       }
 
       .feature-writing-title-link {
-        grid-area: title;
+        grid-area: auto;
 
         display: block;
 
@@ -2267,7 +2282,7 @@
 
       .feature-writing-source-row {
         grid-area: source-row;
-        margin-top: 4px;
+        margin-top: 0;
       }
 
       .feature-writing-source {
@@ -2338,6 +2353,7 @@
     @media (max-width: 640px) {
       .section { margin-bottom: 0; }
       .section h2 {
+        font-family: Georgia, serif;
         font-size: var(--type-small);
         font-weight: 400;
         line-height: 1.4;
@@ -2387,14 +2403,14 @@
       }
       .feature-writing-title { font-size: var(--type-small); font-weight: 400; line-height: 1.5; }
       .feature-writing-kind, .feature-writing-year, .feature-writing-source { font-size: var(--type-caption); }
-      /* Source and links share one quiet editorial row; Original stays right-aligned. */
+      /* On narrow screens the links stay at the right edge of the title row. */
       .feature-writing-item {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) auto;
         grid-template-areas:
-          "meta"
-          "title"
-          "source-row"
-          "summary";
+          "meta meta"
+          "title source-row"
+          "summary summary";
+        column-gap: 9px;
       }
       .feature-writing-source-row {
         min-width: 0;
@@ -2410,6 +2426,15 @@
         font-size: var(--type-caption);
       }
       .feature-writing-title-link { padding-right: 0; }
+      .feature-writing-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+        overflow-wrap: break-word;
+        overflow: hidden;
+      }
       .feature-writing-source {
         min-width: 0;
         margin-top: 0;
@@ -2417,7 +2442,6 @@
         white-space: nowrap;
       }
       /* Keep Profile records compact on mobile; the underlying content stays intact. */
-      .feature-writing-title,
       .feature-writing-source,
       .feature-writing-summary,
       .award-title,
