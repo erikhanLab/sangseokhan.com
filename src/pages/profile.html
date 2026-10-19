@@ -346,9 +346,8 @@
         grayscale(0.1) saturate(0.88) contrast(1.08);
     }
 
-    /* CURRENT — a quiet present-tense editorial note, not another CV card.
-       The appointment and SNU mark share the first row. Research uses the
-       full width below, so neither the role nor project is squeezed. */
+    /* CURRENT — one compact, left-anchored appointment with research below.
+       Unlike the CV records, this is not a full-width row or an inset card. */
     #current {
       position: relative;
       min-height: 0;
@@ -356,66 +355,82 @@
     }
 
     .current-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 7px 18px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     #current .current-header h2 {
       margin: 0;
     }
 
-    .current-period {
-      flex: 0 0 auto;
-      color: var(--tone-meta);
-      font-size: var(--type-caption);
-      font-weight: 400;
-      letter-spacing: 0.025em;
-      line-height: 1.45;
-      white-space: nowrap;
-    }
-
     .current-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 52px;
-      grid-template-rows: auto auto;
-      column-gap: 24px;
-      row-gap: 0;
+      grid-template-columns: 70px minmax(0, 1fr);
       align-items: start;
+      column-gap: 23px;
       box-sizing: border-box;
       width: 100%;
-      padding: 0 0 14px;
+      max-width: 730px;
+      padding: 0 0 9px;
+    }
+
+    .current-logo {
+      grid-column: 1;
+      grid-row: 1;
+      width: 70px;
+      height: 70px;
+      margin-top: 1px;
+      opacity: 0.82;
+    }
+
+    .current-logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: grayscale(0.12) saturate(0.9);
     }
 
     .current-copy {
-      grid-column: 1;
-      grid-row: 1;
+      grid-column: 2;
       min-width: 0;
-      padding: 1px 0 0;
+    }
+
+    .current-role-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      column-gap: 9px;
+      row-gap: 0;
+      margin: 0 0 7px;
     }
 
     .current-role {
-      margin: 0 0 7px;
+      margin: 0;
       color: var(--tone-heading);
       font-family: inherit;
       font-size: var(--type-body);
       font-weight: 500;
-      letter-spacing: 0.012em;
-      line-height: 1.45;
+      letter-spacing: 0.007em;
+      line-height: 1.5;
       text-transform: none;
     }
 
+    .current-period {
+      color: var(--tone-meta);
+      font-size: var(--type-caption);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+      white-space: normal;
+    }
+
     .current-institute {
-      max-width: none;
+      max-width: 100%;
       margin: 0 0 3px;
       color: var(--tone-secondary);
       font-size: var(--type-small);
       line-height: 1.55;
       letter-spacing: 0.005em;
-      overflow-wrap: break-word;
     }
 
     .current-affiliation {
@@ -426,57 +441,28 @@
       letter-spacing: 0.01em;
     }
 
-    /* Preserve the original 52px logo on desktop and mobile. */
-    .current-logo {
-      display: grid;
-      grid-column: 2;
-      grid-row: 1;
-      justify-self: end;
-      place-items: center;
-      width: 52px;
-      height: 52px;
-      opacity: 0.65;
-    }
-
-    .current-logo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: grayscale(0.3) saturate(0.9) contrast(0.88);
-    }
-
     .current-feature {
-      display: grid;
-      grid-column: 1 / -1;
-      grid-row: 2;
-      grid-template-columns: 130px minmax(0, 1fr);
-      column-gap: 22px;
-      align-items: baseline;
-      min-width: 0;
-      margin-top: 20px;
-      padding-top: 13px;
-      border-top: 1px solid var(--rule-standard);
+      margin-top: 19px;
+      padding: 0;
+      border: none;
       text-align: left;
     }
 
     .current-feature-label {
-      margin: 0;
+      margin: 0 0 5px;
       color: var(--tone-meta);
       font-size: var(--type-caption);
       font-weight: 400;
-      letter-spacing: 0.085em;
+      letter-spacing: 0.07em;
       line-height: 1.5;
       text-transform: uppercase;
     }
 
     .current-feature-link {
-      display: flex;
+      display: inline-flex;
       align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      min-width: 0;
-      width: 100%;
+      gap: 8px;
+      max-width: 100%;
       color: var(--tone-heading);
       text-align: left;
       text-decoration: none;
@@ -487,39 +473,24 @@
       font-family: inherit;
       font-size: var(--type-small);
       font-weight: 400;
-      letter-spacing: 0.008em;
-      line-height: 1.52;
+      letter-spacing: 0.006em;
+      line-height: 1.5;
       overflow-wrap: break-word;
-    }
-
-    .current-feature-action {
-      display: inline-flex;
-      flex: 0 0 auto;
-      align-items: center;
-      gap: 7px;
-      color: var(--tone-meta);
-      font-size: var(--type-caption);
-      letter-spacing: 0.01em;
-      line-height: 1.45;
-      white-space: nowrap;
-      transition: color 0.2s ease;
     }
 
     .current-feature-arrow {
       display: inline-block;
+      flex: 0 0 auto;
+      color: var(--tone-meta);
       font-size: 13px;
       line-height: 1;
-      transition: transform 0.2s ease;
-    }
-
-    .current-feature-link:hover .current-feature-action,
-    .current-feature-link:focus-visible .current-feature-action {
-      color: var(--tone-display);
+      transition: transform 0.2s ease, color 0.2s ease;
     }
 
     .current-feature-link:hover .current-feature-arrow,
     .current-feature-link:focus-visible .current-feature-arrow {
       transform: translate(2px, -2px);
+      color: var(--tone-display);
     }
 
     .current-feature-link:focus-visible {
@@ -1914,87 +1885,66 @@
       }
 
       .current-header {
-        align-items: baseline;
-        margin-bottom: 14px;
-        gap: 6px 10px;
+        margin-bottom: 16px;
       }
 
       #current .current-header h2 {
         margin: 0;
       }
 
-      .current-period {
-        font-size: var(--type-caption);
-        letter-spacing: 0;
-      }
-
       .current-layout {
-        grid-template-columns: minmax(0, 1fr) 52px;
-        column-gap: 16px;
-        row-gap: 0;
+        grid-template-columns: 58px minmax(0, 1fr);
+        column-gap: 15px;
+        max-width: 100%;
         padding: 0 0 4px;
       }
 
-      .current-copy {
+      .current-logo {
         grid-column: 1;
         grid-row: 1;
-        padding-top: 0;
+        width: 58px;
+        height: 58px;
+        margin-top: 1px;
+      }
+
+      .current-copy {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      .current-role-line {
+        column-gap: 7px;
+        row-gap: 0;
+        margin-bottom: 6px;
       }
 
       .current-role {
-        margin-bottom: 7px;
         font-size: var(--type-body);
-        line-height: 1.45;
+      }
+
+      .current-period {
+        font-size: var(--type-caption);
       }
 
       .current-institute {
-        margin-bottom: 3px;
         font-size: var(--type-small);
         line-height: 1.52;
       }
 
       .current-affiliation {
         font-size: var(--type-caption);
-        line-height: 1.5;
-      }
-
-      .current-logo {
-        grid-column: 2;
-        grid-row: 1;
-        width: 52px;
-        height: 52px;
-        opacity: 0.65;
       }
 
       .current-feature {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        grid-template-columns: minmax(0, 1fr);
-        row-gap: 7px;
         margin-top: 17px;
-        padding-top: 12px;
-        text-align: left;
       }
 
       .current-feature-label {
-        margin: 0;
-      }
-
-      .current-feature-link {
-        align-items: baseline;
-        gap: 12px;
-        text-align: left;
+        margin-bottom: 5px;
       }
 
       .current-feature-title {
-        max-width: none;
         font-size: var(--type-small);
-        line-height: 1.5;
-      }
-
-      /* The entire title is the link; the small arrow is enough on phones. */
-      .current-feature-action > span[data-en] {
-        display: none;
       }
 
       .icons {
