@@ -71,7 +71,7 @@ for (const page of generatedPages) {
   assert.equal(template.includes("<!--SITE_STANDARD_HEADER-->"), page.shell.header, `${page.path}: shared header marker/policy mismatch`);
   assert.equal(template.includes("<!--SITE_STANDARD_NAV-->"), page.shell.nav, `${page.path}: shared nav marker/policy mismatch`);
   assert.equal(template.includes("<!--SITE_STANDARD_FOOTER-->"), page.shell.footer, `${page.path}: shared footer marker/policy mismatch`);
-  const cssVersion = page.assetKey === "contact" ? 5 : page.assetKey === "research" ? 5 : 1;
+  const cssVersion = page.assetKey === "contact" ? 5 : page.assetKey === "research" ? 6 : 1;
   const jsVersion = page.assetKey === "contact" ? 3 : 1;
   assert.ok(template.includes(`/assets/css/pages/${page.assetKey}.css?v=${cssVersion}`), `${page.path}: generated stylesheet link missing`);
   assert.ok(template.includes(`/assets/js/pages/${page.assetKey}.js?v=${jsVersion}`), `${page.path}: generated script link missing`);

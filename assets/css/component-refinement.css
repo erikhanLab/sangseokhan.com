@@ -34,6 +34,7 @@
 }
 .feature-writing-actions a { color: var(--ui-link); }
 .awards-block,
+.reviewer-block,
 .features-writing-block,
 .outside-research-block { border-left-color: var(--ui-rule-section); }
 .award-item + .award-item,

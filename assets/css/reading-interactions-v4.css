@@ -144,6 +144,7 @@
     display: block; width: 100%; max-width: none; height: auto;
     margin: auto;
     background: white;
+    cursor: zoom-out;
   }
   .v4-viewer-caption {
     flex: 0 0 auto;

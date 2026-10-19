@@ -52,6 +52,16 @@
     stage.tabIndex = 0;
     const image = make('img', '');
     image.alt = '';
+    image.tabIndex = 0;
+    image.setAttribute('role', 'button');
+    localize(image, 'Close enlarged figure', '拡大図を閉じる', 'aria-label');
+    image.addEventListener('click', () => dialog.close());
+    image.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        dialog.close();
+      }
+    });
     stage.append(image);
     const captionBox = make('div', 'v4-viewer-caption');
     const caption = make('div', 'v4-caption-text');
