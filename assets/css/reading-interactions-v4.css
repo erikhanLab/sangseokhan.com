@@ -13,7 +13,7 @@
     background-color: rgba(48, 79, 110, 0.035);
     box-shadow: inset 2px 0 0 rgba(38, 70, 101, 0.40);
   }
-  .current-project-outputs-list li:hover,
+  .current-project-outputs-list li:has(a):hover,
   .current-project-outputs-list li:focus-within,
   .rt-block:focus-within {
     background-color: rgba(48, 79, 110, 0.04);
@@ -158,7 +158,23 @@
   }
   .v4-viewer-caption .v4-caption-text { max-width: 940px; }
   .v4-viewer-caption .v4-source-links { display: flex; flex-wrap: wrap; gap: 17px; font-size: 12px; }
-  .v4-viewer-caption a { color: #264c6e; text-underline-offset: 3px; }
+  .v4-viewer-caption .v4-source-links:empty { display: none; }
+  .v4-viewer-caption .v4-citation-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    width: fit-content;
+    padding-bottom: 2px;
+    color: #48677b;
+    letter-spacing: .015em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(72, 103, 123, .32);
+    transition: color 180ms ease, border-color 180ms ease;
+  }
+  .v4-viewer-caption .v4-citation-link:is(:hover, :focus-visible) {
+    color: #193b57;
+    border-bottom-color: currentColor;
+  }
 }
 @media screen and (min-width: 1024px) and (prefers-reduced-motion: reduce) {
   .pub-item,.current-project-outputs-list li,.rt-block,.v4-figure-trigger,.profile-external-link-icon { transition: none !important; }

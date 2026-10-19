@@ -80,7 +80,8 @@
       button.append(text, glyph);
       button.type = 'button';
       const originalCaption = figure.querySelector('.caption, .current-project-caption');
-      const captionText = (originalCaption?.textContent || img.alt || 'Research figure').replace(/\s+/g, ' ').trim();
+      const captionSource = originalCaption?.querySelector('.current-project-caption-title') || originalCaption;
+      const captionText = (captionSource?.textContent || img.alt || 'Research figure').replace(/\s+/g, ' ').trim();
       const figureNumber = captionText.match(/^(Figure\s+\d+|Fig\.?\s*\d+)/i)?.[0];
       localize(button, `View ${figureNumber || img.alt || 'research figure'}`, '研究図を表示', 'aria-label');
       img.insertAdjacentElement('afterend', button);
@@ -90,31 +91,19 @@
         image.src = img.currentSrc || img.src;
         image.alt = img.alt || 'Research figure';
         title.textContent = figureNumber || img.alt || 'Research figure';
-        caption.textContent = (originalCaption?.textContent || img.alt || captionText).replace(/\s+/g, ' ').trim();
+        caption.textContent = captionText;
         links.replaceChildren();
         const appendMark = (anchor, kind) => {
           const mark = make('span', `editorial-mark editorial-mark--${kind}`);
           mark.setAttribute('aria-hidden', 'true');
           anchor.append(mark);
         };
-        const assetLink = make('a', '', translated('Open source image', '元画像を開く'));
-        assetLink.href = img.getAttribute('src');
-        assetLink.target = '_blank'; assetLink.rel = 'noopener noreferrer';
-        appendMark(assetLink, 'external'); // Image opens in a separate tab.
-        links.append(assetLink);
-        // Citation information is drawn only from links already on this page.
-        const publishedSource = figure.querySelector('.current-project-caption-source');
-        const doiLink = document.querySelector('.pub-meta a[href^="https://doi.org/"]');
-        const cited = publishedSource || doiLink;
-        if (cited) {
-          const cite = make('a', '', publishedSource ? translated('Publication details', '論文詳細') : translated('Publication DOI', '論文 DOI'));
-          cite.href = cited.href;
-          // The publication link is often a same-site relative URL. Keep its
-          // ordinary forward mark; only DOI/off-site sources use external marks.
-          const sourceHref = cited.getAttribute('href') || '';
-          const isExternal = /^https?:\/\//i.test(sourceHref) && new URL(sourceHref, document.baseURI).origin !== window.location.origin;
-          if (isExternal) { cite.target = '_blank'; cite.rel = 'noopener noreferrer'; }
-          appendMark(cite, isExternal ? 'external' : 'forward');
+        // Link only the existing scholarly citation, not a separate image or DOI action.
+        const citation = figure.querySelector('.current-project-caption-source a[href]');
+        if (citation) {
+          const cite = make('a', 'v4-citation-link', citation.textContent.trim());
+          cite.href = citation.href;
+          appendMark(cite, 'forward');
           links.append(cite);
         }
         stage.scrollTop = 0; stage.scrollLeft = 0;

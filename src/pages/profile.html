@@ -1479,6 +1479,30 @@
       margin-bottom: 5px;
     }
 
+    .feature-writing-meta-main {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .feature-writing-meta-main .feature-writing-kind {
+      flex: 0 0 auto;
+    }
+
+    .feature-writing-meta-separator {
+      flex: 0 0 auto;
+      font-size: var(--type-caption);
+      color: rgba(79, 89, 101, 0.42);
+    }
+
+    .feature-writing-meta-main .feature-writing-source {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     .feature-writing-kind {
       font-size: var(--type-caption);
       line-height: 1.4;
@@ -2994,9 +3018,15 @@
 
           <div class="feature-writing-meta">
 
-            <span class="feature-writing-kind" data-en="Personal Essay" data-ja="寄稿">
-              Personal Essay
-            </span>
+            <div class="feature-writing-meta-main">
+              <span class="feature-writing-kind" data-en="Personal Essay" data-ja="寄稿">
+                Personal Essay
+              </span>
+              <span class="feature-writing-meta-separator" aria-hidden="true">·</span>
+              <span class="feature-writing-source" data-en="SNU Newspaper" data-ja="ソウル大学『大学新聞』">
+                SNU Newspaper
+              </span>
+            </div>
 
             <span class="feature-writing-year">
               2026
@@ -3018,10 +3048,6 @@
           </div>
 
           <div class="feature-writing-source-row">
-            <div class="feature-writing-source" data-en="SNU Newspaper" data-ja="ソウル大学『大学新聞』">
-              SNU Newspaper
-            </div>
-
             <div class="feature-writing-actions" aria-label="Article links">
 
               <a href="/profile/writing/single-number/" data-en="Translation" data-ja="英訳">
@@ -3068,9 +3094,15 @@
 
           <div class="feature-writing-meta">
 
-            <span class="feature-writing-kind" data-en="Research Feature" data-ja="研究紹介">
-              Research Feature
-            </span>
+            <div class="feature-writing-meta-main">
+              <span class="feature-writing-kind" data-en="Research Feature" data-ja="研究紹介">
+                Research Feature
+              </span>
+              <span class="feature-writing-meta-separator" aria-hidden="true">·</span>
+              <span class="feature-writing-source" data-en="University of Strathclyde" data-ja="ストラスクライド大学">
+                University of Strathclyde
+              </span>
+            </div>
 
             <span class="feature-writing-year">
               2025
@@ -3095,10 +3127,6 @@
           </div>
 
           <div class="feature-writing-source-row">
-            <div class="feature-writing-source" data-en="University of Strathclyde" data-ja="ストラスクライド大学">
-              University of Strathclyde
-            </div>
-
             <div class="feature-writing-actions" aria-label="Article links">
 
               <a href="https://www.strath.ac.uk/whystrathclyde/news/2025/towingtanktemperature/" target="_blank"
