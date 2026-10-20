@@ -261,10 +261,12 @@
     .trace-entry {
       display: grid;
 
+      /* Give the affiliation its own readable column; keep a clear
+         gutter before the event text and vertical timeline marks. */
       grid-template-columns:
-        155px minmax(0, 1fr);
+        215px minmax(0, 1fr);
 
-      column-gap: 20px;
+      column-gap: 24px;
 
       width: 100%;
 
