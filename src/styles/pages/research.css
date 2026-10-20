@@ -2469,8 +2469,8 @@
   .research-timeline .rt-block { margin-bottom: 25px; }
   .research-timeline .rt-output { margin-bottom: 7px; }
   .research-timeline .rt-output-label {
-    font-weight: 400;
-    color: rgba(70, 82, 98, 0.73);
+    font-weight: 500;
+    color: rgba(11, 37, 69, 0.88);
   }
   .research-timeline .role-tag { color: rgba(70, 82, 98, 0.66); }
   .research-timeline .rt-subtitle {
