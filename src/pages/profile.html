@@ -441,19 +441,31 @@
       letter-spacing: 0.01em;
     }
 
+    /* A short editorial rule separates the appointment from active work.
+       Keep it within the copy column: no full-width bar beneath the logo. */
     .current-feature {
+      max-width: 550px;
       margin-top: 19px;
       padding: 0;
-      border: none;
+      border: 0;
       text-align: left;
+    }
+
+    .current-feature::before {
+      content: "";
+      display: block;
+      width: 76px;
+      height: 1px;
+      margin-bottom: 13px;
+      background: rgba(11, 31, 58, 0.24);
     }
 
     .current-feature-label {
       margin: 0 0 5px;
       color: var(--tone-meta);
       font-size: var(--type-caption);
-      font-weight: 400;
-      letter-spacing: 0.07em;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       line-height: 1.5;
       text-transform: uppercase;
     }
@@ -482,15 +494,23 @@
       display: inline-block;
       flex: 0 0 auto;
       color: var(--tone-meta);
-      font-size: 13px;
+      font-size: 15px;
       line-height: 1;
+      white-space: nowrap;
       transition: transform 0.2s ease, color 0.2s ease;
     }
 
     .current-feature-link:hover .current-feature-arrow,
     .current-feature-link:focus-visible .current-feature-arrow {
-      transform: translate(2px, -2px);
+      transform: translateX(3px);
       color: var(--tone-display);
+    }
+
+    .current-feature-link:hover .current-feature-title,
+    .current-feature-link:focus-visible .current-feature-title {
+      text-decoration: underline;
+      text-decoration-color: rgba(11, 31, 58, 0.32);
+      text-underline-offset: 3px;
     }
 
     .current-feature-link:focus-visible {
@@ -1936,7 +1956,12 @@
       }
 
       .current-feature {
-        margin-top: 17px;
+        margin-top: 16px;
+      }
+
+      .current-feature::before {
+        width: 60px;
+        margin-bottom: 11px;
       }
 
       .current-feature-label {
