@@ -232,7 +232,7 @@ function renderJournalItem(p) {
     ? `<button type="button" class="journal-metric-trigger" data-journal="${esc(m.journal)}" data-quartile="${esc(m.quartile)}" data-jif="${esc(m.jif)}" data-metric-year="${esc(m.metricYear)}" aria-expanded="false"><em>${esc(m.journal)}</em></button><span aria-hidden="true">,</span>`
     : `<em>${esc(p.venue)}</em><span aria-hidden="true">,</span>`;
   const cover = p.presentation.coverBadge ? `<span class="cover-badge">${esc(p.presentation.coverBadge)}</span>` : "";
-  const doi = p.doi ? `<a class="pub-doi" href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI for ${esc(p.title)}"><span class="pub-doi-label">DOI</span></a>` : "";
+  const doi = p.doi ? `<a class="pub-doi" href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI for ${esc(p.title)}"><span class="pub-doi-label">DOI</span><span class="editorial-mark editorial-mark--external" aria-hidden="true"></span></a>` : "";
   return `
         <div class="pub-item" data-publication-slug="${esc(p.slug)}">
           <div class="pub-title">
@@ -244,7 +244,7 @@ function renderJournalItem(p) {
               <span class="author-full" aria-hidden="true">${p.presentation.authorsFullHtml}</span>
               <span class="author-short" aria-hidden="true">${p.presentation.authorsShortHtml}</span>
             </div>
-            <div class="pub-meta">
+            <div class="pub-meta${doi ? " pub-meta--with-doi" : ""}">
               <span class="pub-meta-text">${metric}</span>
               <span class="pub-year">${esc(p.presentation.yearLabel || yearOf(p.publicationDate))}</span>
               ${cover}
@@ -261,7 +261,7 @@ function renderConferenceItem(p) {
   const status = p.presentation.statusNoteFull
     ? `<span class="pub-status-note" aria-label="Paper presented; proceedings forthcoming"><span class="pub-status-full" data-en="${esc(p.presentation.statusNoteFull)}" data-ja="プロシーディングス刊行予定">${esc(p.presentation.statusNoteFull)}</span><span class="pub-status-short" data-en="${esc(p.presentation.statusNoteShort || p.presentation.statusNoteFull)}" data-ja="刊行予定">${esc(p.presentation.statusNoteShort || p.presentation.statusNoteFull)}</span></span>`
     : "";
-  const doi = p.doi ? `<a class="pub-doi" href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI for ${esc(p.title)}"><span class="pub-doi-label">DOI</span></a>` : "";
+  const doi = p.doi ? `<a class="pub-doi" href="https://doi.org/${esc(p.doi)}" target="_blank" rel="noopener noreferrer" aria-label="Open DOI for ${esc(p.title)}"><span class="pub-doi-label">DOI</span><span class="editorial-mark editorial-mark--external" aria-hidden="true"></span></a>` : "";
   return `
           <div class="pub-item" data-publication-slug="${esc(p.slug)}">
             <div class="pub-title">
@@ -273,7 +273,7 @@ function renderConferenceItem(p) {
                 <span class="author-full" aria-hidden="true">${p.presentation.authorsFullHtml}</span>
                 <span class="author-short" aria-hidden="true">${p.presentation.authorsShortHtml}</span>
               </div>
-              <div class="pub-meta">
+              <div class="pub-meta${doi ? " pub-meta--with-doi" : ""}">
                 <span class="pub-meta-text meta-tooltip"${tooltip}><span class="conference-name-full">${full}</span><span class="conference-name-short">${short}</span>,</span>
                 <span class="pub-year">${esc(p.presentation.yearLabel || yearOf(p.publicationDate))}</span>
                 ${status}
