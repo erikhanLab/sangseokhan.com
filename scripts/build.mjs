@@ -176,6 +176,40 @@ async function renderHome() {
   await writeFile(path.join(DIST, "index.html"), html);
 }
 
+// Profile's Current Research is generated from the visible Ongoing Research
+// articles. Do not maintain a second, manually curated project list.
+async function renderCurrentResearchLinks() {
+  const research = (await readText("src/pages/research.html"))
+    .replace(/<!--[\s\S]*?-->/g, ""); // Exclude archived/commented-out articles.
+  const section = research.match(/<section\b(?=[^>]*\bid=["']ongoing-research["'])[^>]*>([\s\S]*?)<\/section>/i)?.[1];
+  if (!section) throw new Error("Research: ongoing-research section not found");
+
+  const articles = [...section.matchAll(/<article\b[^>]*\bclass=["'][^"']*\bcurrent-project\b[^"']*["'][^>]*>[\s\S]*?<\/article>/gi)];
+  if (!articles.length) throw new Error("Research: no active Ongoing Research projects found");
+
+  const seenIds = new Set();
+  return articles.map(([article]) => {
+    const openingTag = article.match(/^<article\b[^>]*>/i)?.[0] || "";
+    const id = openingTag.match(/\bid=["']([^"']+)["']/i)?.[1];
+    const heading = article.match(/<div\b[^>]*\bclass=["'][^"']*\bcurrent-project-heading\b[^"']*["'][^>]*>[\s\S]*?<h2\b[^>]*>([\s\S]*?)<\/h2>/i)?.[1];
+    const titleTag = [...(heading || "").matchAll(/<span\b[^>]*>/gi)]
+      .map((match) => match[0])
+      .find((tag) => /\bdata-en=/.test(tag) && /\bdata-ja=/.test(tag));
+    const en = titleTag?.match(/\bdata-en=["']([^"']+)["']/i)?.[1];
+    const ja = titleTag?.match(/\bdata-ja=["']([^"']+)["']/i)?.[1];
+    if (!id || !/^[A-Za-z][\w:-]*$/.test(id) || seenIds.has(id) || !en || !ja) {
+      throw new Error(`Research: invalid or untranslated Ongoing Research project ${id || "(missing id)"}`);
+    }
+    seenIds.add(id);
+    return `          <li class="current-feature-item">
+            <a class="current-feature-link" href="/research/#${encodeURIComponent(id)}">
+              <span class="current-feature-title" data-en="${esc(en)}" data-ja="${esc(ja)}">${esc(en)}</span>
+              <span class="current-feature-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>`;
+  }).join("\n");
+}
+
 async function renderProfile() {
   let html = await readText("src/pages/profile.html");
   html = html
@@ -183,7 +217,8 @@ async function renderProfile() {
     .replace("<!--SITE_STANDARD_HEADER-->", renderStandardHeader(person))
     .replace("<!--SITE_STANDARD_NAV-->", renderStandardNav(site, "profile"))
     .replace("<!--PROFILE_INTRO-->", await componentTemplate("profile-intro", personTokenValues()))
-    .replace("<!--CURRENT_APPOINTMENT-->", await componentTemplate("current-appointment", personTokenValues()))
+    .replace("<!--CURRENT_APPOINTMENT-->", (await componentTemplate("current-appointment", personTokenValues()))
+      .replace("          <!--CURRENT_RESEARCH_LINKS-->", await renderCurrentResearchLinks()))
     .replace("<!--SITE_STANDARD_FOOTER-->", renderStandardFooter(person, site));
   html = replaceTokens(html, { PERSON_NAME: person.name });
   const dir = path.join(DIST, "profile");
