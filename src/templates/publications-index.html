@@ -1510,11 +1510,15 @@
     @media (max-width: 640px) {
       .page-content { transform: none; transition: none; }
       .publication-overview {
-        grid-template-columns: minmax(0,1fr) auto;
+        grid-template-columns: minmax(0,1fr);
         align-items: center;
+        row-gap: 6px;
         margin: 0 0 24px;
         padding: 2px 0 13px;
         border-bottom: 1px solid var(--rule-soft);
+      }
+      .publication-overview .scholar-metrics {
+        justify-content: flex-end;
       }
       .publication-count {
         margin: 0;
@@ -1808,11 +1812,11 @@
 <p class="publication-count">
 <span class="publication-count-item">
 <strong>__P2_JOURNAL_COUNT__</strong>
-<span class="count-label-full" data-en="published journal articles" data-ja="掲載済み学術論文">
-            published journal articles
+<span class="count-label-full" data-en="journal articles" data-ja="学術論文">
+            journal articles
           </span>
-<span class="count-label-short" data-en="journals" data-ja="論文">
-            journals
+<span class="count-label-short" data-en="journal articles" data-ja="学術論文">
+            journal articles
           </span>
 </span>
 <span aria-hidden="true" class="publication-count-divider">·</span>
@@ -1834,8 +1838,8 @@
 <span class="count-label-full" data-en="conference papers" data-ja="国際会議論文">
             conference papers
           </span>
-<span class="count-label-short" data-en="conferences" data-ja="国際会議">
-            conferences
+<span class="count-label-short" data-en="conference papers" data-ja="国際会議論文">
+            conference papers
           </span>
 </span>
 </p>

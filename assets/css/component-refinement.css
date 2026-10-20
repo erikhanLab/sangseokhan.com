@@ -65,3 +65,27 @@
 a.pub-doi { color: var(--ui-link); }
 a.pub-doi .pub-doi-label { border-bottom: 0; }
 a.pub-doi:is(:hover, :focus-visible) { color: var(--tone-display); }
+
+
+/* Stable first paint (all pages).
+ * Several page templates animate .page-content from translateY(6px) to 0
+ * on window.load. Loading images, scripts and video can defer that event,
+ * leaving the whole article visibly jumping after the header has rendered.
+ * Keep the final transform from the very first painted frame. A zero-value
+ * transform preserves the existing containing block for positioned children.
+ */
+.page-content,
+.page-content.loaded {
+  transform: translateY(0) !important;
+  transition: none !important;
+}
+
+
+/* Profile previously hid and reintroduced whole sections at DOMContentLoaded
+ * via its scroll-reveal observer. Do not conceal already-laid-out content. */
+.page-content .reveal-ready,
+.page-content .reveal-ready.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
