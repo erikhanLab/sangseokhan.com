@@ -54,7 +54,7 @@
     })();
   </script>
 
-  <link rel="stylesheet" href="/assets/css/site-shell.css?v=1">
+  <link rel="stylesheet" href="/assets/css/site-shell.css?v=2">
 
   <style>
     :root {
@@ -279,7 +279,8 @@
 
       box-sizing: border-box;
 
-      padding-right: 150px;
+      /* Reserve space for the visible portrait instead of shrinking it. */
+      padding-right: 184px;
     }
 
     .profile-portrait {
@@ -289,7 +290,7 @@
 
       box-sizing: border-box;
 
-      width: 132px;
+      width: 169px;
 
       margin: 0;
       padding-left: 13px;
@@ -315,7 +316,8 @@
     .profile-portrait-frame {
       width: 100%;
 
-      aspect-ratio: 5 / 6;
+      /* Tight head-and-shoulders crop at a usable on-page pixel size. */
+      aspect-ratio: 1 / 1;
 
       margin-top: 8px;
 
@@ -329,15 +331,15 @@
       height: 100%;
 
       object-fit: cover;
-      object-position: center 42%;
+      object-position: center 25%;
 
       border: 0;
       border-radius: 0;
 
       box-shadow: none;
 
-      /* Render the source photo directly. Filtered, composited thumbnails
-         looked soft at small display sizes even with a lossless source. */
+      /* Keep the original pixels: do not soften via filters or transforms.
+         Portrait sharpness is governed mainly by its displayed dimensions. */
       filter: none;
       image-rendering: auto;
       backface-visibility: visible;
@@ -459,9 +461,9 @@
 
     .current-feature-label {
       margin: 0 0 7px;
-      color: var(--tone-meta);
+      color: #8190a1;
       font-size: var(--type-caption);
-      font-weight: 500;
+      font-weight: 400;
       letter-spacing: 0.08em;
       line-height: 1.28;
       text-transform: uppercase;
@@ -490,7 +492,7 @@
       gap: 8px;
       line-height: 1.32;
       max-width: 100%;
-      color: var(--tone-heading);
+      color: var(--tone-secondary);
       text-align: right;
       text-decoration: none;
     }
@@ -508,7 +510,7 @@
     .current-feature-arrow {
       display: inline-block;
       flex: 0 0 auto;
-      color: var(--tone-meta);
+      color: #8a99a8;
       font-size: 15px;
       line-height: 1;
       white-space: nowrap;
@@ -523,6 +525,7 @@
 
     .current-feature-link:hover .current-feature-title,
     .current-feature-link:focus-visible .current-feature-title {
+      color: var(--tone-heading);
       text-decoration: underline;
       text-decoration-color: rgba(11, 31, 58, 0.32);
       text-underline-offset: 3px;
@@ -708,6 +711,7 @@
     }
 
     .profile-record-section .affiliation-secondary>span:first-child {
+      font-size: var(--type-institution);
       font-weight: 500;
 
       color: rgba(35, 47, 63, 0.8);
@@ -722,7 +726,7 @@
     }
 
     .affiliation-country {
-      font-size: var(--type-small);
+      font-size: var(--type-caption);
       line-height: 1.4;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -2159,7 +2163,7 @@
       }
 
       .affiliation-country {
-        font-size: var(--type-small);
+        font-size: var(--type-caption);
 
         letter-spacing: 0.085em;
       }
