@@ -197,14 +197,16 @@ async function renderCurrentResearchLinks() {
       .find((tag) => /\bdata-en=/.test(tag) && /\bdata-ja=/.test(tag));
     const en = titleTag?.match(/\bdata-en=["']([^"']+)["']/i)?.[1];
     const ja = titleTag?.match(/\bdata-ja=["']([^"']+)["']/i)?.[1];
+    // Optional concise Profile labels; Research retains its full scientific titles.
+    const profileEn = titleTag?.match(/\bdata-profile-en=["']([^"']+)["']/i)?.[1] || en;
+    const profileJa = titleTag?.match(/\bdata-profile-ja=["']([^"']+)["']/i)?.[1] || ja;
     if (!id || !/^[A-Za-z][\w:-]*$/.test(id) || seenIds.has(id) || !en || !ja) {
       throw new Error(`Research: invalid or untranslated Ongoing Research project ${id || "(missing id)"}`);
     }
     seenIds.add(id);
     return `          <li class="current-feature-item">
             <a class="current-feature-link" href="/research/#${encodeURIComponent(id)}">
-              <span class="current-feature-title" data-en="${esc(en)}" data-ja="${esc(ja)}">${esc(en)}</span>
-              <span class="current-feature-arrow" aria-hidden="true">→</span>
+              <span class="current-feature-title" data-en="${esc(profileEn)}" data-ja="${esc(profileJa)}">${esc(profileEn)}</span>
             </a>
           </li>`;
   }).join("\n");
