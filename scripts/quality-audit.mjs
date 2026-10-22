@@ -67,7 +67,7 @@ assert.match(home, /prefers-reduced-motion:\s*reduce/, "home: reduced-motion saf
 
 const profile = await readFile(path.join(DIST, "profile/index.html"), "utf8");
 assert.doesNotMatch(profile, /profile-portrait\.webp/, "profile: avoid alternate filtered thumbnail source; render the original PNG directly");
-assert.match(profile, /profile-portrait\.png[^>]*width="522"[^>]*height="578"/, "profile: supplied portrait dimensions missing");
+assert.match(profile, /profile-portrait\.png[^>]*width="348"[^>]*height="386"/, "profile: supplied portrait dimensions missing");
 
 const contact = await readFile(path.join(DIST, "contact/index.html"), "utf8");
 assert.match(contact, /contact-snh36\.webp/, "contact: WebP portrait source missing");
