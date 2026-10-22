@@ -279,8 +279,8 @@
 
       box-sizing: border-box;
 
-      /* Reserve space for the visible portrait instead of shrinking it. */
-      padding-right: 184px;
+      /* Reserve space for the full, uncropped portrait. */
+      padding-right: 175px;
     }
 
     .profile-portrait {
@@ -290,7 +290,7 @@
 
       box-sizing: border-box;
 
-      width: 169px;
+      width: 157px;
 
       margin: 0;
       padding-left: 13px;
@@ -316,8 +316,8 @@
     .profile-portrait-frame {
       width: 100%;
 
-      /* Tight head-and-shoulders crop at a usable on-page pixel size. */
-      aspect-ratio: 1 / 1;
+      /* Show the complete supplied photograph, without a square crop. */
+      aspect-ratio: 522 / 578;
 
       margin-top: 8px;
 
@@ -330,8 +330,8 @@
       width: 100%;
       height: 100%;
 
-      object-fit: cover;
-      object-position: center 25%;
+      object-fit: contain;
+      object-position: center;
 
       border: 0;
       border-radius: 0;
