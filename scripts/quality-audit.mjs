@@ -66,7 +66,7 @@ assert.match(home, /Home-spain\.png[^>]*width="1303"[^>]*height="1207"/, "home: 
 assert.match(home, /prefers-reduced-motion:\s*reduce/, "home: reduced-motion safeguard missing");
 
 const profile = await readFile(path.join(DIST, "profile/index.html"), "utf8");
-assert.match(profile, /profile-portrait\.webp/, "profile: WebP portrait source missing");
+assert.doesNotMatch(profile, /profile-portrait\.webp/, "profile: avoid alternate filtered thumbnail source; render the original PNG directly");
 assert.match(profile, /profile-portrait\.png[^>]*width="348"[^>]*height="478"/, "profile: portrait dimensions missing");
 
 const contact = await readFile(path.join(DIST, "contact/index.html"), "utf8");

@@ -2556,3 +2556,28 @@
     text-overflow: clip;
   }
 }
+
+/* v9 — Selected Research Record: category leads; paper and venue are secondary.
+   Keep the established timeline alignment and inset metadata positioning. */
+.research-timeline .rt-output { margin-bottom: 6px; }
+.research-timeline .rt-output-label {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.42;
+  letter-spacing: .006em;
+  color: #132b46;
+}
+.research-timeline .rt-subtitle,
+.research-timeline .rt-subtitle a {
+  color: #536376;
+  font-weight: 400;
+}
+.research-timeline .rt-meta,
+.research-timeline .rt-meta > em,
+.research-timeline .rt-meta > .rt-venue,
+.research-timeline .rt-meta > .rt-location { color: #687789; }
+@media (max-width: 640px) {
+  .research-timeline .rt-output-label { font-size: 15px; font-weight: 600; }
+  .research-timeline .rt-subtitle,
+  .research-timeline .rt-subtitle a { font-weight: 400; }
+}

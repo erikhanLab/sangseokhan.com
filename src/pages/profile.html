@@ -322,12 +322,6 @@
       overflow: hidden;
     }
 
-    .profile-portrait-frame picture {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
     .profile-portrait img {
       display: block;
 
@@ -342,8 +336,11 @@
 
       box-shadow: none;
 
-      filter:
-        grayscale(0.1) saturate(0.88) contrast(1.08);
+      /* Render the source photo directly. Filtered, composited thumbnails
+         looked soft at small display sizes even with a lossless source. */
+      filter: none;
+      image-rendering: auto;
+      transform: none;
     }
 
     /* CURRENT — one compact, left-anchored appointment with research below.
@@ -460,7 +457,7 @@
     }
 
     .current-feature-label {
-      margin: 0 0 5px;
+      margin: 0 0 12px;
       color: var(--tone-meta);
       font-size: var(--type-caption);
       font-weight: 500;
@@ -471,7 +468,7 @@
 
     .current-feature-list {
       display: grid;
-      row-gap: 9px;
+      row-gap: 8px;
       justify-items: end;
       margin: 0;
       padding: 0;
@@ -1689,7 +1686,7 @@
     .feature-writing-summary {
       max-width: 700px;
 
-      margin: 6px 0 0;
+      margin: 2px 0 0;
 
       font-size: var(--type-small);
       line-height: 1.62;
@@ -2004,7 +2001,7 @@
       .current-feature-link { text-align: left; }
 
       .current-feature-label {
-        margin-bottom: 5px;
+        margin-bottom: 12px;
       }
 
       .current-feature-title {
@@ -2363,7 +2360,7 @@
       }
 
       .feature-writing-summary {
-        margin-top: 5px;
+        margin-top: 2px;
 
         font-size: var(--type-caption);
         line-height: 1.56;
