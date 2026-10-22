@@ -340,6 +340,7 @@
          looked soft at small display sizes even with a lossless source. */
       filter: none;
       image-rendering: auto;
+      backface-visibility: visible;
       transform: none;
     }
 
@@ -457,18 +458,18 @@
     }
 
     .current-feature-label {
-      margin: 0 0 12px;
+      margin: 0 0 7px;
       color: var(--tone-meta);
       font-size: var(--type-caption);
       font-weight: 500;
       letter-spacing: 0.08em;
-      line-height: 1.5;
+      line-height: 1.28;
       text-transform: uppercase;
     }
 
     .current-feature-list {
       display: grid;
-      row-gap: 8px;
+      row-gap: 4px;
       justify-items: end;
       margin: 0;
       padding: 0;
@@ -476,6 +477,8 @@
     }
 
     .current-feature-item {
+      display: flex;
+      justify-content: flex-end;
       min-width: 0;
       margin: 0;
       padding: 0;
@@ -485,6 +488,7 @@
       display: inline-flex;
       align-items: baseline;
       gap: 8px;
+      line-height: 1.32;
       max-width: 100%;
       color: var(--tone-heading);
       text-align: right;
@@ -497,7 +501,7 @@
       font-size: var(--type-small);
       font-weight: 400;
       letter-spacing: 0.006em;
-      line-height: 1.5;
+      line-height: 1.32;
       overflow-wrap: break-word;
     }
 
@@ -545,6 +549,7 @@
         text-align: left;
       }
       .current-feature-list { justify-items: start; }
+      .current-feature-item { justify-content: flex-start; }
       .current-feature-link { text-align: left; }
     }
 
@@ -1617,6 +1622,8 @@
     }
 
     .feature-writing-title-link {
+      display: block;
+      line-height: 1.32;
       min-width: 0;
 
       color: rgba(11, 31, 58, 0.92);
@@ -1630,7 +1637,7 @@
     .feature-writing-title {
       font-size: var(--type-body);
       font-weight: 500;
-      line-height: 1.5;
+      line-height: 1.32;
       letter-spacing: 0.018em;
     }
 
@@ -1686,7 +1693,7 @@
     .feature-writing-summary {
       max-width: 700px;
 
-      margin: 2px 0 0;
+      margin: 0;
 
       font-size: var(--type-small);
       line-height: 1.62;
@@ -1998,10 +2005,11 @@
       }
 
       .current-feature-list { justify-items: start; }
+      .current-feature-item { justify-content: flex-start; }
       .current-feature-link { text-align: left; }
 
       .current-feature-label {
-        margin-bottom: 12px;
+        margin-bottom: 7px;
       }
 
       .current-feature-title {
@@ -2360,7 +2368,7 @@
       }
 
       .feature-writing-summary {
-        margin-top: 2px;
+        margin-top: 0;
 
         font-size: var(--type-caption);
         line-height: 1.56;
@@ -2453,7 +2461,7 @@
         text-overflow: clip;
         overflow-wrap: break-word;
       }
-      .feature-writing-title { font-size: var(--type-small); font-weight: 400; line-height: 1.5; }
+      .feature-writing-title { font-size: var(--type-small); font-weight: 400; line-height: 1.32; }
       .feature-writing-kind, .feature-writing-year, .feature-writing-source { font-size: var(--type-caption); }
       /* On narrow screens the links stay at the right edge of the title row. */
       .feature-writing-item {

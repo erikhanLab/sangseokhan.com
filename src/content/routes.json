@@ -48,12 +48,6 @@
     "nav": "contact"
   },
   {
-    "path": "/archive/",
-    "index": false,
-    "source": "generated-content-page",
-    "nav": null
-  },
-  {
     "path": "/publications/",
     "index": true,
     "source": "generated-publications",

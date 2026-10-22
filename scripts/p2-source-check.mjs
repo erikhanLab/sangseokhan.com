@@ -22,7 +22,7 @@ assert.ok(site.homeFeaturedPublication && site.copyrightYear && site.lastUpdated
 assert.equal(new Set(site.navigation.map((x) => x.key)).size, site.navigation.length, "navigation keys must be unique");
 assert.equal(publications.length, 7);
 assert.equal(new Set(publications.map((p) => p.slug)).size, publications.length, "publication slugs must be unique");
-assert.equal(routes.length, 17);
+assert.equal(routes.length, 16);
 assert.equal(new Set(routes.map((r) => r.path)).size, routes.length, "routes must be unique");
 
 for (const required of [
@@ -40,7 +40,7 @@ for (const required of [
 const sourceKinds = new Set(["generated-home", "generated-profile", "generated-publications", "generated-publication", "generated-content-page"]);
 for (const route of routes) {
   assert.ok(sourceKinds.has(route.source), `${route.path}: unsupported/non-generated source kind ${route.source}`);
-  if (!["/", "/archive/"].includes(route.path)) assert.ok(route.nav, `${route.path}: nav key required for managed route`);
+  if (route.path !== "/") assert.ok(route.nav, `${route.path}: nav key required for managed route`);
 }
 assert.equal(routes.filter((r) => r.source.startsWith("generated")).length, routes.length, "every authored route must be source-generated");
 assert.equal(routes.find((r) => r.path === "/")?.source, "generated-home");
@@ -54,7 +54,6 @@ const expectedContentPages = new Set([
   "/research/log/",
   "/research/connection/",
   "/contact/",
-  "/archive/",
 ]);
 assert.equal(generatedPages.length, expectedContentPages.size, "generated content page manifest size mismatch");
 assert.equal(new Set(generatedPages.map((p) => p.path)).size, generatedPages.length, "generated page paths must be unique");
@@ -71,7 +70,7 @@ for (const page of generatedPages) {
   assert.equal(template.includes("<!--SITE_STANDARD_HEADER-->"), page.shell.header, `${page.path}: shared header marker/policy mismatch`);
   assert.equal(template.includes("<!--SITE_STANDARD_NAV-->"), page.shell.nav, `${page.path}: shared nav marker/policy mismatch`);
   assert.equal(template.includes("<!--SITE_STANDARD_FOOTER-->"), page.shell.footer, `${page.path}: shared footer marker/policy mismatch`);
-  const cssVersion = page.assetKey === "contact" ? 5 : page.assetKey === "research" ? 9 : page.assetKey === "timeline" ? 4 : page.assetKey === "archive" ? 3 : 1;
+  const cssVersion = page.assetKey === "contact" ? 5 : page.assetKey === "research" ? 10 : page.assetKey === "timeline" ? 4 : page.assetKey === "archive" ? 3 : 1;
   const jsVersion = page.assetKey === "contact" ? 3 : page.assetKey === "archive" ? 2 : 1;
   assert.ok(template.includes(`/assets/css/pages/${page.assetKey}.css?v=${cssVersion}`), `${page.path}: generated stylesheet link missing`);
   assert.ok(template.includes(`/assets/js/pages/${page.assetKey}.js?v=${jsVersion}`), `${page.path}: generated script link missing`);

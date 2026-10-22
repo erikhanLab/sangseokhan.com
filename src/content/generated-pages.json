@@ -70,17 +70,5 @@
       "nav": true,
       "footer": false
     }
-  },
-  {
-    "path": "/archive/",
-    "template": "src/pages/archive.html",
-    "style": "src/styles/pages/archive.css",
-    "script": "src/scripts/pages/archive.js",
-    "assetKey": "archive",
-    "shell": {
-      "header": true,
-      "nav": false,
-      "footer": false
-    }
   }
 ]
