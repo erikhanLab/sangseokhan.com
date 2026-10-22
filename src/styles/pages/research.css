@@ -2523,3 +2523,36 @@
     text-transform: none;
   }
 }
+
+/* v8 — restrained editorial alignment updates. */
+.current-project-caption-source[hidden] { display: none; }
+.research-landscape-summary-heading,
+.research-landscape-summary-topic,
+.research-landscape-summary-list,
+.research-landscape-summary-list li { text-align: right; }
+.research-landscape-summary-list:not(:has(.research-landscape-output-item)) { justify-items: end; }
+.research-context-enquiry p { font-style: italic; }
+
+/* Explore an inset right-hand rhythm for secondary record metadata.
+   Titles remain anchored to the left; venue/journal information has breathing room
+   rather than aligning flush against the right edge of the page. */
+@media (min-width: 1024px) {
+  .research-timeline .rt-block .rt-meta {
+    width: auto;
+    margin-left: 12px;
+    margin-right: clamp(36px, 8%, 88px);
+    padding-left: 0;
+    justify-content: flex-end;
+    text-align: right;
+    white-space: normal;
+    overflow: visible;
+    flex-wrap: wrap;
+    column-gap: 5px;
+  }
+  .research-timeline .rt-meta > em,
+  .research-timeline .rt-meta > .rt-venue {
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+  }
+}

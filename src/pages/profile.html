@@ -364,13 +364,21 @@
 
     .current-layout {
       display: grid;
-      grid-template-columns: 70px minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.92fr);
       align-items: start;
-      column-gap: 23px;
+      column-gap: 33px;
       box-sizing: border-box;
       width: 100%;
-      max-width: 730px;
+      max-width: 940px;
       padding: 0 0 9px;
+    }
+
+    .current-appointment {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      column-gap: 23px;
+      align-items: start;
+      min-width: 0;
     }
 
     .current-logo {
@@ -441,23 +449,14 @@
       letter-spacing: 0.01em;
     }
 
-    /* A short editorial rule separates the appointment from active work.
-       Keep it within the copy column: no full-width bar beneath the logo. */
+    /* Current research uses the open space beside the appointment.
+       A quiet vertical divider separates the two roles without creating a card. */
     .current-feature {
-      max-width: 550px;
-      margin-top: 19px;
-      padding: 0;
-      border: 0;
-      text-align: left;
-    }
-
-    .current-feature::before {
-      content: "";
-      display: block;
-      width: 76px;
-      height: 1px;
-      margin-bottom: 13px;
-      background: rgba(11, 31, 58, 0.24);
+      min-width: 0;
+      margin: 0;
+      padding: 2px 0 3px 27px;
+      border-left: 1px solid rgba(11, 31, 58, 0.17);
+      text-align: right;
     }
 
     .current-feature-label {
@@ -472,7 +471,8 @@
 
     .current-feature-list {
       display: grid;
-      row-gap: 7px;
+      row-gap: 9px;
+      justify-items: end;
       margin: 0;
       padding: 0;
       list-style: none;
@@ -490,7 +490,7 @@
       gap: 8px;
       max-width: 100%;
       color: var(--tone-heading);
-      text-align: left;
+      text-align: right;
       text-decoration: none;
     }
 
@@ -530,6 +530,25 @@
     .current-feature-link:focus-visible {
       outline: 2px solid rgba(11, 31, 58, 0.5);
       outline-offset: 5px;
+    }
+
+
+    /* Keep the appointment readable when the page content becomes narrow. */
+    @media (min-width: 641px) and (max-width: 860px) {
+      .current-layout {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 16px;
+        max-width: 710px;
+      }
+      .current-feature {
+        margin-left: 93px;
+        padding: 12px 0 0;
+        border-left: 0;
+        border-top: 1px solid rgba(11, 31, 58, 0.17);
+        text-align: left;
+      }
+      .current-feature-list { justify-items: start; }
+      .current-feature-link { text-align: left; }
     }
 
     /* =========================================================
@@ -1509,8 +1528,7 @@
       grid-template-columns: minmax(0, 1fr) auto;
       grid-template-areas:
         "meta meta"
-        "title source-row"
-        "summary summary";
+        "title source-row";
       column-gap: 16px;
       align-items: baseline;
 
@@ -1669,7 +1687,6 @@
     }
 
     .feature-writing-summary {
-      grid-area: summary;
       max-width: 700px;
 
       margin: 6px 0 0;
@@ -1928,10 +1945,15 @@
       }
 
       .current-layout {
-        grid-template-columns: 58px minmax(0, 1fr);
-        column-gap: 15px;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 18px;
         max-width: 100%;
         padding: 0 0 4px;
+      }
+
+      .current-appointment {
+        grid-template-columns: 58px minmax(0, 1fr);
+        column-gap: 15px;
       }
 
       .current-logo {
@@ -1971,13 +1993,15 @@
       }
 
       .current-feature {
-        margin-top: 16px;
+        margin: 0 0 0 73px;
+        padding: 13px 0 0;
+        border-left: 0;
+        border-top: 1px solid rgba(11, 31, 58, 0.17);
+        text-align: left;
       }
 
-      .current-feature::before {
-        width: 60px;
-        margin-bottom: 11px;
-      }
+      .current-feature-list { justify-items: start; }
+      .current-feature-link { text-align: left; }
 
       .current-feature-label {
         margin-bottom: 5px;
@@ -2263,8 +2287,7 @@
 
         grid-template-areas:
           "meta meta"
-          "title source-row"
-          "summary summary";
+          "title source-row";
 
         padding-bottom: 13px;
       }
@@ -2310,14 +2333,10 @@
 
       .feature-writing-title {
         display: block;
-
-        overflow: hidden;
-
         font-size: var(--type-small);
         line-height: 1.48;
-
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        white-space: normal;
+        overflow-wrap: anywhere;
       }
 
       .feature-writing-source-row {
@@ -2344,8 +2363,6 @@
       }
 
       .feature-writing-summary {
-        grid-area: summary;
-
         margin-top: 5px;
 
         font-size: var(--type-caption);
@@ -2446,8 +2463,7 @@
         grid-template-columns: minmax(0, 1fr) auto;
         grid-template-areas:
           "meta meta"
-          "title source-row"
-          "summary summary";
+          "title source-row";
         column-gap: 9px;
       }
       .feature-writing-source-row {
@@ -3107,6 +3123,21 @@
 
             </a>
 
+
+          <p class="feature-writing-summary">
+
+            <span class="desktop-only"
+              data-en="A personal essay on measurement, research, and the limits of reducing a person to a single number."
+              data-ja="測定と研究、そして一人の人間を単一の数字に還元することの限界についてのエッセイ。">
+              A personal essay on measurement, research, and the limits of reducing a person to a single number.
+            </span>
+
+            <span class="mobile-only" data-en="A personal essay on measurement, research, and human potential."
+              data-ja="測定、研究、そして人の可能性についてのエッセイ。">
+              A personal essay on measurement, research, and human potential.
+            </span>
+
+          </p>
           </div>
 
           <div class="feature-writing-source-row">
@@ -3129,21 +3160,6 @@
 
             </div>
           </div>
-
-          <p class="feature-writing-summary">
-
-            <span class="desktop-only"
-              data-en="A personal essay on measurement, research, and the limits of reducing a person to a single number."
-              data-ja="測定と研究、そして一人の人間を単一の数字に還元することの限界についてのエッセイ。">
-              A personal essay on measurement, research, and the limits of reducing a person to a single number.
-            </span>
-
-            <span class="mobile-only" data-en="A personal essay on measurement, research, and human potential."
-              data-ja="測定、研究、そして人の可能性についてのエッセイ。">
-              A personal essay on measurement, research, and human potential.
-            </span>
-
-          </p>
 
         </article>
 
@@ -3182,6 +3198,21 @@
 
             </a>
 
+
+          <p class="feature-writing-summary">
+
+            <span class="desktop-only"
+              data-en="University feature on research into towing-tank temperature and model–ship resistance extrapolation."
+              data-ja="曳航水槽の水温と模型船から実船への抵抗推定に関する研究を紹介した大学公式記事。">
+              University feature on research into towing-tank temperature and model–ship resistance extrapolation.
+            </span>
+
+            <span class="mobile-only" data-en="University feature on towing-tank temperature and ship resistance."
+              data-ja="曳航水槽の水温と船舶抵抗に関する大学公式の研究紹介。">
+              University feature on towing-tank temperature and ship resistance.
+            </span>
+
+          </p>
           </div>
 
           <div class="feature-writing-source-row">
@@ -3200,21 +3231,6 @@
 
             </div>
           </div>
-
-          <p class="feature-writing-summary">
-
-            <span class="desktop-only"
-              data-en="University feature on research into towing-tank temperature and model–ship resistance extrapolation."
-              data-ja="曳航水槽の水温と模型船から実船への抵抗推定に関する研究を紹介した大学公式記事。">
-              University feature on research into towing-tank temperature and model–ship resistance extrapolation.
-            </span>
-
-            <span class="mobile-only" data-en="University feature on towing-tank temperature and ship resistance."
-              data-ja="曳航水槽の水温と船舶抵抗に関する大学公式の研究紹介。">
-              University feature on towing-tank temperature and ship resistance.
-            </span>
-
-          </p>
 
         </article>
 

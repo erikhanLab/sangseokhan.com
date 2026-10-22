@@ -218,7 +218,7 @@ async function renderProfile() {
     .replace("<!--SITE_STANDARD_NAV-->", renderStandardNav(site, "profile"))
     .replace("<!--PROFILE_INTRO-->", await componentTemplate("profile-intro", personTokenValues()))
     .replace("<!--CURRENT_APPOINTMENT-->", (await componentTemplate("current-appointment", personTokenValues()))
-      .replace("          <!--CURRENT_RESEARCH_LINKS-->", await renderCurrentResearchLinks()))
+      .replace("<!--CURRENT_RESEARCH_LINKS-->", await renderCurrentResearchLinks()))
     .replace("<!--SITE_STANDARD_FOOTER-->", renderStandardFooter(person, site));
   html = replaceTokens(html, { PERSON_NAME: person.name });
   const dir = path.join(DIST, "profile");
