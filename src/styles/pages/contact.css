@@ -1911,3 +1911,84 @@
   .contact-profile-detail { font-size: var(--type-caption); }
   .contact-section--profiles { margin-top: 11px; margin-bottom: 13px; }
 }
+
+/* v8 — quiet institutional hierarchy for the two Contact credentials.
+   Institution → role/qualification → specific institute/subject.
+   The second column is marked by a hairline, not heavier typography. */
+.contact-profile {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 660px);
+  gap: 0;
+  align-items: start;
+}
+.contact-profile-row,
+.contact-profile-copy {
+  display: block;
+  min-width: 0;
+}
+.contact-profile-row:first-child {
+  padding-right: 18px;
+}
+.contact-profile-row + .contact-profile-row {
+  padding-left: 20px;
+  border-left: 1px solid rgba(11, 31, 58, 0.11);
+}
+.contact-profile-key {
+  display: block;
+  width: auto;
+  margin: 0 0 12px;
+  padding: 0;
+  font-size: var(--type-caption);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.12em;
+  color: rgba(65, 79, 98, 0.56);
+}
+.contact-profile-institution {
+  display: block;
+  margin: 0;
+  font-size: var(--type-institution);
+  font-weight: 500;
+  line-height: 1.48;
+  letter-spacing: 0.004em;
+  color: rgba(27, 45, 66, 0.92);
+  overflow-wrap: normal;
+}
+.contact-profile-primary {
+  display: block;
+  margin-top: 3px;
+  font-size: var(--type-small);
+  font-weight: 400;
+  line-height: 1.48;
+  letter-spacing: 0.01em;
+  color: rgba(51, 65, 83, 0.77);
+  white-space: normal;
+}
+.contact-profile-detail {
+  display: block;
+  margin-top: 5px;
+  font-size: var(--type-caption);
+  font-weight: 400;
+  line-height: 1.52;
+  letter-spacing: 0.005em;
+  color: rgba(77, 91, 108, 0.62);
+  overflow-wrap: break-word;
+}
+@media (max-width: 640px) {
+  .contact-profile {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 17px;
+  }
+  .contact-profile-row:first-child { padding-right: 0; }
+  .contact-profile-row + .contact-profile-row {
+    padding: 15px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(11, 31, 58, 0.10);
+  }
+  .contact-profile-key { margin-bottom: 10px; }
+  .contact-profile-institution { font-size: var(--type-small); }
+  .contact-profile-primary { font-size: var(--type-small); }
+  .contact-profile-detail { font-size: var(--type-caption); }
+}
