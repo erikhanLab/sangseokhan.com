@@ -683,6 +683,15 @@
             padding: 0;
         }
 
+        /* Use two columns only when four would squeeze the caption below one line. */
+        @media (min-width: 641px) and (max-width: 760px) {
+            .research-visuals-track {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                column-gap: 16px;
+                row-gap: 22px;
+            }
+        }
+
         .research-visual-card {
             display: flex;
             flex-direction: column;
@@ -816,7 +825,10 @@
             font-size: var(--type-caption);
             font-weight: 400;
             line-height: 1.45;
-            letter-spacing: 0.024em;
+            letter-spacing: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
             color: rgba(67, 78, 93, 0.39);
         }
