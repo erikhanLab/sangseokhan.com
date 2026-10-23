@@ -94,7 +94,18 @@
       const captionText = (captionSource?.textContent || img.alt || 'Research figure').replace(/\s+/g, ' ').trim();
       const figureNumber = captionText.match(/^(Figure\s+\d+|Fig\.?\s*\d+)/i)?.[0];
       localize(button, `View ${figureNumber || img.alt || 'research figure'}`, '研究図を表示', 'aria-label');
-      img.insertAdjacentElement('afterend', button);
+      // Research: anchor the affordance to the actual image, not the
+      // entire figure (which also contains captions and related outputs).
+      if (figure.classList.contains('current-project-figure--published')) {
+        const media = make('div', 'v4-figure-media');
+        img.replaceWith(media);
+        media.append(img, button);
+        cleanup.push(() => {
+          media.replaceWith(img);
+        });
+      } else {
+        img.insertAdjacentElement('afterend', button);
+      }
       created.push(button);
       button.addEventListener('click', () => {
         opener = button;

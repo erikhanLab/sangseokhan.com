@@ -1505,6 +1505,33 @@
       .publication-areas { display: none; }
     }
 
+    /* v24: research topics as restrained bibliographic context. */
+    .publication-areas { margin-bottom: 31px; padding-bottom: 16px; }
+    .publication-areas::after { width: min(54%, 420px); background: rgba(11,31,58,.095); }
+    .publication-areas-label {
+      margin-bottom: 7px;
+      font-size: var(--type-caption);
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: .13em;
+      color: rgba(48,64,82,.49);
+    }
+    .publication-areas-text {
+      max-width: 660px;
+      margin-left: auto;
+      font-size: var(--type-caption);
+      font-weight: 400;
+      line-height: 1.9;
+      letter-spacing: .018em;
+      color: rgba(57,75,94,.66);
+      text-wrap: balance;
+    }
+    .publication-areas-separator {
+      margin: 0 10px;
+      font-size: .85em;
+      color: rgba(57,75,94,.32);
+    }
+
     /* Mobile publications — quiet editorial list, not a stack of competing headings.
        Preserves six step sizes and the authored bibliography verbatim. */
     @media (max-width: 640px) {

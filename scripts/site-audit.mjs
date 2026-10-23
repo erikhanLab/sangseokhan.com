@@ -128,7 +128,7 @@ for (const file of authored) {
 for (const page of generatedPages) {
   const file = page.path === "/" ? path.join(ROOT, "index.html") : path.join(ROOT, page.path.replace(/^\//, ""), "index.html");
   const html = await readFile(file, "utf8");
-  const cssVersion = page.assetKey === "contact" ? 5 : page.assetKey === "research" ? 10 : page.assetKey === "timeline" ? 4 : page.assetKey === "archive" ? 3 : 1;
+  const cssVersion = page.assetKey === "contact" ? 6 : page.assetKey === "research" ? 10 : page.assetKey === "timeline" ? 4 : page.assetKey === "archive" ? 3 : 1;
   const jsVersion = page.assetKey === "contact" ? 3 : page.assetKey === "archive" ? 2 : 1;
   const cssHref = `/assets/css/pages/${page.assetKey}.css?v=${cssVersion}`;
   const jsSrc = `/assets/js/pages/${page.assetKey}.js?v=${jsVersion}`;

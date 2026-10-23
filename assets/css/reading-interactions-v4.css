@@ -180,3 +180,69 @@
 @media screen and (min-width: 1024px) and (prefers-reduced-motion: reduce) {
   .pub-item,.current-project-outputs-list li,.rt-block,.v4-figure-trigger,.profile-external-link-icon { transition: none !important; }
 }
+
+/* v4.4 — deliberate inset figure affordance and restrained section rail. */
+@media screen and (min-width: 1024px) {
+  .current-project-figure--published .v4-figure-media {
+    position: relative;
+    width: 100%;
+    isolation: isolate;
+  }
+  .current-project-figure--published .v4-figure-media > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .current-project-figure--published .v4-figure-media > .v4-figure-trigger {
+    position: absolute;
+    z-index: 2;
+    left: 57px;
+    right: auto;
+    bottom: 12px;
+    margin: 0;
+    padding: 5px 7px 5px 8px;
+    border: 1px solid rgba(52, 76, 97, .13);
+    border-radius: 2px;
+    background: rgba(248, 250, 251, .90);
+    color: #546a7d;
+    box-shadow: 0 1px 5px rgba(11, 31, 58, .035);
+    font-size: var(--type-caption);
+    line-height: 1.2;
+    letter-spacing: .005em;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+  .current-project-figure--published .v4-figure-media > .v4-figure-trigger:hover,
+  .current-project-figure--published .v4-figure-media > .v4-figure-trigger:focus-visible {
+    color: #1d3b54;
+    border-color: rgba(31, 60, 83, .38);
+    background: rgba(252, 253, 254, .97);
+  }
+}
+/* Navigation hierarchy: location comes from the small rail mark, not bold type. */
+@media screen and (min-width: 1024px) {
+  .research-side-nav a,
+  .publication-side-nav a,
+  .profile-side-nav a { font-weight: 400; }
+  .research-side-nav a.active,
+  .publication-side-nav a.active,
+  .profile-side-nav a.active,
+  .research-side-nav a[aria-current="location"],
+  .publication-side-nav a[aria-current="location"],
+  .profile-side-nav a[aria-current="location"] {
+    font-weight: 400;
+    color: rgba(28, 48, 71, .79);
+    letter-spacing: .045em;
+  }
+  .research-side-nav a.active::before,
+  .publication-side-nav a.active::before,
+  .profile-side-nav a.active::before { width: 8px; background: rgba(28, 48, 71, .56); }
+  .research-side-nav-years a.active,
+  .publication-side-nav-subitems a.active {
+    font-weight: 400;
+    transform: none;
+    color: rgba(28, 48, 71, .75);
+  }
+  .research-side-nav-parent.active,
+  .publication-side-nav-parent.active { font-weight: 400; }
+}

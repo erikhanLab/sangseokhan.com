@@ -1703,3 +1703,153 @@
             }
         }
     
+/* v6 — Contact: one correspondence block, then a quiet credentials pair.
+   Retains the greeting, photograph, bilingual text, and mailto actions. */
+@media (min-width: 641px) {
+  .contact-intro {
+    grid-template-columns: minmax(0, 1fr) 108px;
+    column-gap: clamp(24px, 4vw, 48px);
+    padding-right: 26px;
+    margin-bottom: 36px;
+  }
+  .contact-visual { margin-top: 73px; }
+  .contact-welcome { margin-bottom: 27px; }
+  .contact-email-block {
+    display: grid;
+    grid-template-columns: minmax(0, 1.16fr) minmax(185px, .84fr);
+    grid-template-areas:
+      "heading reasons"
+      "address reasons"
+      "note reasons";
+    align-items: start;
+    justify-items: start;
+    gap: 6px 25px;
+    width: 100%;
+    margin: 0 0 29px;
+    text-align: left;
+  }
+  .contact-email-heading {
+    grid-area: heading;
+    font-size: var(--type-caption);
+    line-height: 1.4;
+    letter-spacing: .13em;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: rgba(62, 77, 94, .53);
+  }
+  .contact-email-actions {
+    grid-area: address;
+    justify-content: flex-start;
+    align-items: baseline;
+    min-width: 0;
+  }
+  .contact-email-link {
+    font-size: clamp(14px, 1.55vw, 18px);
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+  .contact-email-meta {
+    grid-area: note;
+    max-width: 360px;
+    margin-top: 1px;
+    font-size: var(--type-caption);
+    line-height: 1.55;
+    letter-spacing: 0;
+    text-align: left;
+  }
+  .contact-enquiry-options {
+    grid-area: reasons;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding-left: 21px;
+    border-left: 1px solid rgba(11, 31, 58, .11);
+  }
+  .contact-enquiry-label {
+    padding: 0;
+    margin-bottom: 7px;
+    font-weight: 400;
+    letter-spacing: .10em;
+    color: rgba(62, 77, 94, .55);
+  }
+  .contact-enquiry-links a {
+    padding: 6px 0;
+    gap: 8px;
+    font-size: var(--type-caption);
+    color: rgba(42, 57, 74, .70);
+  }
+  .contact-profile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 27px;
+    width: 100%;
+    margin: 4px 0 0;
+    padding-top: 17px;
+    border-top: 1px solid rgba(11, 31, 58, .11);
+  }
+  .contact-profile-row { display: block; min-width: 0; }
+  .contact-profile-key {
+    display: block;
+    margin-bottom: 8px;
+    padding-top: 0;
+    font-size: var(--type-caption);
+    font-weight: 400;
+    letter-spacing: .12em;
+  }
+  .contact-profile-primary { font-size: var(--type-small); font-weight: 500; }
+  .contact-profile-secondary,
+  .contact-profile-row:first-child .contact-profile-secondary,
+  .contact-profile-row:first-child .contact-profile-secondary .desktop-only {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5px;
+    font-size: var(--type-caption);
+    line-height: 1.6;
+    letter-spacing: 0;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+  }
+}
+@media (min-width: 641px) and (max-width: 980px) {
+  .contact-email-block {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "heading" "address" "note" "reasons";
+    row-gap: 7px;
+  }
+  .contact-enquiry-options {
+    margin-top: 14px;
+    padding: 10px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(11, 31, 58, .10);
+  }
+  .contact-profile { gap: 18px; }
+}
+@media (max-width: 640px) {
+  .contact-email-block { align-items: flex-start; text-align: left; margin-bottom: 20px; }
+  .contact-email-heading {
+    display: block;
+    align-self: flex-start;
+    margin-bottom: 7px;
+    font-size: var(--type-caption);
+    font-weight: 400;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(62, 77, 94, .55);
+  }
+  .contact-email-actions { justify-content: flex-start; }
+  .contact-email-link { font-size: var(--type-small); font-weight: 400; letter-spacing: 0; }
+  .contact-profile {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(11,31,58,.11);
+  }
+  .contact-profile-row { display: block; min-width: 0; }
+  .contact-profile-key { margin-bottom: 8px; padding-top: 0; font-weight: 400; letter-spacing: .10em; }
+  .contact-profile-primary { font-size: var(--type-small); }
+  .contact-profile-secondary { font-size: var(--type-caption); overflow-wrap: anywhere; }
+}

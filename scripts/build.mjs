@@ -428,8 +428,8 @@ async function appendPaletteStylesheet() {
     '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=4">',
     '  <link rel="stylesheet" href="/assets/css/editorial-link-marks.css?v=7.3">',
     '  <link rel="stylesheet" href="/assets/css/desktop-refinements.css?v=7.2">',
-    '  <link rel="stylesheet" href="/assets/css/reading-interactions-v4.css?v=4.3">',
-    '  <script defer src="/assets/js/reading-interactions-v4.js?v=7.5"></script>',
+    '  <link rel="stylesheet" href="/assets/css/reading-interactions-v4.css?v=4.4">',
+    '  <script defer src="/assets/js/reading-interactions-v4.js?v=7.6"></script>',
   ].join('\n');
   for (const route of paths) {
     const file = route === "/404.html" ? path.join(DIST, "404.html") : routeFile(DIST, route);
