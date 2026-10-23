@@ -246,3 +246,53 @@
   .research-side-nav-parent.active,
   .publication-side-nav-parent.active { font-weight: 400; }
 }
+
+/* v4.5 — position the image action at its actual lower-left corner;
+   indicate active reading section through opacity, not bold typography. */
+@media screen and (min-width: 1024px) {
+  .current-project-figure--published .v4-figure-media > .v4-figure-trigger {
+    left: 7px;
+    bottom: 7px;
+  }
+  .research-side-nav a,
+  .publication-side-nav a,
+  .profile-side-nav a,
+  .connection-side-nav a {
+    color: #293e55;
+    font-weight: 400;
+    opacity: .62;
+    transition: opacity .18s ease, color .18s ease;
+  }
+  .research-side-nav a.active,
+  .publication-side-nav a.active,
+  .profile-side-nav a.active,
+  .connection-side-nav a.active,
+  .research-side-nav a[aria-current="location"],
+  .publication-side-nav a[aria-current="location"],
+  .profile-side-nav a[aria-current="location"],
+  .connection-side-nav a[aria-current="location"],
+  .research-side-nav-parent.active,
+  .publication-side-nav-parent.active,
+  .research-side-nav-years a.active,
+  .publication-side-nav-subitems a.active {
+    color: #293e55;
+    font-weight: 400;
+    opacity: 1;
+  }
+  .research-side-nav a:hover,
+  .publication-side-nav a:hover,
+  .profile-side-nav a:hover,
+  .connection-side-nav a:hover,
+  .research-side-nav a:focus-visible,
+  .publication-side-nav a:focus-visible,
+  .profile-side-nav a:focus-visible,
+  .connection-side-nav a:focus-visible {
+    opacity: .95;
+  }
+  .research-side-nav a.active::before,
+  .publication-side-nav a.active::before,
+  .profile-side-nav a.active::before,
+  .connection-side-nav a.active::before {
+    background: rgba(28, 48, 71, .78);
+  }
+}

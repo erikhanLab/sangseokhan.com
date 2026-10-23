@@ -1853,3 +1853,61 @@
   .contact-profile-primary { font-size: var(--type-small); }
   .contact-profile-secondary { font-size: var(--type-caption); overflow-wrap: anywhere; }
 }
+
+/* v7 — tighter correspondence grid and quiet credential hierarchy.
+   The enquiry column remains within the textual column, never under the photo. */
+@media (min-width: 981px) {
+  .contact-email-block {
+    grid-template-columns: minmax(0, .93fr) minmax(195px, 1.07fr);
+    column-gap: 17px;
+    max-width: min(100%, 695px);
+  }
+  .contact-enquiry-options {
+    padding-left: 14px;
+  }
+}
+@media (min-width: 641px) {
+  .contact-intro { margin-bottom: 16px; }
+  .contact-profile-secondary,
+  .contact-profile-row:first-child .contact-profile-secondary {
+    margin-top: 4px;
+  }
+}
+.contact-profile-institution,
+.contact-profile-detail {
+  display: block;
+  min-width: 0;
+  overflow-wrap: normal;
+}
+.contact-profile-institution {
+  font-size: var(--type-institution);
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: .01em;
+  color: rgba(35, 53, 74, .86);
+}
+.contact-profile-detail {
+  margin-top: 3px;
+  font-size: var(--type-caption);
+  font-weight: 400;
+  line-height: 1.48;
+  letter-spacing: .005em;
+  color: rgba(67, 81, 97, .60);
+}
+/* Trim the blank bands between the email section, profiles, and visual work. */
+.contact-intro + .divider { margin-top: 9px; margin-bottom: 9px; }
+.contact-section--profiles {
+  margin-top: 10px;
+  margin-bottom: 14px;
+  row-gap: 7px;
+}
+.contact-section--profiles + .research-visuals {
+  margin-top: 0;
+  padding-top: 14px;
+}
+@media (max-width: 640px) {
+  .contact-intro { margin-bottom: 16px; }
+  .contact-profile-institution { font-size: var(--type-small); }
+  .contact-profile-detail { font-size: var(--type-caption); }
+  .contact-section--profiles { margin-top: 11px; margin-bottom: 13px; }
+}
