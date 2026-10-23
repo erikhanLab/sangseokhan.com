@@ -622,8 +622,9 @@
       line-height: 1.32;
       letter-spacing: 0.012em;
 
-      color: rgba(71, 85, 105, 0.72);
-      opacity: 0.8;
+      /* Keep the supporting authors light without dimming S. Han as well. */
+      color: rgba(71, 85, 105, 0.58);
+      opacity: 1;
 
       transition:
         color 0.28s ease,
@@ -631,9 +632,10 @@
     }
 
     .recent-author {
-      /* Clearly recognizable authorship, softened by restrained ink contrast. */
-      font-weight: 600;
-      color: rgba(11, 31, 58, 0.86);
+      /* Georgia has no true intermediate weight: add a very slight ink stroke. */
+      font-weight: 400;
+      color: #24374e;
+      -webkit-text-stroke: 0.2px currentColor;
 
       transition: color 0.28s ease;
     }
@@ -1333,7 +1335,7 @@
       }
 
       .recent-work:hover .recent-author {
-        color: rgba(11, 31, 58, 0.88);
+        color: #21344a;
       }
 
       .recent-work:hover::before {
@@ -1575,13 +1577,14 @@
         font-size: var(--type-body);
         line-height: 1.42;
 
-        color: rgba(71, 85, 105, 0.76);
-        opacity: 0.8;
+        color: rgba(71, 85, 105, 0.61);
+        opacity: 1;
       }
 
       .recent-author {
-        font-weight: 600;
-        color: rgba(11, 31, 58, 0.86);
+        font-weight: 400;
+        color: #24374e;
+        -webkit-text-stroke: 0.2px currentColor;
       }
 
       .recent-citation em,

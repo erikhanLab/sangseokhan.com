@@ -1531,6 +1531,12 @@
       font-size: .85em;
       color: rgba(57,75,94,.32);
     }
+    /* Quiet emphasis for the three subject names, without faux-bold Georgia. */
+    .publication-areas-text > span:not(.publication-areas-separator) {
+      font-weight: 400;
+      color: rgba(57,75,94,.72);
+      -webkit-text-stroke: 0.2px currentColor;
+    }
 
     /* Mobile publications — quiet editorial list, not a stack of competing headings.
        Preserves six step sizes and the authored bibliography verbatim. */
