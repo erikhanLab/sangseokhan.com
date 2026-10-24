@@ -2559,14 +2559,13 @@
   }
 }
 
-/* v10 — Selected Research Record: softer category heading in line with the page.
-   Paper and venue retain their quieter secondary weight.
-   Keep the established timeline alignment and inset metadata positioning. */
+/* v11 — Selected Research Record: restore a clear type-scale step between
+   primary record category and the subordinate paper/venue information. */
 .research-timeline .rt-output { margin-bottom: 6px; }
 .research-timeline .rt-output-label {
-  font-size: 16px;
+  font-size: var(--type-lead);
   font-weight: 400;
-  line-height: 1.42;
+  line-height: 1.35;
   letter-spacing: .006em;
   color: #40546b;
 }
@@ -2580,7 +2579,7 @@
 .research-timeline .rt-meta > .rt-venue,
 .research-timeline .rt-meta > .rt-location { color: #687789; }
 @media (max-width: 640px) {
-  .research-timeline .rt-output-label { font-size: 14px; font-weight: 400; }
+  .research-timeline .rt-output-label { font-size: var(--type-body); font-weight: 400; }
   .research-timeline .rt-subtitle,
   .research-timeline .rt-subtitle a { font-weight: 400; }
 }

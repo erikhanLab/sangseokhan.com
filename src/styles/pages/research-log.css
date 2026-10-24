@@ -53,9 +53,9 @@
 
     .log-date {
       display: inline-block;
-      font-size: var(--type-caption);
-      letter-spacing: 0.18em;
-      padding: 4px 8px;
+      font-size: calc(var(--type-caption) - 1px);
+      letter-spacing: 0.10em;
+      padding: 3px 7px;
       border: 1px solid rgba(0, 0, 0, 0.06);
       background: rgba(0, 0, 0, 0.03);
       color: var(--research-blue);
@@ -256,7 +256,7 @@
     .year-tabs {
       margin-bottom: 5px;
       padding: 6px 10px;
-      font-size: var(--type-body);
+      font-size: var(--type-small);
       letter-spacing: 0.09em;
       background: rgba(255, 255, 255, 0.22);
       border-radius: 3px;
@@ -272,7 +272,7 @@
 
     .year-tabs span.active {
       opacity: 0.9;
-      font-size: var(--type-lead);
+      font-size: inherit;
       color: var(--research-blue);
     }
 
@@ -482,8 +482,8 @@
       }
 
       .log-date {
-        font-size: var(--type-caption);
-        letter-spacing: 0.15em;
+        font-size: calc(var(--type-caption) - .5px);
+        letter-spacing: 0.09em;
         padding: 3px 6px;
       }
 
@@ -546,7 +546,7 @@
 
       .year-tabs span.active {
         opacity: 0.85;
-        font-size: var(--type-small);
+        font-size: inherit;
       }
 
       .log-entry {

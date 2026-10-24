@@ -428,7 +428,7 @@ async function appendPaletteStylesheet() {
     '  <link rel="stylesheet" href="/assets/css/component-refinement.css?v=4">',
     '  <link rel="stylesheet" href="/assets/css/editorial-link-marks.css?v=7.3">',
     '  <link rel="stylesheet" href="/assets/css/desktop-refinements.css?v=7.2">',
-    '  <link rel="stylesheet" href="/assets/css/reading-interactions-v4.css?v=4.5">',
+    '  <link rel="stylesheet" href="/assets/css/reading-interactions-v4.css?v=4.6">',
     '  <script defer src="/assets/js/reading-interactions-v4.js?v=7.6"></script>',
   ].join('\n');
   for (const route of paths) {
